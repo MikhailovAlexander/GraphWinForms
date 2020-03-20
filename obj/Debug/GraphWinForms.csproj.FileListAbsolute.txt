@@ -1,0 +1,10 @@
+C:\Users\vestr\source\repos\GraphWinForms\GraphWinForms\bin\Debug\GraphWinForms.exe.config
+C:\Users\vestr\source\repos\GraphWinForms\GraphWinForms\bin\Debug\GraphWinForms.exe
+C:\Users\vestr\source\repos\GraphWinForms\GraphWinForms\bin\Debug\GraphWinForms.pdb
+C:\Users\vestr\source\repos\GraphWinForms\GraphWinForms\obj\Debug\GraphWinForms.csprojAssemblyReference.cache
+C:\Users\vestr\source\repos\GraphWinForms\GraphWinForms\obj\Debug\GraphWinForms.Form1.resources
+C:\Users\vestr\source\repos\GraphWinForms\GraphWinForms\obj\Debug\GraphWinForms.Properties.Resources.resources
+C:\Users\vestr\source\repos\GraphWinForms\GraphWinForms\obj\Debug\GraphWinForms.csproj.GenerateResource.cache
+C:\Users\vestr\source\repos\GraphWinForms\GraphWinForms\obj\Debug\GraphWinForms.csproj.CoreCompileInputs.cache
+C:\Users\vestr\source\repos\GraphWinForms\GraphWinForms\obj\Debug\GraphWinForms.exe
+C:\Users\vestr\source\repos\GraphWinForms\GraphWinForms\obj\Debug\GraphWinForms.pdb

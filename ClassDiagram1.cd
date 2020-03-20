@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GraphWinForms.Form1">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABEQAAAACAAABAAAACAAAACCAAIAAAAAEAAAYAAAAE=</HashCode>
+      <FileName>Form1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GraphWinForms.GraphGenerator">
+    <Position X="6.5" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAkAAgACAAAAAAAAAACAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>GraphGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GraphWinForms.Program" Collapsed="true">
+    <Position X="10.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GraphWinForms.Edge&lt;T&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAGAADAQAAEAAQEIAAAAAACACAAAAAAAAACAAAAABA=</HashCode>
+      <FileName>моdel\Edge.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GraphWinForms.Graph&lt;T&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAFEgAAAAIAAAQBECAAAAIABAgAUADAAUAABAAAAABA=</HashCode>
+      <FileName>моdel\Graph.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GraphWinForms.GraphPrinter">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAEAAAAAAAAAAAAAIAAAAAAgAAAAAAQAEAAA=</HashCode>
+      <FileName>моdel\GraphPrinter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GraphWinForms.Vertex&lt;T&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACIAAAAgAAAAAkgAAAAAAAAAAAAJAAAAAAAAAAABA=</HashCode>
+      <FileName>моdel\Vertex.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="GraphWinForms.VerticeNode&lt;T&gt;" Collapsed="true">
+    <Position X="0.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAACBAAAAAAAAAAAAAAAAAAAAAAACAAAQAAA=</HashCode>
+      <FileName>моdel\VerticeNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GraphWinForms.VerticesSetList&lt;T&gt;" Collapsed="true">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEJAAAEAgAAAAAAACAAABBRAAAEAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>моdel\VerticesSetList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GraphWinForms.VisVertex">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAgAAAAAgAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>моdel\VisVertex.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GraphWinForms.Properties.Resources" Collapsed="true">
+    <Position X="10.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GraphWinForms.Properties.Settings" Collapsed="true">
+    <Position X="10.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
