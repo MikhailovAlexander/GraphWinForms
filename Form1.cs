@@ -27,7 +27,7 @@ namespace GraphWinForms
             rnd = new Random();
             randomGraph = new GraphGenerator();
             graph = randomGraph.GetGraphWeight(10, 200, 200, 25, 20, true, false);
-            printer = new GraphPrinter(GraphArea, lblGraphState, graph);
+            printer = new GraphPrinter(GraphArea, lblGraphState);
             currentVertex = null;
         }
 

@@ -18,27 +18,37 @@ namespace GraphWinForms
         private Graphics graphics;
         private Bitmap bitmap;
         private Label lblState;
-        private Pen weigthEdgePen;
+        private Pen borderPen;
         private Pen edgePen;
-        //private Graph<VisVertex> graph;
+        private Font mainFont;
+        private Font smallFont;
+        private Color areaBackColor;
+        private SolidBrush vertexBrush;
+        private SolidBrush weightBrush;
+        private SolidBrush textBrush;
 
-        public GraphPrinter(PictureBox graphArea, Label lblState, Graph<VisVertex> graph)
+        public GraphPrinter(PictureBox graphArea, Label lblState)
         {
             this.graphArea = graphArea;
             this.lblState = lblState;
-            //this.graph = graph;
             bitmap = new Bitmap(graphArea.Width, graphArea.Height);
             graphics = Graphics.FromImage(bitmap);
             graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            weigthEdgePen = new Pen(Color.Black);
-            edgePen = new Pen(Color.Red);
+            borderPen = new Pen(Color.Black,2);
+            edgePen = new Pen(Color.Red,2);
+            mainFont = new Font("Times New Roman", 12, FontStyle.Bold, GraphicsUnit.Pixel);
+            smallFont = new Font("Times New Roman", 10, FontStyle.Bold, GraphicsUnit.Pixel);
+            areaBackColor = Color.Yellow;
+            vertexBrush = new SolidBrush(Color.Green);
+            weightBrush = new SolidBrush(Color.White);
+            textBrush = new SolidBrush(Color.Black);
         }
 
         public void Print(Graph<VisVertex> graph, Vertex<VisVertex> currentVertex = null, int x = 0, int y = 0)
         {
             bitmap = new Bitmap(graphArea.Width, graphArea.Height);
             graphics = Graphics.FromImage(bitmap);
-            graphics.Clear(Color.Yellow);
+            graphics.Clear(areaBackColor);
             foreach (var edge in graph.Edges)
             {
                 if (edge.IsLoop)
@@ -66,10 +76,9 @@ namespace GraphWinForms
         {
             int x = vertex.Data.PositionX - 10;
             int y = vertex.Data.PositionY - 10;
-            graphics.DrawEllipse(new Pen(Color.Red, 2), new Rectangle(x, y, 20, 20));
-            graphics.FillEllipse(new SolidBrush(Color.Green), new Rectangle(x, y, 20, 20));
-            graphics.DrawString(vertex.Data.Name, new Font("Times New Roman", 12, FontStyle.Bold, GraphicsUnit.Pixel),
-                    Brushes.Black, x + 5, y + 2);
+            graphics.DrawEllipse(borderPen, new Rectangle(x, y, 20, 20));
+            graphics.FillEllipse(vertexBrush, new Rectangle(x, y, 20, 20));
+            graphics.DrawString(vertex.Data.Name, mainFont, textBrush, x + 5, y + 2);
         }
 
         private void PrintEdge(Edge<VisVertex> edge)
@@ -84,12 +93,11 @@ namespace GraphWinForms
             Point p1 = edge.Data1.GetPoint;
             Point p2 = edge.Data2.GetPoint;
             Point midle = GetMidle(p1, p2);
-            Pen pen = new Pen(Color.Black);
             var rect = new Rectangle(midle.X - 10, midle.Y -10, 12, 12);
-            graphics.DrawRectangle(pen, rect);
-            graphics.FillRectangle(Brushes.White, rect);
-            graphics.DrawString(edge.Weight.ToString(), new Font("Times New Roman", 10, FontStyle.Bold, GraphicsUnit.Pixel),
-                    Brushes.Black, midle.X - 10, midle.Y - 10);
+            graphics.DrawRectangle(borderPen, rect);
+            graphics.FillRectangle(weightBrush, rect);
+            graphics.DrawString(edge.Weight.ToString(), smallFont,
+                    textBrush, midle.X - 10, midle.Y - 10);
         }
 
         private void PrintLoop(Edge<VisVertex> edge)
@@ -102,10 +110,10 @@ namespace GraphWinForms
         {
             Point point = edge.Data1.GetPoint;
             var rect = new Rectangle(point.X - 30, point.Y + 20, 12, 12);
-            graphics.DrawRectangle(weigthEdgePen, rect);
-            graphics.FillRectangle(Brushes.White, rect);
-            graphics.DrawString(edge.Weight.ToString(), new Font("Times New Roman", 10, FontStyle.Bold, GraphicsUnit.Pixel),
-                    Brushes.Black, point.X - 30, point.Y + 20);
+            graphics.DrawRectangle(borderPen, rect);
+            graphics.FillRectangle(weightBrush, rect);
+            graphics.DrawString(edge.Weight.ToString(), smallFont,
+                    textBrush, point.X - 30, point.Y + 20);
         }
 
         private void PrintGraphState(Graph<VisVertex> graph)

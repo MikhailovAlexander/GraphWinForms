@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GraphArea = new System.Windows.Forms.PictureBox();
             this.btnGenerateGraph = new System.Windows.Forms.Button();
@@ -41,6 +42,7 @@
             this.mtbChangeWeight = new System.Windows.Forms.MaskedTextBox();
             this.tcPages = new System.Windows.Forms.TabControl();
             this.tabPageEditor = new System.Windows.Forms.TabPage();
+            this.btnShowMST = new System.Windows.Forms.Button();
             this.btnSetWeigthAsDiastance = new System.Windows.Forms.Button();
             this.gbMatrix = new System.Windows.Forms.GroupBox();
             this.rbAdjLists = new System.Windows.Forms.RadioButton();
@@ -58,8 +60,9 @@
             this.chBoxDiffWheight = new System.Windows.Forms.CheckBox();
             this.lblMaxWeight = new System.Windows.Forms.Label();
             this.tBarMaxWeight = new System.Windows.Forms.TrackBar();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.btnShowMST = new System.Windows.Forms.Button();
+            this.tabPageAlgVis = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.GraphArea)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBarProbability)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBarOrder)).BeginInit();
@@ -75,6 +78,7 @@
             this.gbEditMode.SuspendLayout();
             this.gbGraphGen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tBarMaxWeight)).BeginInit();
+            this.tabPageAlgVis.SuspendLayout();
             this.SuspendLayout();
             // 
             // GraphArea
@@ -199,7 +203,7 @@
             // tcPages
             // 
             this.tcPages.Controls.Add(this.tabPageEditor);
-            this.tcPages.Controls.Add(this.tabPage2);
+            this.tcPages.Controls.Add(this.tabPageAlgVis);
             this.tcPages.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcPages.Location = new System.Drawing.Point(0, 0);
             this.tcPages.MinimumSize = new System.Drawing.Size(600, 0);
@@ -223,6 +227,16 @@
             this.tabPageEditor.TabIndex = 0;
             this.tabPageEditor.Text = "Редактор графа";
             this.tabPageEditor.UseVisualStyleBackColor = true;
+            // 
+            // btnShowMST
+            // 
+            this.btnShowMST.Location = new System.Drawing.Point(384, 345);
+            this.btnShowMST.Name = "btnShowMST";
+            this.btnShowMST.Size = new System.Drawing.Size(184, 46);
+            this.btnShowMST.TabIndex = 5;
+            this.btnShowMST.Text = "Найти минимальное остовное дерево";
+            this.btnShowMST.UseVisualStyleBackColor = true;
+            this.btnShowMST.Click += new System.EventHandler(this.btnShowMST_Click);
             // 
             // btnSetWeigthAsDiastance
             // 
@@ -429,25 +443,25 @@
             this.tBarMaxWeight.Value = 1;
             this.tBarMaxWeight.Scroll += new System.EventHandler(this.tBarMaxWeight_Scroll);
             // 
-            // tabPage2
+            // tabPageAlgVis
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(647, 825);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPageAlgVis.Controls.Add(this.button1);
+            this.tabPageAlgVis.Location = new System.Drawing.Point(4, 25);
+            this.tabPageAlgVis.Name = "tabPageAlgVis";
+            this.tabPageAlgVis.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageAlgVis.Size = new System.Drawing.Size(647, 825);
+            this.tabPageAlgVis.TabIndex = 1;
+            this.tabPageAlgVis.Text = "Визуализация алгоритмов";
+            this.tabPageAlgVis.UseVisualStyleBackColor = true;
             // 
-            // btnShowMST
+            // button1
             // 
-            this.btnShowMST.Location = new System.Drawing.Point(384, 345);
-            this.btnShowMST.Name = "btnShowMST";
-            this.btnShowMST.Size = new System.Drawing.Size(184, 46);
-            this.btnShowMST.TabIndex = 5;
-            this.btnShowMST.Text = "Найти минимальное остовное дерево";
-            this.btnShowMST.UseVisualStyleBackColor = true;
-            this.btnShowMST.Click += new System.EventHandler(this.btnShowMST_Click);
+            this.button1.Location = new System.Drawing.Point(409, 28);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -478,6 +492,7 @@
             this.gbGraphGen.ResumeLayout(false);
             this.gbGraphGen.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tBarMaxWeight)).EndInit();
+            this.tabPageAlgVis.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -492,7 +507,7 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TabControl tcPages;
         private System.Windows.Forms.TabPage tabPageEditor;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPageAlgVis;
         private System.Windows.Forms.Label lblMaxWeight;
         private System.Windows.Forms.TrackBar tBarMaxWeight;
         private System.Windows.Forms.CheckBox chBoxWithoutLoop;
@@ -514,6 +529,8 @@
         private System.Windows.Forms.Panel pnlGraphState;
         private System.Windows.Forms.Label lblGraphState;
         private System.Windows.Forms.Button btnShowMST;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Timer timer;
     }
 }
 
