@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GraphWinForms
 {
-    class MSTAlgorithms
+    public class MSTAlgorithms
     {
         public static Graph<VisVertex> GetMST_Boruvka(Graph<VisVertex> graph)
         {

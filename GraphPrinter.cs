@@ -12,20 +12,22 @@ using static GraphWinForms.Geometry;
 
 namespace GraphWinForms
 {
-    class GraphPrinter
+    public class GraphPrinter
     {
-        private PictureBox graphArea;
-        private Graphics graphics;
-        private Bitmap bitmap;
-        private Label lblState;
-        private Pen borderPen;
-        private Pen edgePen;
-        private Font mainFont;
-        private Font smallFont;
-        private Color areaBackColor;
-        private SolidBrush vertexBrush;
-        private SolidBrush weightBrush;
-        private SolidBrush textBrush;
+        public PictureBox graphArea;
+        protected Graphics graphics;
+        protected Bitmap bitmap;
+        public Label lblState;
+        protected Pen borderPen;
+        protected Pen edgePen;
+        protected Font mainFont;
+        protected Font smallFont;
+        protected Color areaBackColor;
+        protected SolidBrush vertexBrush;
+        protected SolidBrush weightBrush;
+        protected SolidBrush textBrush;
+        public Color VertexColor => vertexBrush.Color;
+        public Color EdgeColor => edgePen.Color;
 
         public GraphPrinter(PictureBox graphArea, Label lblState)
         {
@@ -35,7 +37,7 @@ namespace GraphWinForms
             graphics = Graphics.FromImage(bitmap);
             graphics.SmoothingMode = SmoothingMode.AntiAlias;
             borderPen = new Pen(Color.Black,2);
-            edgePen = new Pen(Color.Red,2);
+            edgePen = new Pen(Color.Black,2);
             mainFont = new Font("Times New Roman", 12, FontStyle.Bold, GraphicsUnit.Pixel);
             smallFont = new Font("Times New Roman", 10, FontStyle.Bold, GraphicsUnit.Pixel);
             areaBackColor = Color.Yellow;
@@ -72,7 +74,7 @@ namespace GraphWinForms
             PrintGraphState(graph);
         }
 
-        private void PrintVertex(Vertex<VisVertex> vertex)
+        protected void PrintVertex(Vertex<VisVertex> vertex)
         {
             int x = vertex.Data.PositionX - 10;
             int y = vertex.Data.PositionY - 10;
@@ -81,14 +83,14 @@ namespace GraphWinForms
             graphics.DrawString(vertex.Data.Name, mainFont, textBrush, x + 5, y + 2);
         }
 
-        private void PrintEdge(Edge<VisVertex> edge)
+        protected void PrintEdge(Edge<VisVertex> edge)
         {
             Point p1 = edge.Data1.GetPoint;
             Point p2 = edge.Data2.GetPoint;
             graphics.DrawLine(edgePen, p1, p2);
         }
 
-        private void Printweight(Edge<VisVertex> edge)
+        protected void Printweight(Edge<VisVertex> edge)
         {
             Point p1 = edge.Data1.GetPoint;
             Point p2 = edge.Data2.GetPoint;
@@ -100,13 +102,13 @@ namespace GraphWinForms
                     textBrush, midle.X - 10, midle.Y - 10);
         }
 
-        private void PrintLoop(Edge<VisVertex> edge)
+        protected void PrintLoop(Edge<VisVertex> edge)
         {
             Point point = edge.Data1.GetPoint;
             graphics.DrawEllipse(edgePen, new Rectangle(point.X, point.Y, -30, 30));
         }
 
-        private void PrintLoopWeight(Edge<VisVertex> edge)
+        protected void PrintLoopWeight(Edge<VisVertex> edge)
         {
             Point point = edge.Data1.GetPoint;
             var rect = new Rectangle(point.X - 30, point.Y + 20, 12, 12);
@@ -116,7 +118,7 @@ namespace GraphWinForms
                     textBrush, point.X - 30, point.Y + 20);
         }
 
-        private void PrintGraphState(Graph<VisVertex> graph)
+        protected void PrintGraphState(Graph<VisVertex> graph)
         {
             string graphConn = graph.IsConnected ? "" : "не";
             lblState.Text = $"Граф {graphConn}связен, порядок: {graph.Order}, " +
