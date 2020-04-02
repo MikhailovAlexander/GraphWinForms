@@ -271,5 +271,13 @@ namespace GraphWinForms
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
+
+        private void btnStartPrim_Click(object sender, EventArgs e)
+        {
+            var algVis = new MSTAlgorithms(printer, graph);
+            algVis.SleepInterval = tbSpeedVis.Value*500;
+            try { algVis.PrimsAlgorithmVisAsync(Color.Red); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
     }
 }

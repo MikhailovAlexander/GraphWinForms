@@ -22,10 +22,16 @@ namespace GraphWinForms
         }
         public void SetEdgeColor(Edge<VisVertex> edge, Color color)
         {
-            if(edgesHighlight.ContainsKey(edge)) edgesHighlight[edge] = color;
+            edgesHighlight[edge] = color;
         }
         public void SetVertexColor(Vertex<VisVertex> vertex, Color color)
         {
+            verticiesHighlight[vertex] = color;
+        }
+
+        public void SetVertexColor(int vertexID, Color color)
+        {
+            var vertex = graph.Vertices[vertexID];
             if (verticiesHighlight.ContainsKey(vertex)) verticiesHighlight[vertex] = color;
         }
 
@@ -36,6 +42,7 @@ namespace GraphWinForms
             graphics.Clear(areaBackColor);
             foreach (KeyValuePair<Edge<VisVertex>, Color> record in edgesHighlight)
             {
+                edgePen.Color = record.Value;
                 if (record.Key.IsLoop)
                 {
                     PrintLoop(record.Key);
@@ -43,7 +50,6 @@ namespace GraphWinForms
                 }
                 else
                 {
-                    edgePen.Color = record.Value;
                     PrintEdge(record.Key);
                     Printweight(record.Key);
                 }
@@ -54,6 +60,11 @@ namespace GraphWinForms
                 PrintVertex(record.Key);
             }
             graphArea.Image = bitmap;
+            lblState.Text = stateText;
+        }
+
+        public void PrintState(string stateText)
+        {
             lblState.Text = stateText;
         }
     }

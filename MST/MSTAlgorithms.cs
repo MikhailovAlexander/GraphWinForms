@@ -1,13 +1,63 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace GraphWinForms
 {
     public class MSTAlgorithms
     {
+        private AlgorithmsVisualisator visualisator;
+        private Graph<VisVertex> graph;
+        public int SleepInterval {get;set;}
+
+        public MSTAlgorithms(GraphPrinter printer, Graph<VisVertex> graph)
+        {
+            this.graph = graph;
+            visualisator = new AlgorithmsVisualisator(printer,graph);
+            SleepInterval = 1000;
+        }
+
+        public async void PrimsAlgorithmVisAsync(Color mstColor)
+        {
+            if (!graph.IsConnected)
+            {
+                visualisator.Print("Граф не связен");
+                return;
+            }
+            Random rnd = new Random();
+            bool[] inMST = new bool[graph.Order];//Создаем логический массив для проверки вхождения вершин в МОД
+            List<Edge<VisVertex>> edgesMST = new List<Edge<VisVertex>>();//Создаем список ребер МОД
+            var adjVertexSortLists = GetAdjLists(graph);//Создаем сортированные списки смежности для вершин графа
+            var adjVertexSortListMST = new AdjVertexSortedList();//Создаем пустой сортированный список смежности для всего МОД
+            int firsrVertex = rnd.Next(0, graph.Order);//Выбираем случайную вершину для начала построения МОД
+            inMST[firsrVertex] = true;//Отмечаем произвольную вершину, как включенную в МОД
+
+            visualisator.SetVertexColor(firsrVertex, mstColor);
+            visualisator.Print("Начальная вершина выбрана произвольно");
+            await Task.Delay(SleepInterval);
+
+            adjVertexSortListMST = adjVertexSortListMST.Union(adjVertexSortLists[firsrVertex], inMST);//Объединяем список смежности МОД и список смежности выбраной вершины (при объединении сортировка поддерживается)
+            for (int i = 0; i < graph.Order - 1; i++)//Цикл для построения МОД, шагов по количеству вершин - 1
+            {
+                Edge<VisVertex> edge2Add = adjVertexSortListMST.ExtractMinWeightEdge();//выбираем из списка смежности МОД ребро минимального веса
+                edgesMST.Add(edge2Add); ;//Добавляем ребро мнимального веса в МОД 
+                inMST[edge2Add.V2Id] = true;//Отмечаем присоединенную вершину, как включенную в МОД 
+
+                visualisator.SetEdgeColor(edge2Add, mstColor);
+                visualisator.SetVertexColor(edge2Add.V2Id, mstColor);
+                visualisator.Print("Добавление к МОД смежного ребра минимального веса");
+                await Task.Delay(SleepInterval);
+
+                adjVertexSortListMST = adjVertexSortListMST.Union(adjVertexSortLists[edge2Add.V2Id], inMST);//Объединяем списки смежности МОД и последней добавленной вершины (при этом ребра внутри МОД удаляются)
+            }
+            if (edgesMST.Count != graph.Order - 1) throw new Exception("Ошибка МОД не найдено");
+            else visualisator.Print("Минимальное остовное дерево построено ");
+        }
+
         public static Graph<VisVertex> GetMST_Boruvka(Graph<VisVertex> graph)
         {
             int order = graph.Order;

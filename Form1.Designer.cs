@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GraphArea = new System.Windows.Forms.PictureBox();
             this.btnGenerateGraph = new System.Windows.Forms.Button();
@@ -61,8 +60,10 @@
             this.lblMaxWeight = new System.Windows.Forms.Label();
             this.tBarMaxWeight = new System.Windows.Forms.TrackBar();
             this.tabPageAlgVis = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
-            this.timer = new System.Windows.Forms.Timer(this.components);
+            this.btnStartPrim = new System.Windows.Forms.Button();
+            this.tbSpeedVis = new System.Windows.Forms.TrackBar();
+            this.lblSpeedTop = new System.Windows.Forms.Label();
+            this.lblSpeedBotom = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.GraphArea)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBarProbability)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBarOrder)).BeginInit();
@@ -79,6 +80,7 @@
             this.gbGraphGen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tBarMaxWeight)).BeginInit();
             this.tabPageAlgVis.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbSpeedVis)).BeginInit();
             this.SuspendLayout();
             // 
             // GraphArea
@@ -445,7 +447,10 @@
             // 
             // tabPageAlgVis
             // 
-            this.tabPageAlgVis.Controls.Add(this.button1);
+            this.tabPageAlgVis.Controls.Add(this.lblSpeedBotom);
+            this.tabPageAlgVis.Controls.Add(this.lblSpeedTop);
+            this.tabPageAlgVis.Controls.Add(this.tbSpeedVis);
+            this.tabPageAlgVis.Controls.Add(this.btnStartPrim);
             this.tabPageAlgVis.Location = new System.Drawing.Point(4, 25);
             this.tabPageAlgVis.Name = "tabPageAlgVis";
             this.tabPageAlgVis.Padding = new System.Windows.Forms.Padding(3);
@@ -454,14 +459,45 @@
             this.tabPageAlgVis.Text = "Визуализация алгоритмов";
             this.tabPageAlgVis.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnStartPrim
             // 
-            this.button1.Location = new System.Drawing.Point(409, 28);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnStartPrim.Location = new System.Drawing.Point(409, 28);
+            this.btnStartPrim.Name = "btnStartPrim";
+            this.btnStartPrim.Size = new System.Drawing.Size(163, 40);
+            this.btnStartPrim.TabIndex = 0;
+            this.btnStartPrim.Text = "Алгоритм Прима";
+            this.btnStartPrim.UseVisualStyleBackColor = true;
+            this.btnStartPrim.Click += new System.EventHandler(this.btnStartPrim_Click);
+            // 
+            // tbSpeedVis
+            // 
+            this.tbSpeedVis.LargeChange = 2;
+            this.tbSpeedVis.Location = new System.Drawing.Point(13, 29);
+            this.tbSpeedVis.Minimum = 1;
+            this.tbSpeedVis.Name = "tbSpeedVis";
+            this.tbSpeedVis.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.tbSpeedVis.Size = new System.Drawing.Size(56, 188);
+            this.tbSpeedVis.TabIndex = 1;
+            this.tbSpeedVis.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.tbSpeedVis.Value = 1;
+            // 
+            // lblSpeedTop
+            // 
+            this.lblSpeedTop.AutoSize = true;
+            this.lblSpeedTop.Location = new System.Drawing.Point(7, 7);
+            this.lblSpeedTop.Name = "lblSpeedTop";
+            this.lblSpeedTop.Size = new System.Drawing.Size(75, 17);
+            this.lblSpeedTop.TabIndex = 2;
+            this.lblSpeedTop.Text = "Медленее";
+            // 
+            // lblSpeedBotom
+            // 
+            this.lblSpeedBotom.AutoSize = true;
+            this.lblSpeedBotom.Location = new System.Drawing.Point(7, 219);
+            this.lblSpeedBotom.Name = "lblSpeedBotom";
+            this.lblSpeedBotom.Size = new System.Drawing.Size(65, 17);
+            this.lblSpeedBotom.TabIndex = 3;
+            this.lblSpeedBotom.Text = "Быстрее";
             // 
             // Form1
             // 
@@ -493,6 +529,8 @@
             this.gbGraphGen.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tBarMaxWeight)).EndInit();
             this.tabPageAlgVis.ResumeLayout(false);
+            this.tabPageAlgVis.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbSpeedVis)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -529,8 +567,10 @@
         private System.Windows.Forms.Panel pnlGraphState;
         private System.Windows.Forms.Label lblGraphState;
         private System.Windows.Forms.Button btnShowMST;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Button btnStartPrim;
+        private System.Windows.Forms.Label lblSpeedBotom;
+        private System.Windows.Forms.Label lblSpeedTop;
+        private System.Windows.Forms.TrackBar tbSpeedVis;
     }
 }
 
