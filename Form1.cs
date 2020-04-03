@@ -14,6 +14,9 @@ namespace GraphWinForms
 {
     public partial class Form1 : Form
     {
+        private const string descrPrim = "Алгоритм Прима\n\tВыибирается произвольная вершина и находится ребро, инцидентное ей с наименьшей стоимостью. Найденное ребро и его вершины образуют дерево. \n\tЗатем, рассматриваются рёбра графа, один конец которых — уже принадлежит дереву, а другой — нет; из этих рёбер выбирается ребро наименьшей стоимости. Выбираемое на каждом шаге ребро присоединяется к дереву.\n\tРост дерева происходит до тех пор, пока не будут присоединены все вершины исходного графа.";
+        private const string descrKruskal = "Алгоритм Краскала\n\tСписок ребер исходного графа упорядочивается по неубыванию веса. Далее ребра перебираются от ребер с меньшим весом к большему. Очередное ребро добавляется к каркасу, если оно не образовывает цикла с ранее выбранными. Первым всегда выбирается одно из ребер минимального веса в графе.";
+        private const string descrBoruvka = "Алгоритм Борувки состоит из следующих шагов:\n1. Изначально МОД содержит все вершины исходного графа и не содержит ребер(каждая вершина — отдельная компонента связности). \n2. На каждом шаге алгоритма для каждой компоненты связности находим минимальное по весу ребро, которое связывает эту компоненту с другой. В МОД добавляются выбранные ребра.\n3. Шаг 2 повторяется пока не будут объединены все компоненты.\nНа каждом шаге количество компонент сокращается минимум вдвое";
         private Graph<VisVertex> graph;
         private Random rnd;
         private GraphGenerator randomGraph;
@@ -29,6 +32,17 @@ namespace GraphWinForms
             graph = randomGraph.GetGraphWeight(10, 200, 200, 25, 20, true, false);
             printer = new GraphPrinter(GraphArea, lblGraphState);
             currentVertex = null;
+            lblDescription.Text = descrPrim;
+        }
+
+        public void BlockTabControl()
+        {
+            tcPages.Enabled = false;
+        }
+
+        public void UnBlockTabControl()
+        {
+            tcPages.Enabled = true;
         }
 
         private void btnGenerateGraph_Click(object sender, EventArgs e)
@@ -74,7 +88,7 @@ namespace GraphWinForms
 
         private void GraphArea_MouseMove(object sender, MouseEventArgs e)
         {
-            if (currentVertex == null || e.Button != MouseButtons.Left) return;
+            if (currentVertex == null || e.Button != MouseButtons.Left || !tcPages.Enabled) return;
             if (rbVertexMove.Checked)
             {
                 if (!GraphArea.ClientRectangle.Contains(e.Location)
@@ -91,6 +105,7 @@ namespace GraphWinForms
 
         private void GraphArea_MouseUp(object sender, MouseEventArgs e)
         {
+            if (!tcPages.Enabled) return;
             if (rbVertexMove.Checked) currentVertex = null;
             else if (rbEdgeAdd.Checked && currentVertex != null)
             {
@@ -106,7 +121,7 @@ namespace GraphWinForms
 
         private void GraphArea_MouseDown(object sender, MouseEventArgs e)
         {
-
+            if (!tcPages.Enabled) return;
             int index = GetIndexVertex(e.Location);
             if (rbVertexMove.Checked||rbEdgeAdd.Checked)
             {
@@ -272,33 +287,33 @@ namespace GraphWinForms
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
-        private void btnStartPrim_Click(object sender, EventArgs e)
+        private void btnStartAlgorithm_Click(object sender, EventArgs e)
         {
-            var algVis = new MSTAlgorithms(printer, graph);
-            algVis.SleepInterval = tbSpeedVis.Value*500;
-            try { algVis.PrimsAlgorithmVisAsync(Color.Red); }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
-        }
-
-        private void btnSetMST_Click(object sender, EventArgs e)
-        {
-            btnShowMST_Click(sender, e);
-        }
-
-        private void btnStartKruscal_Click(object sender, EventArgs e)
-        {
-            var algVis = new MSTAlgorithms(printer, graph);
+            var algVis = new MSTAlgorithms(printer, graph, this);
             algVis.SleepInterval = tbSpeedVis.Value * 500;
-            try { algVis.KrusculAlgorithmVisAsync(); }
+            try
+            {
+                if(rbPrim.Checked) algVis.PrimsAlgorithmVisAsync(Color.Red);
+                else if(rbKruskal.Checked) algVis.KrusculAlgorithmVisAsync();
+                else if(rbBoruvka.Checked) algVis.BoruvkaAlgorithmVisAsync();
+            }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
-        private void btnStartBoruvka_Click(object sender, EventArgs e)
+        private void rbPrim_CheckedChanged(object sender, EventArgs e)
         {
-            var algVis = new MSTAlgorithms(printer, graph);
-            algVis.SleepInterval = tbSpeedVis.Value * 500;
-            try { algVis.BoruvkaAlgorithmVisAsync(); }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            lblDescription.Text = descrPrim;
         }
+
+        private void rbKruskal_CheckedChanged(object sender, EventArgs e)
+        {
+            lblDescription.Text = descrKruskal;
+        }
+
+        private void rbBoruvka_CheckedChanged(object sender, EventArgs e)
+        {
+            lblDescription.Text = descrBoruvka;
+        }
+
     }
 }

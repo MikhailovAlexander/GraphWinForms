@@ -15,15 +15,17 @@ namespace GraphWinForms
         private Graph<VisVertex> graph;
         private Random rnd;
         private Color[] colors;
+        private Form1 form;
         public int SleepInterval {get;set;}
 
-        public MSTAlgorithms(GraphPrinter printer, Graph<VisVertex> graph)
+        public MSTAlgorithms(GraphPrinter printer, Graph<VisVertex> graph, Form1 form)
         {
             this.graph = graph;
             visualisator = new AlgorithmsVisualisator(printer,graph);
             SleepInterval = 1000;
             rnd = new Random();
             colors = GetColorsArray(graph.Order);
+            this.form = form;
         }
 
         public async void PrimsAlgorithmVisAsync(Color mstColor)
@@ -33,6 +35,7 @@ namespace GraphWinForms
                 visualisator.Print("Остовное дерево не может быть построено. Граф не связен!");
                 return;
             }
+            form.BlockTabControl();
             int mstWeight = 0;
             bool[] inMST = new bool[graph.Order];//Создаем логический массив для проверки вхождения вершин в МОД
             List<Edge<VisVertex>> edgesMST = new List<Edge<VisVertex>>();//Создаем список ребер МОД
@@ -62,6 +65,7 @@ namespace GraphWinForms
             }
             if (edgesMST.Count != graph.Order - 1) throw new Exception("Ошибка МОД не найдено");
             else visualisator.Print($"Минимальное остовное дерево построено. Общий вес {mstWeight}.");
+            form.UnBlockTabControl();
         }
 
         public async void KrusculAlgorithmVisAsync()
@@ -72,6 +76,7 @@ namespace GraphWinForms
                 return;
             }
             int order = graph.Order;
+            form.BlockTabControl();
 
             SetVerticesDifferentColors();
             visualisator.Print("Маркировка вершин");
@@ -93,6 +98,7 @@ namespace GraphWinForms
             }
             if (mst.EdgesCount != order - 1) throw new Exception("Ошибка МОД не найдено");
             else visualisator.Print($"Минимальное остовное дерево построено. Общий вес {mst.TotalWeight}.");
+            form.UnBlockTabControl();
         }
 
         public async void BoruvkaAlgorithmVisAsync()
@@ -102,6 +108,7 @@ namespace GraphWinForms
                 visualisator.Print("Остовное дерево не может быть построено. Граф не связен!");
                 return;
             }
+            form.BlockTabControl();
             int order = graph.Order;
             Graph<VisVertex> mst = new Graph<VisVertex>(graph.VerticesClone);//Создаем МОД с вершинами графа
             DisjointSetB dsu = new DisjointSetB(order);//Создаем DSU_B для поиска компонеты, включающей элемент и хранения нового адреса списка
@@ -145,6 +152,7 @@ namespace GraphWinForms
             }
             if (mst.EdgesCount < order - 1) throw new Exception("Ошибка МОД не найдено");
             else visualisator.Print($"Минимальное остовное дерево построено. Общий вес {mst.TotalWeight}.");
+            form.UnBlockTabControl();
         }
 
         private void SetVerticesDifferentColors()
