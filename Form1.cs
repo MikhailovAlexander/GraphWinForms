@@ -279,5 +279,26 @@ namespace GraphWinForms
             try { algVis.PrimsAlgorithmVisAsync(Color.Red); }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
+
+        private void btnSetMST_Click(object sender, EventArgs e)
+        {
+            btnShowMST_Click(sender, e);
+        }
+
+        private void btnStartKruscal_Click(object sender, EventArgs e)
+        {
+            var algVis = new MSTAlgorithms(printer, graph);
+            algVis.SleepInterval = tbSpeedVis.Value * 500;
+            try { algVis.KrusculAlgorithmVisAsync(); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        private void btnStartBoruvka_Click(object sender, EventArgs e)
+        {
+            var algVis = new MSTAlgorithms(printer, graph);
+            algVis.SleepInterval = tbSpeedVis.Value * 500;
+            try { algVis.BoruvkaAlgorithmVisAsync(); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
     }
 }

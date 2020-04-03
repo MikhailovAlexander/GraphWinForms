@@ -22,7 +22,7 @@ namespace GraphWinForms
         protected Pen edgePen;
         protected Font mainFont;
         protected Font smallFont;
-        protected Color areaBackColor;
+        public Color areaBackColor { get; set; }
         protected SolidBrush vertexBrush;
         protected SolidBrush weightBrush;
         protected SolidBrush textBrush;
