@@ -60,17 +60,17 @@
             this.lblMaxWeight = new System.Windows.Forms.Label();
             this.tBarMaxWeight = new System.Windows.Forms.TrackBar();
             this.tabPageAlgVis = new System.Windows.Forms.TabPage();
-            this.lblSpeedBotom = new System.Windows.Forms.Label();
-            this.lblSpeedTop = new System.Windows.Forms.Label();
-            this.tbSpeedVis = new System.Windows.Forms.TrackBar();
-            this.gbSpeedVis = new System.Windows.Forms.GroupBox();
-            this.gbAlgSet = new System.Windows.Forms.GroupBox();
-            this.rbPrim = new System.Windows.Forms.RadioButton();
-            this.rbKruskal = new System.Windows.Forms.RadioButton();
-            this.rbBoruvka = new System.Windows.Forms.RadioButton();
-            this.btnStartAlgorithm = new System.Windows.Forms.Button();
             this.gbDescription = new System.Windows.Forms.GroupBox();
             this.lblDescription = new System.Windows.Forms.Label();
+            this.btnStartAlgorithm = new System.Windows.Forms.Button();
+            this.gbAlgSet = new System.Windows.Forms.GroupBox();
+            this.rbBoruvka = new System.Windows.Forms.RadioButton();
+            this.rbKruskal = new System.Windows.Forms.RadioButton();
+            this.rbPrim = new System.Windows.Forms.RadioButton();
+            this.gbSpeedVis = new System.Windows.Forms.GroupBox();
+            this.tbSpeedVis = new System.Windows.Forms.TrackBar();
+            this.lblSpeedBotom = new System.Windows.Forms.Label();
+            this.lblSpeedTop = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.GraphArea)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBarProbability)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBarOrder)).BeginInit();
@@ -87,10 +87,10 @@
             this.gbGraphGen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tBarMaxWeight)).BeginInit();
             this.tabPageAlgVis.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tbSpeedVis)).BeginInit();
-            this.gbSpeedVis.SuspendLayout();
-            this.gbAlgSet.SuspendLayout();
             this.gbDescription.SuspendLayout();
+            this.gbAlgSet.SuspendLayout();
+            this.gbSpeedVis.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbSpeedVis)).BeginInit();
             this.SuspendLayout();
             // 
             // GraphArea
@@ -305,6 +305,7 @@
             this.dgvAdjMatrix.Location = new System.Drawing.Point(6, 445);
             this.dgvAdjMatrix.Name = "dgvAdjMatrix";
             this.dgvAdjMatrix.ReadOnly = true;
+            this.dgvAdjMatrix.RowHeadersVisible = false;
             this.dgvAdjMatrix.RowHeadersWidth = 20;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -467,105 +468,6 @@
             this.tabPageAlgVis.Text = "Визуализация алгоритмов";
             this.tabPageAlgVis.UseVisualStyleBackColor = true;
             // 
-            // lblSpeedBotom
-            // 
-            this.lblSpeedBotom.AutoSize = true;
-            this.lblSpeedBotom.Location = new System.Drawing.Point(11, 236);
-            this.lblSpeedBotom.Name = "lblSpeedBotom";
-            this.lblSpeedBotom.Size = new System.Drawing.Size(65, 17);
-            this.lblSpeedBotom.TabIndex = 3;
-            this.lblSpeedBotom.Text = "Быстрее";
-            // 
-            // lblSpeedTop
-            // 
-            this.lblSpeedTop.AutoSize = true;
-            this.lblSpeedTop.Location = new System.Drawing.Point(11, 24);
-            this.lblSpeedTop.Name = "lblSpeedTop";
-            this.lblSpeedTop.Size = new System.Drawing.Size(75, 17);
-            this.lblSpeedTop.TabIndex = 2;
-            this.lblSpeedTop.Text = "Медленее";
-            // 
-            // tbSpeedVis
-            // 
-            this.tbSpeedVis.LargeChange = 2;
-            this.tbSpeedVis.Location = new System.Drawing.Point(18, 46);
-            this.tbSpeedVis.Minimum = 1;
-            this.tbSpeedVis.Name = "tbSpeedVis";
-            this.tbSpeedVis.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.tbSpeedVis.Size = new System.Drawing.Size(56, 188);
-            this.tbSpeedVis.TabIndex = 1;
-            this.tbSpeedVis.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.tbSpeedVis.Value = 1;
-            // 
-            // gbSpeedVis
-            // 
-            this.gbSpeedVis.Controls.Add(this.tbSpeedVis);
-            this.gbSpeedVis.Controls.Add(this.lblSpeedBotom);
-            this.gbSpeedVis.Controls.Add(this.lblSpeedTop);
-            this.gbSpeedVis.Location = new System.Drawing.Point(6, 7);
-            this.gbSpeedVis.Name = "gbSpeedVis";
-            this.gbSpeedVis.Size = new System.Drawing.Size(93, 265);
-            this.gbSpeedVis.TabIndex = 4;
-            this.gbSpeedVis.TabStop = false;
-            this.gbSpeedVis.Text = "Скорость";
-            // 
-            // gbAlgSet
-            // 
-            this.gbAlgSet.Controls.Add(this.rbBoruvka);
-            this.gbAlgSet.Controls.Add(this.rbKruskal);
-            this.gbAlgSet.Controls.Add(this.rbPrim);
-            this.gbAlgSet.Location = new System.Drawing.Point(106, 7);
-            this.gbAlgSet.Name = "gbAlgSet";
-            this.gbAlgSet.Size = new System.Drawing.Size(326, 59);
-            this.gbAlgSet.TabIndex = 8;
-            this.gbAlgSet.TabStop = false;
-            this.gbAlgSet.Text = "Алгоритм поиска минимального остова";
-            // 
-            // rbPrim
-            // 
-            this.rbPrim.AutoSize = true;
-            this.rbPrim.Checked = true;
-            this.rbPrim.Location = new System.Drawing.Point(6, 24);
-            this.rbPrim.Name = "rbPrim";
-            this.rbPrim.Size = new System.Drawing.Size(72, 21);
-            this.rbPrim.TabIndex = 9;
-            this.rbPrim.TabStop = true;
-            this.rbPrim.Text = "Прима";
-            this.rbPrim.UseVisualStyleBackColor = true;
-            this.rbPrim.CheckedChanged += new System.EventHandler(this.rbPrim_CheckedChanged);
-            // 
-            // rbKruskal
-            // 
-            this.rbKruskal.AutoSize = true;
-            this.rbKruskal.Location = new System.Drawing.Point(86, 24);
-            this.rbKruskal.Name = "rbKruskal";
-            this.rbKruskal.Size = new System.Drawing.Size(92, 21);
-            this.rbKruskal.TabIndex = 10;
-            this.rbKruskal.Text = "Краскала";
-            this.rbKruskal.UseVisualStyleBackColor = true;
-            this.rbKruskal.CheckedChanged += new System.EventHandler(this.rbKruskal_CheckedChanged);
-            // 
-            // rbBoruvka
-            // 
-            this.rbBoruvka.AutoSize = true;
-            this.rbBoruvka.Location = new System.Drawing.Point(191, 24);
-            this.rbBoruvka.Name = "rbBoruvka";
-            this.rbBoruvka.Size = new System.Drawing.Size(83, 21);
-            this.rbBoruvka.TabIndex = 11;
-            this.rbBoruvka.Text = "Борувки";
-            this.rbBoruvka.UseVisualStyleBackColor = true;
-            this.rbBoruvka.CheckedChanged += new System.EventHandler(this.rbBoruvka_CheckedChanged);
-            // 
-            // btnStartAlgorithm
-            // 
-            this.btnStartAlgorithm.Location = new System.Drawing.Point(438, 14);
-            this.btnStartAlgorithm.Name = "btnStartAlgorithm";
-            this.btnStartAlgorithm.Size = new System.Drawing.Size(105, 52);
-            this.btnStartAlgorithm.TabIndex = 9;
-            this.btnStartAlgorithm.Text = "Запустить алгоритм";
-            this.btnStartAlgorithm.UseVisualStyleBackColor = true;
-            this.btnStartAlgorithm.Click += new System.EventHandler(this.btnStartAlgorithm_Click);
-            // 
             // gbDescription
             // 
             this.gbDescription.Controls.Add(this.lblDescription);
@@ -586,6 +488,105 @@
             this.lblDescription.TabIndex = 11;
             this.lblDescription.Text = "label1";
             // 
+            // btnStartAlgorithm
+            // 
+            this.btnStartAlgorithm.Location = new System.Drawing.Point(438, 14);
+            this.btnStartAlgorithm.Name = "btnStartAlgorithm";
+            this.btnStartAlgorithm.Size = new System.Drawing.Size(105, 52);
+            this.btnStartAlgorithm.TabIndex = 9;
+            this.btnStartAlgorithm.Text = "Запустить алгоритм";
+            this.btnStartAlgorithm.UseVisualStyleBackColor = true;
+            this.btnStartAlgorithm.Click += new System.EventHandler(this.btnStartAlgorithm_Click);
+            // 
+            // gbAlgSet
+            // 
+            this.gbAlgSet.Controls.Add(this.rbBoruvka);
+            this.gbAlgSet.Controls.Add(this.rbKruskal);
+            this.gbAlgSet.Controls.Add(this.rbPrim);
+            this.gbAlgSet.Location = new System.Drawing.Point(106, 7);
+            this.gbAlgSet.Name = "gbAlgSet";
+            this.gbAlgSet.Size = new System.Drawing.Size(326, 59);
+            this.gbAlgSet.TabIndex = 8;
+            this.gbAlgSet.TabStop = false;
+            this.gbAlgSet.Text = "Алгоритм поиска минимального остова";
+            // 
+            // rbBoruvka
+            // 
+            this.rbBoruvka.AutoSize = true;
+            this.rbBoruvka.Location = new System.Drawing.Point(191, 24);
+            this.rbBoruvka.Name = "rbBoruvka";
+            this.rbBoruvka.Size = new System.Drawing.Size(83, 21);
+            this.rbBoruvka.TabIndex = 11;
+            this.rbBoruvka.Text = "Борувки";
+            this.rbBoruvka.UseVisualStyleBackColor = true;
+            this.rbBoruvka.CheckedChanged += new System.EventHandler(this.rbBoruvka_CheckedChanged);
+            // 
+            // rbKruskal
+            // 
+            this.rbKruskal.AutoSize = true;
+            this.rbKruskal.Location = new System.Drawing.Point(86, 24);
+            this.rbKruskal.Name = "rbKruskal";
+            this.rbKruskal.Size = new System.Drawing.Size(92, 21);
+            this.rbKruskal.TabIndex = 10;
+            this.rbKruskal.Text = "Краскала";
+            this.rbKruskal.UseVisualStyleBackColor = true;
+            this.rbKruskal.CheckedChanged += new System.EventHandler(this.rbKruskal_CheckedChanged);
+            // 
+            // rbPrim
+            // 
+            this.rbPrim.AutoSize = true;
+            this.rbPrim.Checked = true;
+            this.rbPrim.Location = new System.Drawing.Point(6, 24);
+            this.rbPrim.Name = "rbPrim";
+            this.rbPrim.Size = new System.Drawing.Size(72, 21);
+            this.rbPrim.TabIndex = 9;
+            this.rbPrim.TabStop = true;
+            this.rbPrim.Text = "Прима";
+            this.rbPrim.UseVisualStyleBackColor = true;
+            this.rbPrim.CheckedChanged += new System.EventHandler(this.rbPrim_CheckedChanged);
+            // 
+            // gbSpeedVis
+            // 
+            this.gbSpeedVis.Controls.Add(this.tbSpeedVis);
+            this.gbSpeedVis.Controls.Add(this.lblSpeedBotom);
+            this.gbSpeedVis.Controls.Add(this.lblSpeedTop);
+            this.gbSpeedVis.Location = new System.Drawing.Point(6, 7);
+            this.gbSpeedVis.Name = "gbSpeedVis";
+            this.gbSpeedVis.Size = new System.Drawing.Size(93, 265);
+            this.gbSpeedVis.TabIndex = 4;
+            this.gbSpeedVis.TabStop = false;
+            this.gbSpeedVis.Text = "Скорость";
+            // 
+            // tbSpeedVis
+            // 
+            this.tbSpeedVis.LargeChange = 2;
+            this.tbSpeedVis.Location = new System.Drawing.Point(18, 46);
+            this.tbSpeedVis.Minimum = 1;
+            this.tbSpeedVis.Name = "tbSpeedVis";
+            this.tbSpeedVis.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.tbSpeedVis.Size = new System.Drawing.Size(56, 188);
+            this.tbSpeedVis.TabIndex = 1;
+            this.tbSpeedVis.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.tbSpeedVis.Value = 1;
+            // 
+            // lblSpeedBotom
+            // 
+            this.lblSpeedBotom.AutoSize = true;
+            this.lblSpeedBotom.Location = new System.Drawing.Point(11, 236);
+            this.lblSpeedBotom.Name = "lblSpeedBotom";
+            this.lblSpeedBotom.Size = new System.Drawing.Size(65, 17);
+            this.lblSpeedBotom.TabIndex = 3;
+            this.lblSpeedBotom.Text = "Быстрее";
+            // 
+            // lblSpeedTop
+            // 
+            this.lblSpeedTop.AutoSize = true;
+            this.lblSpeedTop.Location = new System.Drawing.Point(11, 24);
+            this.lblSpeedTop.Name = "lblSpeedTop";
+            this.lblSpeedTop.Size = new System.Drawing.Size(75, 17);
+            this.lblSpeedTop.TabIndex = 2;
+            this.lblSpeedTop.Text = "Медленее";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -594,7 +595,7 @@
             this.Controls.Add(this.splitContainer1);
             this.MinimumSize = new System.Drawing.Size(1400, 910);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Поиск минимального остова взвешенного неориентированного графа";
             ((System.ComponentModel.ISupportInitialize)(this.GraphArea)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBarProbability)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBarOrder)).EndInit();
@@ -616,13 +617,13 @@
             this.gbGraphGen.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tBarMaxWeight)).EndInit();
             this.tabPageAlgVis.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tbSpeedVis)).EndInit();
-            this.gbSpeedVis.ResumeLayout(false);
-            this.gbSpeedVis.PerformLayout();
-            this.gbAlgSet.ResumeLayout(false);
-            this.gbAlgSet.PerformLayout();
             this.gbDescription.ResumeLayout(false);
             this.gbDescription.PerformLayout();
+            this.gbAlgSet.ResumeLayout(false);
+            this.gbAlgSet.PerformLayout();
+            this.gbSpeedVis.ResumeLayout(false);
+            this.gbSpeedVis.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbSpeedVis)).EndInit();
             this.ResumeLayout(false);
 
         }

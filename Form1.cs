@@ -44,7 +44,7 @@ namespace GraphWinForms
         {
             tcPages.Enabled = true;
         }
-
+        #region GraphGenerator
         private void btnGenerateGraph_Click(object sender, EventArgs e)
         {
             graph = randomGraph.GetGraphWeight(tBarOrder.Value, GraphArea.Width, GraphArea.Height - pnlGraphState.Height, 
@@ -67,25 +67,8 @@ namespace GraphWinForms
         {
             lblMaxWeight.Text = $"Максимальный вес ребра: {tBarMaxWeight.Value}";
         }
-
-        private int GetIndexVertex(Point point)
-        {
-            foreach (var vertex in graph.Vertices)
-                if (GetDistanse(vertex.Data.GetPoint, point) < 20) return vertex.Id;
-            return -1;
-        }
-
-        private Edge<VisVertex> GetEdge(Point point2Check)
-        {
-            int index = GetIndexVertex(point2Check);
-            foreach (var edge in graph.Edges)
-                if (index != -1 && edge.IsIncident(index) && edge.IsLoop) return edge;//Если попави в вершину -ищем петлю
-                else if (index == -1 
-                        && GetDistanseToLine(edge.Data1.GetPoint, edge.Data2.GetPoint, point2Check) < 3)
-                        return edge;
-            return null;
-        }
-
+        #endregion GraphGenerator
+        #region GraphEditor
         private void GraphArea_MouseMove(object sender, MouseEventArgs e)
         {
             if (currentVertex == null || e.Button != MouseButtons.Left || !tcPages.Enabled) return;
@@ -194,6 +177,25 @@ namespace GraphWinForms
             }
         }
 
+        private int GetIndexVertex(Point point)
+        {
+            foreach (var vertex in graph.Vertices)
+                if (GetDistanse(vertex.Data.GetPoint, point) < 20) return vertex.Id;
+            return -1;
+        }
+
+        private Edge<VisVertex> GetEdge(Point point2Check)
+        {
+            int index = GetIndexVertex(point2Check);
+            foreach (var edge in graph.Edges)
+                if (index != -1 && edge.IsIncident(index) && edge.IsLoop) return edge;//Если попави в вершину -ищем петлю
+                else if (index == -1
+                        && GetDistanseToLine(edge.Data1.GetPoint, edge.Data2.GetPoint, point2Check) < 3)
+                    return edge;
+            return null;
+        }
+        #endregion GraphEditor
+        #region AdjMatrixAndLists
         private void ShowMatrixOrLists()
         {
             if (rbAdjMatrix.Checked) ShowMatrix();
@@ -205,19 +207,18 @@ namespace GraphWinForms
             int[,] matrix = graph.GetAdjWeightMatrix();
             dgvAdjMatrix.Columns.Clear();
             dgvAdjMatrix.Rows.Clear();
-            foreach(var vertex in graph.Vertices)
+            dgvAdjMatrix.Columns.Add("RowHeader", "");
+            foreach (var vertex in graph.Vertices)
             {
                 dgvAdjMatrix.Columns.Add(vertex.Data.Name, vertex.Data.Name);
-                dgvAdjMatrix.Rows.Add(vertex.Data.Name, vertex.Data.Name);
+                dgvAdjMatrix.Rows.Add(vertex.Data.Name);
             }
             for (int i = 0; i < matrix.GetLength(0); i++)
             {
-                dgvAdjMatrix.Columns[i].Width = 20;
-                for (int j = 0; j < matrix.GetLength(0); j++)
+                for (int j = 1; j <= matrix.GetLength(0); j++)
                 {
-                    dgvAdjMatrix.Rows[i].Height = 20;
-                    if (matrix[i, j] != -1)
-                        dgvAdjMatrix.Rows[i].Cells[j].Value = matrix[i, j];
+                    if (matrix[i, j-1] != -1)
+                        dgvAdjMatrix.Rows[i].Cells[j].Value = matrix[i, j-1].ToString();
                 }
             }
         }
@@ -229,22 +230,26 @@ namespace GraphWinForms
             dgvAdjMatrix.Columns.Clear();
             dgvAdjMatrix.Rows.Clear();
             if (maxLenght == 0) return;
-            for (int i = 0; i < maxLenght; i++)
+            for (int i = 0; i <= maxLenght; i++)
             {
-                dgvAdjMatrix.Columns.Add(i.ToString(), i.ToString());
+                dgvAdjMatrix.Columns.Add(i.ToString(), "");
                 dgvAdjMatrix.Columns[i].Width = 60;
             }
             for (int i = 0; i < lists.Length; i++)
             {
                 dgvAdjMatrix.Rows.Add();
                 dgvAdjMatrix.Rows[i].Height = 18;
-                dgvAdjMatrix.Rows[i].HeaderCell.Value = i;
             }
             for (int i = 0; i < lists.Length; i++)
             {
-                for (int j = 0; j < lists[i].Length; j++)
+                for (int j = 0; j <= lists[i].Length; j++)
                 {
-                    dgvAdjMatrix.Rows[i].Cells[j].Value = lists[i][j];
+                    if (j == 0)
+                    {
+                        dgvAdjMatrix.Rows[i].Cells[j].Value = i.ToString();
+                        dgvAdjMatrix.Rows[i].Cells[j].Style.BackColor = printer.VertexColor;
+                    }
+                    else dgvAdjMatrix.Rows[i].Cells[j].Value = lists[i][j - 1];
                 }
             }
 
@@ -266,6 +271,7 @@ namespace GraphWinForms
         {
             ShowMatrixOrLists();
         }
+        #endregion AdjMatrixAndLists
 
         private void btnSetWeigthAsDiastance_Click(object sender, EventArgs e)
         {
