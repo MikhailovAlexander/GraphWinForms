@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GraphArea = new System.Windows.Forms.PictureBox();
             this.btnGenerateGraph = new System.Windows.Forms.Button();
             this.tBarProbability = new System.Windows.Forms.TrackBar();
@@ -71,6 +71,8 @@
             this.tbSpeedVis = new System.Windows.Forms.TrackBar();
             this.lblSpeedBotom = new System.Windows.Forms.Label();
             this.lblSpeedTop = new System.Windows.Forms.Label();
+            this.lblLog = new System.Windows.Forms.Label();
+            this.pnlLog = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.GraphArea)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBarProbability)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBarOrder)).BeginInit();
@@ -91,6 +93,7 @@
             this.gbAlgSet.SuspendLayout();
             this.gbSpeedVis.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbSpeedVis)).BeginInit();
+            this.pnlLog.SuspendLayout();
             this.SuspendLayout();
             // 
             // GraphArea
@@ -307,9 +310,9 @@
             this.dgvAdjMatrix.ReadOnly = true;
             this.dgvAdjMatrix.RowHeadersVisible = false;
             this.dgvAdjMatrix.RowHeadersWidth = 20;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dgvAdjMatrix.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dgvAdjMatrix.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvAdjMatrix.RowTemplate.Height = 24;
             this.dgvAdjMatrix.Size = new System.Drawing.Size(562, 364);
             this.dgvAdjMatrix.TabIndex = 2;
@@ -456,6 +459,7 @@
             // 
             // tabPageAlgVis
             // 
+            this.tabPageAlgVis.Controls.Add(this.pnlLog);
             this.tabPageAlgVis.Controls.Add(this.gbDescription);
             this.tabPageAlgVis.Controls.Add(this.btnStartAlgorithm);
             this.tabPageAlgVis.Controls.Add(this.gbAlgSet);
@@ -473,7 +477,7 @@
             this.gbDescription.Controls.Add(this.lblDescription);
             this.gbDescription.Location = new System.Drawing.Point(106, 72);
             this.gbDescription.Name = "gbDescription";
-            this.gbDescription.Size = new System.Drawing.Size(437, 200);
+            this.gbDescription.Size = new System.Drawing.Size(458, 200);
             this.gbDescription.TabIndex = 10;
             this.gbDescription.TabStop = false;
             this.gbDescription.Text = "Краткое описание алгоритма";
@@ -490,7 +494,7 @@
             // 
             // btnStartAlgorithm
             // 
-            this.btnStartAlgorithm.Location = new System.Drawing.Point(438, 14);
+            this.btnStartAlgorithm.Location = new System.Drawing.Point(459, 14);
             this.btnStartAlgorithm.Name = "btnStartAlgorithm";
             this.btnStartAlgorithm.Size = new System.Drawing.Size(105, 52);
             this.btnStartAlgorithm.TabIndex = 9;
@@ -587,6 +591,27 @@
             this.lblSpeedTop.TabIndex = 2;
             this.lblSpeedTop.Text = "Медленее";
             // 
+            // lblLog
+            // 
+            this.lblLog.AutoSize = true;
+            this.lblLog.Location = new System.Drawing.Point(3, 3);
+            this.lblLog.MaximumSize = new System.Drawing.Size(520, 0);
+            this.lblLog.Name = "lblLog";
+            this.lblLog.Size = new System.Drawing.Size(46, 17);
+            this.lblLog.TabIndex = 0;
+            this.lblLog.Text = "label1";
+            this.lblLog.SizeChanged += new System.EventHandler(this.lblLog_SizeChanged);
+            // 
+            // pnlLog
+            // 
+            this.pnlLog.AutoScroll = true;
+            this.pnlLog.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlLog.Controls.Add(this.lblLog);
+            this.pnlLog.Location = new System.Drawing.Point(6, 321);
+            this.pnlLog.Name = "pnlLog";
+            this.pnlLog.Size = new System.Drawing.Size(558, 502);
+            this.pnlLog.TabIndex = 12;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -624,6 +649,8 @@
             this.gbSpeedVis.ResumeLayout(false);
             this.gbSpeedVis.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbSpeedVis)).EndInit();
+            this.pnlLog.ResumeLayout(false);
+            this.pnlLog.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -671,6 +698,8 @@
         private System.Windows.Forms.RadioButton rbPrim;
         private System.Windows.Forms.GroupBox gbDescription;
         private System.Windows.Forms.Label lblDescription;
+        private System.Windows.Forms.Label lblLog;
+        private System.Windows.Forms.Panel pnlLog;
     }
 }
 

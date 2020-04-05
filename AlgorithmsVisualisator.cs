@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GraphWinForms
 {
@@ -12,18 +13,24 @@ namespace GraphWinForms
         private Graph<VisVertex> graph;
         private Dictionary<Edge<VisVertex>, Color> edgesHighlight;
         private Dictionary<Vertex<VisVertex>, Color> verticiesHighlight;
-        public AlgorithmsVisualisator(GraphPrinter printer, Graph<VisVertex> graph) : base(printer.graphArea, printer.lblState)
+        private Label lblLog;
+
+        public AlgorithmsVisualisator(GraphPrinter printer, Graph<VisVertex> graph, Label lblLog) : base(printer.graphArea, printer.lblState)
         {
             this.graph = graph;
+            this.lblLog = lblLog;
+            lblLog.Text = "Старт алгоритма.";
             edgesHighlight = new Dictionary<Edge<VisVertex>, Color>();
             foreach (var edge in graph.Edges) edgesHighlight.Add(edge, printer.EdgeColor);
             verticiesHighlight = new Dictionary<Vertex<VisVertex>, Color>();
             foreach (var vertex in graph.Vertices) verticiesHighlight.Add(vertex, printer.VertexColor);
         }
+
         public void SetEdgeColor(Edge<VisVertex> edge, Color color)
         {
             edgesHighlight[edge] = color;
         }
+
         public void SetVertexColor(Vertex<VisVertex> vertex, Color color)
         {
             verticiesHighlight[vertex] = color;
@@ -33,6 +40,11 @@ namespace GraphWinForms
         {
             var vertex = graph.Vertices[vertexID];
             if (verticiesHighlight.ContainsKey(vertex)) verticiesHighlight[vertex] = color;
+        }
+
+        public void ApEndLog(string text)
+        {
+            lblLog.Text = lblLog.Text + "\n" + text;
         }
 
         public void Print(string stateText)

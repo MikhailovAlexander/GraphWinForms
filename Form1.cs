@@ -295,7 +295,7 @@ namespace GraphWinForms
 
         private void btnStartAlgorithm_Click(object sender, EventArgs e)
         {
-            var algVis = new MSTAlgorithms(printer, graph, this);
+            var algVis = new MSTAlgorithms(printer, graph, lblLog, this);
             algVis.SleepInterval = tbSpeedVis.Value * 500;
             try
             {
@@ -321,5 +321,10 @@ namespace GraphWinForms
             lblDescription.Text = descrBoruvka;
         }
 
+        private void lblLog_SizeChanged(object sender, EventArgs e)
+        {
+            if (lblLog.Height > pnlLog.Height)
+                pnlLog.VerticalScroll.Value = pnlLog.VerticalScroll.Value + lblLog.Height - pnlLog.Height;
+        }
     }
 }
