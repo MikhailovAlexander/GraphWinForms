@@ -73,6 +73,8 @@
             this.tbSpeedVis = new System.Windows.Forms.TrackBar();
             this.lblSpeedBotom = new System.Windows.Forms.Label();
             this.lblSpeedTop = new System.Windows.Forms.Label();
+            this.pnlGraphEditor = new System.Windows.Forms.Panel();
+            this.pnlAlgorithmsControls = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.GraphArea)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBarProbability)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBarOrder)).BeginInit();
@@ -94,6 +96,8 @@
             this.gbAlgSet.SuspendLayout();
             this.gbSpeedVis.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbSpeedVis)).BeginInit();
+            this.pnlGraphEditor.SuspendLayout();
+            this.pnlAlgorithmsControls.SuspendLayout();
             this.SuspendLayout();
             // 
             // GraphArea
@@ -229,12 +233,7 @@
             // 
             // tabPageEditor
             // 
-            this.tabPageEditor.Controls.Add(this.btnShowMST);
-            this.tabPageEditor.Controls.Add(this.btnSetWeigthAsDiastance);
-            this.tabPageEditor.Controls.Add(this.gbMatrix);
-            this.tabPageEditor.Controls.Add(this.dgvAdjMatrix);
-            this.tabPageEditor.Controls.Add(this.gbEditMode);
-            this.tabPageEditor.Controls.Add(this.gbGraphGen);
+            this.tabPageEditor.Controls.Add(this.pnlGraphEditor);
             this.tabPageEditor.Location = new System.Drawing.Point(4, 25);
             this.tabPageEditor.Name = "tabPageEditor";
             this.tabPageEditor.Padding = new System.Windows.Forms.Padding(3);
@@ -245,7 +244,7 @@
             // 
             // btnShowMST
             // 
-            this.btnShowMST.Location = new System.Drawing.Point(384, 345);
+            this.btnShowMST.Location = new System.Drawing.Point(378, 345);
             this.btnShowMST.Name = "btnShowMST";
             this.btnShowMST.Size = new System.Drawing.Size(184, 46);
             this.btnShowMST.TabIndex = 5;
@@ -255,7 +254,7 @@
             // 
             // btnSetWeigthAsDiastance
             // 
-            this.btnSetWeigthAsDiastance.Location = new System.Drawing.Point(384, 293);
+            this.btnSetWeigthAsDiastance.Location = new System.Drawing.Point(378, 293);
             this.btnSetWeigthAsDiastance.Name = "btnSetWeigthAsDiastance";
             this.btnSetWeigthAsDiastance.Size = new System.Drawing.Size(184, 46);
             this.btnSetWeigthAsDiastance.TabIndex = 4;
@@ -267,7 +266,7 @@
             // 
             this.gbMatrix.Controls.Add(this.rbAdjLists);
             this.gbMatrix.Controls.Add(this.rbAdjMatrix);
-            this.gbMatrix.Location = new System.Drawing.Point(7, 394);
+            this.gbMatrix.Location = new System.Drawing.Point(1, 394);
             this.gbMatrix.Name = "gbMatrix";
             this.gbMatrix.Size = new System.Drawing.Size(561, 45);
             this.gbMatrix.TabIndex = 3;
@@ -305,7 +304,7 @@
             this.dgvAdjMatrix.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvAdjMatrix.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvAdjMatrix.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAdjMatrix.Location = new System.Drawing.Point(6, 445);
+            this.dgvAdjMatrix.Location = new System.Drawing.Point(0, 445);
             this.dgvAdjMatrix.Name = "dgvAdjMatrix";
             this.dgvAdjMatrix.ReadOnly = true;
             this.dgvAdjMatrix.RowHeadersVisible = false;
@@ -325,7 +324,7 @@
             this.gbEditMode.Controls.Add(this.rbEdgeAdd);
             this.gbEditMode.Controls.Add(this.rbVertexRemove);
             this.gbEditMode.Controls.Add(this.rbVertexMove);
-            this.gbEditMode.Location = new System.Drawing.Point(9, 286);
+            this.gbEditMode.Location = new System.Drawing.Point(3, 286);
             this.gbEditMode.Name = "gbEditMode";
             this.gbEditMode.Size = new System.Drawing.Size(369, 102);
             this.gbEditMode.TabIndex = 0;
@@ -459,11 +458,8 @@
             // 
             // tabPageAlgVis
             // 
+            this.tabPageAlgVis.Controls.Add(this.pnlAlgorithmsControls);
             this.tabPageAlgVis.Controls.Add(this.pnlLog);
-            this.tabPageAlgVis.Controls.Add(this.gbDescription);
-            this.tabPageAlgVis.Controls.Add(this.btnStartAlgorithm);
-            this.tabPageAlgVis.Controls.Add(this.gbAlgSet);
-            this.tabPageAlgVis.Controls.Add(this.gbSpeedVis);
             this.tabPageAlgVis.Location = new System.Drawing.Point(4, 25);
             this.tabPageAlgVis.Name = "tabPageAlgVis";
             this.tabPageAlgVis.Padding = new System.Windows.Forms.Padding(3);
@@ -496,7 +492,7 @@
             // gbDescription
             // 
             this.gbDescription.Controls.Add(this.lblDescription);
-            this.gbDescription.Location = new System.Drawing.Point(106, 72);
+            this.gbDescription.Location = new System.Drawing.Point(103, 68);
             this.gbDescription.Name = "gbDescription";
             this.gbDescription.Size = new System.Drawing.Size(458, 200);
             this.gbDescription.TabIndex = 10;
@@ -515,7 +511,7 @@
             // 
             // btnStartAlgorithm
             // 
-            this.btnStartAlgorithm.Location = new System.Drawing.Point(459, 14);
+            this.btnStartAlgorithm.Location = new System.Drawing.Point(456, 10);
             this.btnStartAlgorithm.Name = "btnStartAlgorithm";
             this.btnStartAlgorithm.Size = new System.Drawing.Size(105, 52);
             this.btnStartAlgorithm.TabIndex = 9;
@@ -528,7 +524,7 @@
             this.gbAlgSet.Controls.Add(this.rbBoruvka);
             this.gbAlgSet.Controls.Add(this.rbKruskal);
             this.gbAlgSet.Controls.Add(this.rbPrim);
-            this.gbAlgSet.Location = new System.Drawing.Point(106, 7);
+            this.gbAlgSet.Location = new System.Drawing.Point(103, 3);
             this.gbAlgSet.Name = "gbAlgSet";
             this.gbAlgSet.Size = new System.Drawing.Size(326, 59);
             this.gbAlgSet.TabIndex = 8;
@@ -575,7 +571,7 @@
             this.gbSpeedVis.Controls.Add(this.tbSpeedVis);
             this.gbSpeedVis.Controls.Add(this.lblSpeedBotom);
             this.gbSpeedVis.Controls.Add(this.lblSpeedTop);
-            this.gbSpeedVis.Location = new System.Drawing.Point(6, 7);
+            this.gbSpeedVis.Location = new System.Drawing.Point(3, 3);
             this.gbSpeedVis.Name = "gbSpeedVis";
             this.gbSpeedVis.Size = new System.Drawing.Size(93, 265);
             this.gbSpeedVis.TabIndex = 4;
@@ -611,6 +607,30 @@
             this.lblSpeedTop.Size = new System.Drawing.Size(75, 17);
             this.lblSpeedTop.TabIndex = 2;
             this.lblSpeedTop.Text = "Медленее";
+            // 
+            // pnlGraphEditor
+            // 
+            this.pnlGraphEditor.Controls.Add(this.gbGraphGen);
+            this.pnlGraphEditor.Controls.Add(this.btnShowMST);
+            this.pnlGraphEditor.Controls.Add(this.gbEditMode);
+            this.pnlGraphEditor.Controls.Add(this.btnSetWeigthAsDiastance);
+            this.pnlGraphEditor.Controls.Add(this.dgvAdjMatrix);
+            this.pnlGraphEditor.Controls.Add(this.gbMatrix);
+            this.pnlGraphEditor.Location = new System.Drawing.Point(6, 3);
+            this.pnlGraphEditor.Name = "pnlGraphEditor";
+            this.pnlGraphEditor.Size = new System.Drawing.Size(570, 821);
+            this.pnlGraphEditor.TabIndex = 6;
+            // 
+            // pnlAlgorithmsControls
+            // 
+            this.pnlAlgorithmsControls.Controls.Add(this.gbSpeedVis);
+            this.pnlAlgorithmsControls.Controls.Add(this.gbAlgSet);
+            this.pnlAlgorithmsControls.Controls.Add(this.gbDescription);
+            this.pnlAlgorithmsControls.Controls.Add(this.btnStartAlgorithm);
+            this.pnlAlgorithmsControls.Location = new System.Drawing.Point(3, 3);
+            this.pnlAlgorithmsControls.Name = "pnlAlgorithmsControls";
+            this.pnlAlgorithmsControls.Size = new System.Drawing.Size(570, 273);
+            this.pnlAlgorithmsControls.TabIndex = 13;
             // 
             // Form1
             // 
@@ -651,6 +671,8 @@
             this.gbSpeedVis.ResumeLayout(false);
             this.gbSpeedVis.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbSpeedVis)).EndInit();
+            this.pnlGraphEditor.ResumeLayout(false);
+            this.pnlAlgorithmsControls.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -700,6 +722,8 @@
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.Label lblLog;
         private System.Windows.Forms.Panel pnlLog;
+        private System.Windows.Forms.Panel pnlGraphEditor;
+        private System.Windows.Forms.Panel pnlAlgorithmsControls;
     }
 }
 

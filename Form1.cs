@@ -37,12 +37,14 @@ namespace GraphWinForms
 
         public void BlockTabControl()
         {
-            tcPages.Enabled = false;
+            pnlGraphEditor.Enabled = false;
+            pnlAlgorithmsControls.Enabled = false;
         }
 
         public void UnBlockTabControl()
         {
-            tcPages.Enabled = true;
+            pnlGraphEditor.Enabled = true;
+            pnlAlgorithmsControls.Enabled = true;
         }
         #region GraphGenerator
         private void btnGenerateGraph_Click(object sender, EventArgs e)
