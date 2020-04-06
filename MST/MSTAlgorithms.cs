@@ -68,8 +68,11 @@ namespace GraphWinForms
                 adjVertexSortListMST = adjVertexSortListMST.Union(adjVertexSortLists[edge2Add.V2Id], inMST);//Объединяем списки смежности МОД и последней добавленной вершины (при этом ребра внутри МОД удаляются)
             }
             if (edgesMST.Count != graph.Order - 1) throw new Exception("Ошибка МОД не найдено");
-            else visualisator.Print($"Минимальное остовное дерево построено. Общий вес {mstWeight}.");
-            visualisator.Print($"Минимальное остовное дерево построено. Общий вес {mstWeight}.");
+            else
+            {
+                visualisator.Print($"Минимальное остовное дерево построено. Общий вес {mstWeight}.");
+                visualisator.ApEndLog($"Минимальное остовное дерево построено. Общий вес {mstWeight}.");
+            }
             form.UnBlockTabControl();
         }
 
