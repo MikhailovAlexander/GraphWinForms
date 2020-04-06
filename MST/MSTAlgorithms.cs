@@ -87,22 +87,25 @@ namespace GraphWinForms
             }
             form.BlockTabControl();
             int order = graph.Order;
+            Edge<VisVertex>[] sortedEdges = GetSortedEdges(graph.EdgesClone);
+            Graph<VisVertex> mst = new Graph<VisVertex>(graph.VerticesClone);//Создаем МОД
+            DisjointSet dsu = new DisjointSet(order);
+
             SetVerticesDifferentColors();
             visualisator.Print("Маркировка вершин");
             visualisator.ApEndLog(
                 "МОД сотоит из отдельных вершин - компонент связности, маркированных различными цветами" +
                 "\nПоследовательно простомтрим ребра, отсортированные по неубыванию веса.");
+            visualisator.PrintDataStructuresKruskal(sortedEdges, sortedEdges[0]);
             await Task.Delay(SleepInterval);
 
-            Edge<VisVertex>[] sortedEdges = GetSortedEdges(graph.EdgesClone);
-            Graph<VisVertex> mst = new Graph<VisVertex>(graph.VerticesClone);//Создаем МОД
-            DisjointSet dsu = new DisjointSet(order);
             foreach (Edge<VisVertex> edge in sortedEdges)
             {
                 if (mst.EdgesCount == order - 1) break;//Если МОД построен выходим из цикла
                 if (dsu.InTheSameSet(edge.V1Id, edge.V2Id))
                 {
-                    visualisator.ApEndLog($"Ребро {edge} соединяет вершины из одной компоненты - пропускаем.");
+                    visualisator.ApEndLog($"Ребро {edge} соединяет вершины из одной компоненты - пропускаем."); visualisator.PrintDataStructuresKruskal(sortedEdges, edge);
+                    await Task.Delay(SleepInterval);
                     continue;//Если вершины ребра в одной компоненте пропускаем ребро
                 }
                 mst.AddEdge(edge);//Добавляем ребро мнимального веса в МОД 
@@ -112,6 +115,7 @@ namespace GraphWinForms
                 visualisator.Print($"Добавление ребра минимального веса. Всего ребер {mst.EdgesCount}. Общий вес {mst.TotalWeight}.");
                 visualisator.ApEndLog($"Ребро {edge} соединяет вершины из разных компонент - добавляем в МОД. " +
                     $"Объединяем связанные ребром компоненты.");
+                visualisator.PrintDataStructuresKruskal(sortedEdges, edge);
                 await Task.Delay(SleepInterval);
             }
             if (mst.EdgesCount != order - 1) throw new Exception("Ошибка МОД не найдено");

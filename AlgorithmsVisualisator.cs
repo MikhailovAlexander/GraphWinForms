@@ -82,6 +82,15 @@ namespace GraphWinForms
             lblState.Text = stateText;
         }
 
+        public void PrintDataStructuresKruskal(Edge<VisVertex>[] list, Edge<VisVertex> currentEdge, int size = 20)
+        {
+            bitmap = new Bitmap(dataStructuresArea.Width, dataStructuresArea.Height);
+            graphics = Graphics.FromImage(bitmap);
+            graphics.Clear(areaBackColor);
+            PrintSortedEdgeList(list, currentEdge, new Point(3, 3), 20, 400);
+            dataStructuresArea.Image = bitmap;
+        }
+
         public void PrintDataStructuresPrim(AdjVertexSortedList[] lists, AdjVertexSortedList mstList, int inMSTSize = 12, int aslSize = 20)
         {
             int width = Max(GetMaxLenght() * aslSize + 200, dataStructuresArea.Width);
@@ -138,12 +147,12 @@ namespace GraphWinForms
             point = new Point(point.X + (int)nameSize + 1, point.Y);
             foreach(Edge<VisVertex> edge in list)
             {
-                PrintEdgeASL(edge, point, size);
+                PrintEdgeRectangle(edge, point, size);
                 point = new Point(point.X + size, point.Y);
             }
         }
 
-        private void PrintEdgeASL(Edge<VisVertex> edge, Point point, int size)
+        private void PrintEdgeRectangle(Edge<VisVertex> edge, Point point, int size)
         {
             var rect = new Rectangle(point.X, point.Y, size, size);
             vertexBrush.Color = verticiesHighlight[graph.Vertices[edge.V2Id]];
@@ -156,47 +165,30 @@ namespace GraphWinForms
             graphics.DrawString(edge.Weight.ToString(), smallFont, textBrush, point);
         }
 
-        //public static string[][] GetStringAdjLists(Graph<VisVertex> graph)
-        //{
-        //    var lists = GetAdjLists(graph);
-        //    string[][] strLists = new string[lists.Length][];
-        //    for (int i = 0; i < lists.Length; i++)
-        //    {
-        //        strLists[i] = new string[lists[i].Lenght];
-        //        int j = 0;
-        //        foreach (Edge<VisVertex> edge in lists[i])
-        //            strLists[i][j++] = edge.ToString();
-        //    }
-        //    return strLists;
-        //}
-
-        //protected void PrintVertex(Vertex<VisVertex> vertex)
-        //{
-        //    int x = vertex.Data.PositionX - 10;
-        //    int y = vertex.Data.PositionY - 10;
-        //    graphics.DrawEllipse(borderPen, new Rectangle(x, y, 20, 20));
-        //    graphics.FillEllipse(vertexBrush, new Rectangle(x, y, 20, 20));
-        //    graphics.DrawString(vertex.Data.Name, mainFont, textBrush, x + 5, y + 2);
-        //}
-
-        //protected void PrintEdge(Edge<VisVertex> edge)
-        //{
-        //    Point p1 = edge.Data1.GetPoint;
-        //    Point p2 = edge.Data2.GetPoint;
-        //    graphics.DrawLine(edgePen, p1, p2);
-        //}
-
-        //protected void Printweight(Edge<VisVertex> edge)
-        //{
-        //    Point p1 = edge.Data1.GetPoint;
-        //    Point p2 = edge.Data2.GetPoint;
-        //    Point midle = GetMidle(p1, p2);
-        //    var rect = new Rectangle(midle.X - 10, midle.Y - 10, 12, 12);
-        //    graphics.DrawRectangle(borderPen, rect);
-        //    graphics.FillRectangle(weightBrush, rect);
-        //    graphics.DrawString(edge.Weight.ToString(), smallFont,
-        //            textBrush, midle.X - 10, midle.Y - 10);
-        //}
-
+        private void PrintSortedEdgeList(Edge<VisVertex>[] list, Edge<VisVertex>  currentEdge, 
+            Point point, int size, int rightBorder)
+        {
+            Point leftBorder = point;
+            float nameSize = graphics.MeasureString("Сортированные ребра", smallFont). Height;
+            graphics.DrawString("Сортированные ребра", smallFont, textBrush, point);
+            leftBorder.Offset(0, (int)nameSize + 3);
+            point = leftBorder;
+            foreach (var edge in list)
+            {
+                PrintEdgeRectangle(edge, point, size);
+                if(edge == currentEdge)
+                {
+                    var rect = new Rectangle(point.X, point.Y, size-2, size);
+                    Pen pen = new Pen(Color.Red, 3);
+                    graphics.DrawRectangle(pen, rect);
+                }
+                if (point.X + size * 2 > rightBorder)
+                {
+                    leftBorder.Offset(0, size + 3);
+                    point = leftBorder;
+                }
+                else point.Offset(size, 0);
+            }
+        }
     }
 }
