@@ -34,6 +34,7 @@ namespace GraphWinForms
             if (!graph.IsConnected)
             {
                 visualisator.Print("Остовное дерево не может быть построено. Граф не связен!");
+                visualisator.ApEndLog("Остовное дерево не может быть построено. Граф не связен!");
                 return;
             }
             form.BlockTabControl();
@@ -81,6 +82,7 @@ namespace GraphWinForms
             if (!graph.IsConnected)
             {
                 visualisator.Print("Остовное дерево не может быть построено. Граф не связен!");
+                visualisator.ApEndLog("Остовное дерево не может быть построено. Граф не связен!");
                 return;
             }
             int order = graph.Order;
@@ -88,6 +90,9 @@ namespace GraphWinForms
 
             SetVerticesDifferentColors();
             visualisator.Print("Маркировка вершин");
+            visualisator.ApEndLog(
+                "МОД сотоит из отдельных вершин - компонент связности, маркированных различными цветами" +
+                "\nПоследовательно простомтрим ребра, отсортированные по неубыванию веса.");
             await Task.Delay(SleepInterval);
 
             Edge<VisVertex>[] sortedEdges = GetSortedEdges(graph.EdgesClone);
@@ -96,16 +101,26 @@ namespace GraphWinForms
             foreach (Edge<VisVertex> edge in sortedEdges)
             {
                 if (mst.EdgesCount == order - 1) break;//Если МОД построен выходим из цикла
-                if (dsu.InTheSameSet(edge.V1Id, edge.V2Id)) continue;//Если вершины ребра в одной компоненте пропускаем ребро
+                if (dsu.InTheSameSet(edge.V1Id, edge.V2Id))
+                {
+                    visualisator.ApEndLog($"Ребро {edge} соединяет вершины из одной компоненты - пропускаем.");
+                    continue;//Если вершины ребра в одной компоненте пропускаем ребро
+                }
                 mst.AddEdge(edge);//Добавляем ребро мнимального веса в МОД 
                 dsu.UnionSets(edge.V1Id, edge.V2Id);//Объединяем связанные компоненты
 
                 RefreshColors(dsu,mst);
                 visualisator.Print($"Добавление ребра минимального веса. Всего ребер {mst.EdgesCount}. Общий вес {mst.TotalWeight}.");
+                visualisator.ApEndLog($"Ребро {edge} соединяет вершины из разных компонент - добавляем в МОД. " +
+                    $"Объединяем связанные ребром компоненты.");
                 await Task.Delay(SleepInterval);
             }
             if (mst.EdgesCount != order - 1) throw new Exception("Ошибка МОД не найдено");
-            else visualisator.Print($"Минимальное остовное дерево построено. Общий вес {mst.TotalWeight}.");
+            else
+            {
+                visualisator.Print($"Минимальное остовное дерево построено. Общий вес {mst.TotalWeight}.");
+                visualisator.ApEndLog($"Минимальное остовное дерево построено. Общий вес {mst.TotalWeight}.");
+            }
             form.UnBlockTabControl();
         }
 
