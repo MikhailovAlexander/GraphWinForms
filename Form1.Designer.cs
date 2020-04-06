@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GraphArea = new System.Windows.Forms.PictureBox();
             this.btnGenerateGraph = new System.Windows.Forms.Button();
             this.tBarProbability = new System.Windows.Forms.TrackBar();
@@ -76,6 +76,9 @@
             this.pnlGraphEditor = new System.Windows.Forms.Panel();
             this.pnlAlgorithmsControls = new System.Windows.Forms.Panel();
             this.pbDataStructures = new System.Windows.Forms.PictureBox();
+            this.gbDescrSwitch = new System.Windows.Forms.GroupBox();
+            this.rbLog = new System.Windows.Forms.RadioButton();
+            this.rbDataStructures = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.GraphArea)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBarProbability)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBarOrder)).BeginInit();
@@ -100,6 +103,7 @@
             this.pnlGraphEditor.SuspendLayout();
             this.pnlAlgorithmsControls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbDataStructures)).BeginInit();
+            this.gbDescrSwitch.SuspendLayout();
             this.SuspendLayout();
             // 
             // GraphArea
@@ -311,9 +315,9 @@
             this.dgvAdjMatrix.ReadOnly = true;
             this.dgvAdjMatrix.RowHeadersVisible = false;
             this.dgvAdjMatrix.RowHeadersWidth = 20;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dgvAdjMatrix.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dgvAdjMatrix.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvAdjMatrix.RowTemplate.Height = 24;
             this.dgvAdjMatrix.Size = new System.Drawing.Size(562, 364);
             this.dgvAdjMatrix.TabIndex = 2;
@@ -460,6 +464,7 @@
             // 
             // tabPageAlgVis
             // 
+            this.tabPageAlgVis.Controls.Add(this.gbDescrSwitch);
             this.tabPageAlgVis.Controls.Add(this.pnlAlgorithmsControls);
             this.tabPageAlgVis.Controls.Add(this.pnlLog);
             this.tabPageAlgVis.Location = new System.Drawing.Point(4, 25);
@@ -472,13 +477,15 @@
             // 
             // pnlLog
             // 
+            this.pnlLog.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.pnlLog.AutoScroll = true;
             this.pnlLog.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlLog.Controls.Add(this.pbDataStructures);
             this.pnlLog.Controls.Add(this.lblLog);
-            this.pnlLog.Location = new System.Drawing.Point(6, 321);
+            this.pnlLog.Controls.Add(this.pbDataStructures);
+            this.pnlLog.Location = new System.Drawing.Point(6, 327);
             this.pnlLog.Name = "pnlLog";
-            this.pnlLog.Size = new System.Drawing.Size(567, 502);
+            this.pnlLog.Size = new System.Drawing.Size(567, 496);
             this.pnlLog.TabIndex = 12;
             // 
             // lblLog
@@ -637,11 +644,48 @@
             // 
             // pbDataStructures
             // 
-            this.pbDataStructures.Location = new System.Drawing.Point(3, 23);
+            this.pbDataStructures.Location = new System.Drawing.Point(3, 3);
             this.pbDataStructures.Name = "pbDataStructures";
-            this.pbDataStructures.Size = new System.Drawing.Size(554, 474);
+            this.pbDataStructures.Size = new System.Drawing.Size(559, 488);
+            this.pbDataStructures.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pbDataStructures.TabIndex = 1;
             this.pbDataStructures.TabStop = false;
+            this.pbDataStructures.Visible = false;
+            // 
+            // gbDescrSwitch
+            // 
+            this.gbDescrSwitch.Controls.Add(this.rbDataStructures);
+            this.gbDescrSwitch.Controls.Add(this.rbLog);
+            this.gbDescrSwitch.Location = new System.Drawing.Point(8, 277);
+            this.gbDescrSwitch.Name = "gbDescrSwitch";
+            this.gbDescrSwitch.Size = new System.Drawing.Size(304, 44);
+            this.gbDescrSwitch.TabIndex = 14;
+            this.gbDescrSwitch.TabStop = false;
+            this.gbDescrSwitch.Text = "Подробности";
+            // 
+            // rbLog
+            // 
+            this.rbLog.AutoSize = true;
+            this.rbLog.Checked = true;
+            this.rbLog.Location = new System.Drawing.Point(5, 17);
+            this.rbLog.Name = "rbLog";
+            this.rbLog.Size = new System.Drawing.Size(139, 21);
+            this.rbLog.TabIndex = 0;
+            this.rbLog.TabStop = true;
+            this.rbLog.Text = "Ход выполнения";
+            this.rbLog.UseVisualStyleBackColor = true;
+            this.rbLog.CheckedChanged += new System.EventHandler(this.rbLog_CheckedChanged);
+            // 
+            // rbDataStructures
+            // 
+            this.rbDataStructures.AutoSize = true;
+            this.rbDataStructures.Location = new System.Drawing.Point(150, 17);
+            this.rbDataStructures.Name = "rbDataStructures";
+            this.rbDataStructures.Size = new System.Drawing.Size(151, 21);
+            this.rbDataStructures.TabIndex = 1;
+            this.rbDataStructures.Text = "Структуры данных";
+            this.rbDataStructures.UseVisualStyleBackColor = true;
+            this.rbDataStructures.CheckedChanged += new System.EventHandler(this.rbDataStructures_CheckedChanged);
             // 
             // Form1
             // 
@@ -685,6 +729,8 @@
             this.pnlGraphEditor.ResumeLayout(false);
             this.pnlAlgorithmsControls.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbDataStructures)).EndInit();
+            this.gbDescrSwitch.ResumeLayout(false);
+            this.gbDescrSwitch.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -737,6 +783,9 @@
         private System.Windows.Forms.Panel pnlGraphEditor;
         private System.Windows.Forms.Panel pnlAlgorithmsControls;
         private System.Windows.Forms.PictureBox pbDataStructures;
+        private System.Windows.Forms.GroupBox gbDescrSwitch;
+        private System.Windows.Forms.RadioButton rbDataStructures;
+        private System.Windows.Forms.RadioButton rbLog;
     }
 }
 

@@ -325,8 +325,30 @@ namespace GraphWinForms
 
         private void lblLog_SizeChanged(object sender, EventArgs e)
         {
-            if (lblLog.Height > pnlLog.Height)
-                pnlLog.VerticalScroll.Value = pnlLog.VerticalScroll.Value + lblLog.Height - pnlLog.Height;
+            if (lblLog.Height > pnlLog.Height && rbLog.Checked)
+            {
+                int value = Min(pnlLog.VerticalScroll.Value + lblLog.Height - pnlLog.Height, 
+                    pnlLog.VerticalScroll.Maximum);
+                pnlLog.VerticalScroll.Value = value;
+            }
+        }
+
+        private void rbLog_CheckedChanged(object sender, EventArgs e)
+        {
+            lblLog.Visible = true;
+            pbDataStructures.Visible = false;
+        }
+
+        private void rbDataStructures_CheckedChanged(object sender, EventArgs e)
+        {
+            lblLog.Visible = false;
+            pbDataStructures.Visible = true;
+        }
+
+        int Min(int a, int b)
+        {
+            if (a < b) return a;
+            return b;
         }
     }
 }
