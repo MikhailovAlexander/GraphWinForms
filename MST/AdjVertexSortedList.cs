@@ -14,7 +14,7 @@ namespace GraphWinForms
         public Edge<VisVertex> MaxWeightEdge => MaxWeightNode.Edge;
         public Edge<VisVertex> MinWeightEdge => MinWeightNode.Edge;
         public AdjacencyVertexNode Head => head;
-        public int Lenght => GetLenght();
+        public int Length => GetLenght();
 
         public AdjVertexSortedList()
         {
@@ -159,7 +159,7 @@ namespace GraphWinForms
             string[][] strLists = new string[lists.Length][];
             for (int i = 0; i < lists.Length; i++)
             {
-                strLists[i] = new string[lists[i].Lenght];
+                strLists[i] = new string[lists[i].Length];
                 int j = 0;
                 foreach (Edge<VisVertex> edge in lists[i])
                     strLists[i][j++] = edge.ToString();

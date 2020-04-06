@@ -75,6 +75,7 @@
             this.lblSpeedTop = new System.Windows.Forms.Label();
             this.pnlGraphEditor = new System.Windows.Forms.Panel();
             this.pnlAlgorithmsControls = new System.Windows.Forms.Panel();
+            this.pbDataStructures = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.GraphArea)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBarProbability)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBarOrder)).BeginInit();
@@ -98,6 +99,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbSpeedVis)).BeginInit();
             this.pnlGraphEditor.SuspendLayout();
             this.pnlAlgorithmsControls.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDataStructures)).BeginInit();
             this.SuspendLayout();
             // 
             // GraphArea
@@ -472,10 +474,11 @@
             // 
             this.pnlLog.AutoScroll = true;
             this.pnlLog.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlLog.Controls.Add(this.pbDataStructures);
             this.pnlLog.Controls.Add(this.lblLog);
             this.pnlLog.Location = new System.Drawing.Point(6, 321);
             this.pnlLog.Name = "pnlLog";
-            this.pnlLog.Size = new System.Drawing.Size(558, 502);
+            this.pnlLog.Size = new System.Drawing.Size(567, 502);
             this.pnlLog.TabIndex = 12;
             // 
             // lblLog
@@ -632,6 +635,14 @@
             this.pnlAlgorithmsControls.Size = new System.Drawing.Size(570, 273);
             this.pnlAlgorithmsControls.TabIndex = 13;
             // 
+            // pbDataStructures
+            // 
+            this.pbDataStructures.Location = new System.Drawing.Point(3, 23);
+            this.pbDataStructures.Name = "pbDataStructures";
+            this.pbDataStructures.Size = new System.Drawing.Size(554, 474);
+            this.pbDataStructures.TabIndex = 1;
+            this.pbDataStructures.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -673,6 +684,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbSpeedVis)).EndInit();
             this.pnlGraphEditor.ResumeLayout(false);
             this.pnlAlgorithmsControls.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbDataStructures)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -724,6 +736,7 @@
         private System.Windows.Forms.Panel pnlLog;
         private System.Windows.Forms.Panel pnlGraphEditor;
         private System.Windows.Forms.Panel pnlAlgorithmsControls;
+        private System.Windows.Forms.PictureBox pbDataStructures;
     }
 }
 

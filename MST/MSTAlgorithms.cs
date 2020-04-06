@@ -19,10 +19,10 @@ namespace GraphWinForms
         private Form1 form;
         public int SleepInterval {get;set;}
 
-        public MSTAlgorithms(GraphPrinter printer, Graph<VisVertex> graph, Label lblLog, Form1 form)
+        public MSTAlgorithms(GraphPrinter printer, Graph<VisVertex> graph, Label lblLog, PictureBox dataStructuresArea, Form1 form)
         {
             this.graph = graph;
-            visualisator = new AlgorithmsVisualisator(printer, graph, lblLog);
+            visualisator = new AlgorithmsVisualisator(printer, graph, lblLog, dataStructuresArea);
             SleepInterval = 1000;
             rnd = new Random();
             colors = GetColorsArray(graph.Order);
@@ -58,21 +58,21 @@ namespace GraphWinForms
                 edgesMST.Add(edge2Add); ;//Добавляем ребро мнимального веса в МОД 
                 inMST[edge2Add.V2Id] = true;//Отмечаем присоединенную вершину, как включенную в МОД 
                 mstWeight += edge2Add.Weight;
-
+                adjVertexSortListMST = adjVertexSortListMST.Union(adjVertexSortLists[edge2Add.V2Id], inMST);//Объединяем списки смежности МОД и последней добавленной вершины (при этом ребра внутри МОД удаляются)
 
                 visualisator.ApEndLog($"Шаг {i + 1}. Выбираем ребро минимального веса, соединяющее вершину внутри и вне МОД -  {edge2Add}");
                 visualisator.SetEdgeColor(edge2Add, mstColor);
                 visualisator.SetVertexColor(edge2Add.V2Id, mstColor);
                 visualisator.Print($"Добавление к МОД смежного ребра минимального веса. Всего ребер {edgesMST.Count}. Общий вес {mstWeight}.");
+                visualisator.PrintDataStructuresPrim(adjVertexSortLists, adjVertexSortListMST);
                 await Task.Delay(SleepInterval);
-
-                adjVertexSortListMST = adjVertexSortListMST.Union(adjVertexSortLists[edge2Add.V2Id], inMST);//Объединяем списки смежности МОД и последней добавленной вершины (при этом ребра внутри МОД удаляются)
             }
             if (edgesMST.Count != graph.Order - 1) throw new Exception("Ошибка МОД не найдено");
             else
             {
                 visualisator.Print($"Минимальное остовное дерево построено. Общий вес {mstWeight}.");
                 visualisator.ApEndLog($"Минимальное остовное дерево построено. Общий вес {mstWeight}.");
+                visualisator.PrintDataStructuresPrim(adjVertexSortLists, adjVertexSortListMST);
             }
             form.UnBlockTabControl();
         }
