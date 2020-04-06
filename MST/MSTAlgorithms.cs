@@ -85,9 +85,8 @@ namespace GraphWinForms
                 visualisator.ApEndLog("Остовное дерево не может быть построено. Граф не связен!");
                 return;
             }
-            int order = graph.Order;
             form.BlockTabControl();
-
+            int order = graph.Order;
             SetVerticesDifferentColors();
             visualisator.Print("Маркировка вершин");
             visualisator.ApEndLog(
@@ -129,6 +128,7 @@ namespace GraphWinForms
             if (!graph.IsConnected)
             {
                 visualisator.Print("Остовное дерево не может быть построено. Граф не связен!");
+                visualisator.ApEndLog("Остовное дерево не может быть построено. Граф не связен!");
                 return;
             }
             form.BlockTabControl();
@@ -140,22 +140,34 @@ namespace GraphWinForms
             int currentIndex = 0;//Индекс для помещения объединенного списка смежности в начало массива
             bool HasEdge2Add = true;//Переменная для выхода из цикла при отсутствии ребер для добавления в МОД
 
+            int stepCounter = 1;
+            int componentCounter = order;
             SetVerticesDifferentColors();
             visualisator.Print("Маркировка вершин");
+            visualisator.ApEndLog(
+                 "МОД сотоит из отдельных вершин - компонент связности, маркированных различными цветами" +
+                 "\nДля каждой компоненты найдем наименьшее по весу ребро, соединяющее ее с другой компонентой.");
             await Task.Delay(SleepInterval);
 
             while (mst.EdgesCount < order - 1 && HasEdge2Add)
             {
+                visualisator.ApEndLog($"Шаг {stepCounter++}. Количество компонент связности {componentCounter}.");
+                componentCounter = 0;
                 isUsed = new bool[order];//Для каждой итерации отмечаем все компоненты, как неиспользованные
                 HasEdge2Add = false;//Обновляем флаг для проверки наличия ребер
                 currentIndex = 0;//Обновляем индекс для помещения объединенных списков в начало массива
                 for (int i = 0; i < order && asl[i] != null; i++)//Для каждой компоненты связности
                 {
-                    if (asl[i].IsEmpty || isUsed[i]) continue;
+                    if (asl[i].IsEmpty || isUsed[i])
+                    {
+                        visualisator.ApEndLog($"    Компонента №{++componentCounter} уже использована.");
+                        continue;
+                    }
                     int listAddress2 = dsu.GetIndex(asl[i].MinWeightEdge.V2Id);
                     HasEdge2Add = true;
                     isUsed[i] = true;//Отмечаем компонету, как использованную
                     Edge<VisVertex> edge2Add = asl[i].ExtractMinWeightEdge();//Извлекаем минимальное ребро текущей компоненты
+                    visualisator.ApEndLog($"    Для компоненты №{++componentCounter} добавляем в МОД ребро {edge2Add}. Объединяем компоненты");
                     mst.AddEdge(edge2Add);//Добавляем извлеченное ребро в МОД                     
                     if (isUsed[listAddress2])//Если компонента с которой планируется объединение уже была объединена на этой итерации
                     {
@@ -169,12 +181,17 @@ namespace GraphWinForms
                 }
                 if (currentIndex < order) asl[currentIndex] = null;//После последнего объединенного списка вставляем null,
                                                                    //чтобы на следующей итерации не проходить дальше
+                componentCounter = currentIndex + 1;
                 RefreshColors(dsu, mst);
                 visualisator.Print($"Объединение компонент связности. Всего ребер {mst.EdgesCount}. Общий вес {mst.TotalWeight}.");
                 await Task.Delay(SleepInterval);
             }
             if (mst.EdgesCount < order - 1) throw new Exception("Ошибка МОД не найдено");
-            else visualisator.Print($"Минимальное остовное дерево построено. Общий вес {mst.TotalWeight}.");
+            else
+            {
+                visualisator.Print($"Минимальное остовное дерево построено. Общий вес {mst.TotalWeight}.");
+                visualisator.ApEndLog($"Минимальное остовное дерево построено. Общий вес {mst.TotalWeight}.");
+            }
             form.UnBlockTabControl();
         }
 
