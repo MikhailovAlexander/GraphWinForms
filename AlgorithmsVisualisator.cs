@@ -8,6 +8,98 @@ using System.Windows.Forms;
 
 namespace GraphWinForms
 {
+    public class TreePointsDSU
+    {
+        private int id;
+        private int root;
+        private List<TreePointsDSU> branches;
+        public int Id => id;
+        public int Root => root;
+        public bool IsLeaf => branches.Count == 0;
+        public Point Point { get; set; }
+        public bool IsEmpty => Point == Point.Empty;
+        public int Levels => LevelCounter(0);
+        public int BranchesCount => branches.Count;
+        public IReadOnlyCollection<TreePointsDSU> BranchesReadOnly => branches;
+
+        public TreePointsDSU(int id, int root)
+        {
+            this.id = id;
+            this.root = root;
+            branches = new List<TreePointsDSU>();
+            Point = Point.Empty;
+        }
+
+        public static List<TreePointsDSU> GetTrees(IValiableDSU dsu, Point firstPoint, int size, int interval)
+        {
+            firstPoint.Offset(size / 2, size / 2);
+            List<TreePointsDSU> trees = new List<TreePointsDSU>();
+            TreePointsDSU currentTree;
+            for (int i = 0; i < dsu.GetCount(); i++)
+            {
+                if (dsu.GetValue(i) == i)
+                {
+                    currentTree = new TreePointsDSU(i, i);
+                    trees.Add(currentTree);
+                    FindAllBranches(currentTree);
+                }
+            }
+            ListSetPoints(trees, firstPoint, size, interval);
+            return trees;
+            void FindAllBranches(TreePointsDSU tree)
+            {
+                TreePointsDSU addedTree;
+                for (int i = 0; i < dsu.GetCount(); i++)
+                {
+                    if(dsu.GetValue(i) == tree.id && i != tree.id)
+                    {
+                        addedTree = new TreePointsDSU(i, tree.root);
+                        tree.branches.Add(addedTree);
+                        FindAllBranches(addedTree);
+                    }
+                }
+            }
+        }
+
+        private static void ListSetPoints(List<TreePointsDSU> list, Point firstPoint, int size, int interval)
+        {
+            int X = firstPoint.X;
+            foreach (var tree in list)
+                X = tree.SetPoints(X, firstPoint.Y, size, interval);
+        }
+
+        public int SetPoints(int X, int Y, int size, int interval)
+        {
+            int leftBound = X;
+            if (this.IsLeaf)
+            {
+                Point = new Point(X, Y);
+                return X + size + interval;
+            }
+            foreach(var branch in this.branches)
+            {
+                X = branch.SetPoints(X, Y + size + interval, size, interval);
+            }
+            this.Point = new Point((leftBound + X)/2,Y);
+            return X;
+        }
+
+        private int LevelCounter(int level)
+        {
+            if (this.IsLeaf) return level++;
+            int levelCnt = level + 1; 
+            foreach (var tree in this.branches)
+                levelCnt = Max(levelCnt, tree.LevelCounter(level + 1));
+            return levelCnt;
+        }
+
+        int Max(int a, int b)
+        {
+            if (a > b) return a;
+            return b;
+        }
+    }
+
     public class AlgorithmsVisualisator: GraphPrinter
     {
         private Graph<VisVertex> graph;
@@ -82,12 +174,17 @@ namespace GraphWinForms
             lblState.Text = stateText;
         }
 
-        public void PrintDataStructuresKruskal(Edge<VisVertex>[] list, Edge<VisVertex> currentEdge, int size = 20)
+        public void PrintDataStructuresKruskal(Edge<VisVertex>[] list, Edge<VisVertex> currentEdge, IValiableDSU dsu, Color[] colors, int size = 20)
         {
             bitmap = new Bitmap(dataStructuresArea.Width, dataStructuresArea.Height);
             graphics = Graphics.FromImage(bitmap);
             graphics.Clear(areaBackColor);
-            PrintSortedEdgeList(list, currentEdge, new Point(3, 3), 20, 400);
+            Point leftBorder = PrintSortedEdgeList(list, currentEdge, new Point(3, 3), 20, 400);
+            float nameSize = graphics.MeasureString("DSU", smallFont).Height;
+            graphics.DrawString("DSU", smallFont, textBrush, leftBorder);
+            leftBorder.Offset(0, (int)nameSize + 3);
+            List<TreePointsDSU> dsuTrees = TreePointsDSU.GetTrees(dsu, leftBorder, size, 3);
+            PrintDSU(dsuTrees, size, colors);
             dataStructuresArea.Image = bitmap;
         }
 
@@ -165,7 +262,7 @@ namespace GraphWinForms
             graphics.DrawString(edge.Weight.ToString(), smallFont, textBrush, point);
         }
 
-        private void PrintSortedEdgeList(Edge<VisVertex>[] list, Edge<VisVertex>  currentEdge, 
+        private Point PrintSortedEdgeList(Edge<VisVertex>[] list, Edge<VisVertex>  currentEdge, 
             Point point, int size, int rightBorder)
         {
             Point leftBorder = point;
@@ -188,6 +285,24 @@ namespace GraphWinForms
                     point = leftBorder;
                 }
                 else point.Offset(size, 0);
+            }
+            leftBorder.Offset(0, size + 3);
+            return leftBorder;
+        }
+
+        private void PrintDSU(List<TreePointsDSU> trees, int size, Color[] colors)
+        {
+            foreach (var tree in trees) PrintTreeDSU(tree);
+            void PrintTreeDSU(TreePointsDSU tree)
+            {
+                int x = tree.Point.X - size/2;
+                int y = tree.Point.Y - size/2;
+                vertexBrush.Color = colors[tree.Root];
+                graphics.DrawEllipse(borderPen, new Rectangle(x, y, size, size));
+                graphics.FillEllipse(vertexBrush, new Rectangle(x, y, size, size));
+                graphics.DrawString(tree.Id.ToString(), smallFont, textBrush, x + 5, y + 2);
+                if (tree.IsLeaf) return;
+                foreach (var branch in tree.BranchesReadOnly) PrintTreeDSU(branch);
             }
         }
     }

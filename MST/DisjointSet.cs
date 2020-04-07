@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GraphWinForms
 {
-    public class DisjointSet: IDisjointSetDataStructure
+    public class DisjointSet: IDisjointSetDataStructure, IValiableDSU
     {
         protected int[] parent;
         protected int[] rank;
@@ -22,6 +22,18 @@ namespace GraphWinForms
         public DisjointSet(int count)
         {
             MakeSet(count);
+        }
+
+        public int GetCount()
+        {
+            return Count;
+        }
+
+        public int GetValue(int index)
+        {
+            if (index < 0 || index >= Count)
+                throw new ArgumentOutOfRangeException("Заправшиваемый идекс вне диапазона множества");
+            return parent[index];
         }
 
         public bool InTheSameSet(int elementA, int elementB)

@@ -96,7 +96,7 @@ namespace GraphWinForms
             visualisator.ApEndLog(
                 "МОД сотоит из отдельных вершин - компонент связности, маркированных различными цветами" +
                 "\nПоследовательно простомтрим ребра, отсортированные по неубыванию веса.");
-            visualisator.PrintDataStructuresKruskal(sortedEdges, sortedEdges[0]);
+            visualisator.PrintDataStructuresKruskal(sortedEdges, sortedEdges[0], dsu, colors);
             await Task.Delay(SleepInterval);
 
             foreach (Edge<VisVertex> edge in sortedEdges)
@@ -104,7 +104,7 @@ namespace GraphWinForms
                 if (mst.EdgesCount == order - 1) break;//Если МОД построен выходим из цикла
                 if (dsu.InTheSameSet(edge.V1Id, edge.V2Id))
                 {
-                    visualisator.ApEndLog($"Ребро {edge} соединяет вершины из одной компоненты - пропускаем."); visualisator.PrintDataStructuresKruskal(sortedEdges, edge);
+                    visualisator.ApEndLog($"Ребро {edge} соединяет вершины из одной компоненты - пропускаем."); visualisator.PrintDataStructuresKruskal(sortedEdges, edge, dsu, colors);
                     await Task.Delay(SleepInterval);
                     continue;//Если вершины ребра в одной компоненте пропускаем ребро
                 }
@@ -115,7 +115,7 @@ namespace GraphWinForms
                 visualisator.Print($"Добавление ребра минимального веса. Всего ребер {mst.EdgesCount}. Общий вес {mst.TotalWeight}.");
                 visualisator.ApEndLog($"Ребро {edge} соединяет вершины из разных компонент - добавляем в МОД. " +
                     $"Объединяем связанные ребром компоненты.");
-                visualisator.PrintDataStructuresKruskal(sortedEdges, edge);
+                visualisator.PrintDataStructuresKruskal(sortedEdges, edge, dsu, colors);
                 await Task.Delay(SleepInterval);
             }
             if (mst.EdgesCount != order - 1) throw new Exception("Ошибка МОД не найдено");

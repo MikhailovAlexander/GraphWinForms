@@ -55,6 +55,7 @@
     </Compile>
     <Compile Include="Geometry.cs" />
     <Compile Include="GraphGenerator.cs" />
+    <Compile Include="IValiableDSU.cs" />
     <Compile Include="MST\AdjacencyVertexNode.cs" />
     <Compile Include="MST\AdjListEnumerator.cs" />
     <Compile Include="MST\AdjVertexSortedList.cs" />

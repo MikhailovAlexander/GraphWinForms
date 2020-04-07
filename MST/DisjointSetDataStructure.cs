@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GraphWinForms
 {
-    interface IDisjointSetDataStructure
+    public interface IDisjointSetDataStructure
     {
         void MakeSet(int count);
         int FindRoot(int elementNumber);
