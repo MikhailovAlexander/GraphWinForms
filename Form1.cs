@@ -28,6 +28,9 @@ namespace GraphWinForms
         {
             InitializeComponent();
             rnd = new Random();
+            tBarProbability.Value = 20;
+            tBarOrder.Value = 10;
+            tBarMaxWeight.Value = 10;
             randomGraph = new GraphGenerator();
             graph = randomGraph.GetGraphWeight(10, 200, 200, 25, 20, true, false);
             printer = new GraphPrinter(GraphArea, lblGraphState);
@@ -46,11 +49,13 @@ namespace GraphWinForms
             pnlGraphEditor.Enabled = true;
             pnlAlgorithmsControls.Enabled = true;
         }
+
         #region GraphGenerator
         private void btnGenerateGraph_Click(object sender, EventArgs e)
         {
-            graph = randomGraph.GetGraphWeight(tBarOrder.Value, GraphArea.Width, GraphArea.Height - pnlGraphState.Height, 
-                tBarProbability.Value, tBarMaxWeight.Value, chBoxWithoutLoop.Checked, chBoxDiffWheight.Checked);
+            graph = randomGraph.GetGraphWeight(tBarOrder.Value, GraphArea.Width, 
+                GraphArea.Height - pnlGraphState.Height, tBarProbability.Value, tBarMaxWeight.Value,
+                chBoxWithoutLoop.Checked, chBoxDiffWheight.Checked);
             printer.Print(graph);
             ShowMatrixOrLists();
         }
@@ -70,7 +75,28 @@ namespace GraphWinForms
             lblMaxWeight.Text = $"Максимальный вес ребра: {tBarMaxWeight.Value}";
         }
         #endregion GraphGenerator
+
         #region GraphEditor
+        private void btnSetWeigthAsDiastance_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < graph.EdgesCount; i++)
+                graph.Edges[i].Weight = (int)Geometry.GetDistanse(
+                    graph.Edges[i].Data1.GetPoint, graph.Edges[i].Data2.GetPoint) / 10;
+            printer.Print(graph);
+            ShowMatrixOrLists();
+        }
+
+        private void btnShowMST_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                graph = MSTAlgorithms.GetMST_KrusculDSU(graph);
+                printer.Print(graph);
+                ShowMatrixOrLists();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
         private void GraphArea_MouseMove(object sender, MouseEventArgs e)
         {
             if (currentVertex == null || e.Button != MouseButtons.Left || !tcPages.Enabled) return;
@@ -116,7 +142,8 @@ namespace GraphWinForms
             else if(rbVertexAdd.Checked)
             {
                 index = graph.Order;
-                graph.AddVertex(new Vertex<VisVertex>(index,new VisVertex(index.ToString(), e.Location)));
+                graph.AddVertex(
+                    new Vertex<VisVertex>(index,new VisVertex(index.ToString(), e.Location)));
                 printer.Print(graph);
                 ShowMatrixOrLists();
             }
@@ -190,13 +217,15 @@ namespace GraphWinForms
         {
             int index = GetIndexVertex(point2Check);
             foreach (var edge in graph.Edges)
-                if (index != -1 && edge.IsIncident(index) && edge.IsLoop) return edge;//Если попави в вершину -ищем петлю
-                else if (index == -1
-                        && GetDistanseToLine(edge.Data1.GetPoint, edge.Data2.GetPoint, point2Check) < 3)
+                if (index != -1 && edge.IsIncident(index) && edge.IsLoop)
+                    return edge;//Если попави в вершину -ищем петлю
+                else if (index == -1 && GetDistanseToLine(
+                    edge.Data1.GetPoint, edge.Data2.GetPoint, point2Check) < 3)
                     return edge;
             return null;
         }
         #endregion GraphEditor
+
         #region AdjMatrixAndLists
         private void ShowMatrixOrLists()
         {
@@ -209,6 +238,7 @@ namespace GraphWinForms
             int[,] matrix = graph.GetAdjWeightMatrix();
             dgvAdjMatrix.Columns.Clear();
             dgvAdjMatrix.Rows.Clear();
+            dgvAdjMatrix.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
             dgvAdjMatrix.Columns.Add("RowHeader", "");
             foreach (var vertex in graph.Vertices)
             {
@@ -223,6 +253,8 @@ namespace GraphWinForms
                         dgvAdjMatrix.Rows[i].Cells[j].Value = matrix[i, j-1].ToString();
                 }
             }
+            for (int i = 0; i < dgvAdjMatrix.Columns.Count; i++)
+                dgvAdjMatrix.Columns[i].Width = 20;
         }
 
         private void ShowAdjLists()
@@ -231,6 +263,7 @@ namespace GraphWinForms
             int maxLenght = GetMaxLenght();
             dgvAdjMatrix.Columns.Clear();
             dgvAdjMatrix.Rows.Clear();
+            dgvAdjMatrix.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             if (maxLenght == 0) return;
             for (int i = 0; i <= maxLenght; i++)
             {
@@ -275,26 +308,7 @@ namespace GraphWinForms
         }
         #endregion AdjMatrixAndLists
 
-        private void btnSetWeigthAsDiastance_Click(object sender, EventArgs e)
-        {
-            for (int i = 0; i < graph.EdgesCount; i++)
-                graph.Edges[i].Weight = (int)Geometry.GetDistanse(
-                    graph.Edges[i].Data1.GetPoint, graph.Edges[i].Data2.GetPoint)/10;
-            printer.Print(graph);
-            ShowMatrixOrLists();
-        }
-
-        private void btnShowMST_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                graph = MSTAlgorithms.GetMST_KrusculDSU(graph);
-                printer.Print(graph);
-                ShowMatrixOrLists();
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
-        }
-
+        #region Visualisator
         private void btnStartAlgorithm_Click(object sender, EventArgs e)
         {
             var algVis = new MSTAlgorithms(printer, graph, lblLog, pbDataStructures, this);
@@ -350,5 +364,6 @@ namespace GraphWinForms
             if (a < b) return a;
             return b;
         }
+        #endregion  Visualisator
     }
 }

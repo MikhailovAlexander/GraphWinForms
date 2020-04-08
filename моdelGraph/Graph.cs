@@ -116,7 +116,7 @@ namespace GraphWinForms
             foreach (var edge in edges)
             {
                 adjacencyMatrix[edge.V1Id, edge.V2Id] = true;
-                adjacencyMatrix[edge.V1Id, edge.V2Id] = true;
+                adjacencyMatrix[edge.V2Id, edge.V1Id] = true;
             }
             return adjacencyMatrix;
         }
@@ -131,7 +131,7 @@ namespace GraphWinForms
             foreach (var edge in edges)
             {
                 adjacencyMatrix[edge.V1Id, edge.V2Id] = edge.Weight;
-                adjacencyMatrix[edge.V1Id, edge.V2Id] = edge.Weight;
+                adjacencyMatrix[edge.V2Id, edge.V1Id] = edge.Weight;
             }
             return adjacencyMatrix;
         }

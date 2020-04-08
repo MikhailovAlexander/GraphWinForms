@@ -46,7 +46,8 @@ namespace GraphWinForms
             textBrush = new SolidBrush(Color.Black);
         }
 
-        public void Print(Graph<VisVertex> graph, Vertex<VisVertex> currentVertex = null, int x = 0, int y = 0)
+        public void Print(
+            Graph<VisVertex> graph, Vertex<VisVertex> currentVertex = null, int x = 0, int y = 0)
         {
             bitmap = new Bitmap(graphArea.Width, graphArea.Height);
             graphics = Graphics.FromImage(bitmap);

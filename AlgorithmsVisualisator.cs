@@ -27,7 +27,7 @@ namespace GraphWinForms
             verticiesHighlight = new Dictionary<Vertex<VisVertex>, Color>();
             foreach (var vertex in graph.Vertices) verticiesHighlight.Add(vertex, printer.VertexColor);
         }
-
+        #region Init
         public void SetEdgeColor(Edge<VisVertex> edge, Color color)
         {
             edgesHighlight[edge] = color;
@@ -43,10 +43,17 @@ namespace GraphWinForms
             var vertex = graph.Vertices[vertexID];
             if (verticiesHighlight.ContainsKey(vertex)) verticiesHighlight[vertex] = color;
         }
+        #endregion Init
 
+        #region Printer
         public void ApEndLog(string text)
         {
             lblLog.Text = lblLog.Text + "\n" + text;
+        }
+
+        public void PrintState(string stateText)
+        {
+            lblState.Text = stateText;
         }
 
         public void Print(string stateText)
@@ -77,12 +84,8 @@ namespace GraphWinForms
             lblState.Text = stateText;
         }
 
-        public void PrintState(string stateText)
-        {
-            lblState.Text = stateText;
-        }
-
-        public void PrintDataStructuresBoruvka(AdjVertexSortedList[] lists, IValiableDSU dsu, Color[] colors, int size = 20)
+        public void PrintDataStructuresBoruvka(
+            AdjVertexSortedList[] lists, IValiableDSU dsu, Color[] colors, int size = 20)
         {
             bitmap = new Bitmap(dataStructuresArea.Width, dataStructuresArea.Height);
             graphics = Graphics.FromImage(bitmap);
@@ -94,8 +97,10 @@ namespace GraphWinForms
             List<TreePointsDSU> dsuTrees = TreePointsDSU.GetTrees(dsu, leftBorder, size, 3);
             PrintDSU(dsuTrees, size, colors);
             leftBorder.Offset(0, TreePointsDSU.GetMaxLevel(dsuTrees)*(size + 3) + 3);
-            nameSize = graphics.MeasureString("Сортированные списки смежности компонент:", smallFont).Height;
-            graphics.DrawString("Сортированные списки смежности компонент:", smallFont, textBrush, leftBorder);
+            nameSize = graphics.MeasureString(
+                "Сортированные списки смежности компонент:", smallFont).Height;
+            graphics.DrawString(
+                "Сортированные списки смежности компонент:", smallFont, textBrush, leftBorder);
             leftBorder.Offset(0, (int)nameSize + 3);
             for (int i = 0; i < lists.Length; i++)
             {
@@ -107,7 +112,8 @@ namespace GraphWinForms
             dataStructuresArea.Image = bitmap;
         }
 
-        public void PrintDataStructuresKruskal(Edge<VisVertex>[] list, Edge<VisVertex> currentEdge, IValiableDSU dsu, Color[] colors, int size = 20)
+        public void PrintDataStructuresKruskal(Edge<VisVertex>[] list, Edge<VisVertex> currentEdge, 
+            IValiableDSU dsu, Color[] colors, int size = 20)
         {
             bitmap = new Bitmap(dataStructuresArea.Width, dataStructuresArea.Height);
             graphics = Graphics.FromImage(bitmap);
@@ -121,7 +127,8 @@ namespace GraphWinForms
             dataStructuresArea.Image = bitmap;
         }
 
-        public void PrintDataStructuresPrim(AdjVertexSortedList[] lists, AdjVertexSortedList mstList, int inMSTSize = 12, int aslSize = 20)
+        public void PrintDataStructuresPrim(AdjVertexSortedList[] lists, AdjVertexSortedList mstList, 
+            int inMSTSize = 12, int aslSize = 20)
         {
             int width = Max(GetMaxLenght() * aslSize + 200, dataStructuresArea.Width);
             int height = Max(lists.Length * aslSize + 100, dataStructuresArea.Height);
@@ -154,7 +161,9 @@ namespace GraphWinForms
                 return b;
             }
         }
+        #endregion Printer
 
+        #region PrintDataStructures
         private void PrintInMSTVertices(Point point, int size)
         {
             float nameSize = graphics.MeasureString("Вершины в МОД", smallFont).Width;
@@ -238,5 +247,6 @@ namespace GraphWinForms
                 foreach (var branch in tree.BranchesReadOnly) PrintTreeDSU(branch);
             }
         }
+        # endregion PrintDataStructures
     }
 }

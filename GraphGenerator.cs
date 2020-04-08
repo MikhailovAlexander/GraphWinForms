@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static GraphWinForms.Geometry;
 
 namespace GraphWinForms
 {
@@ -19,15 +20,16 @@ namespace GraphWinForms
             graph = new Graph<VisVertex>();
         }
 
-        public Graph<VisVertex> GetGraph(int order, int width, int height, int percentProbability, bool wihoutLoops)
+        public Graph<VisVertex> GetGraph(
+            int order, int width, int height, int percentProbability, bool wihoutLoops)
         {
             NewGraphWitnOrder(order, width, height);
             SetRandomEdges(percentProbability, wihoutLoops);
             return (Graph<VisVertex>)graph.Clone();
         }
 
-        public Graph<VisVertex> GetGraphWeight(
-            int order, int width, int height, int percentProbability, int maxWeight, bool wihoutLoops, bool diffWeight) 
+        public Graph<VisVertex> GetGraphWeight(int order, int width, int height, 
+            int percentProbability, int maxWeight, bool wihoutLoops, bool diffWeight) 
         {
             NewGraphWitnOrder(order, width, height);
             SetRandomWeightEdges(percentProbability, maxWeight, wihoutLoops, diffWeight);
@@ -71,7 +73,8 @@ namespace GraphWinForms
                 }
         }
 
-        private void SetRandomWeightEdges(int percentProbability, int maxWeight, bool withoutLoops, bool diffWeight)
+        private void SetRandomWeightEdges(
+            int percentProbability, int maxWeight, bool withoutLoops, bool diffWeight)
         {
             if (percentProbability < 0)
                 throw new Exception("Процент вероятности не может быть отрицательным");
@@ -89,16 +92,6 @@ namespace GraphWinForms
                         graph.AddEdge(graph.Vertices[i], graph.Vertices[j], weight);
                     }
                 }
-        }
-
-        private double GetDistanse(int x1, int y1, int x2, int y2)
-        {
-            return Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2));
-        }
-
-        private double GetDistanse(Point p1, Point p2)
-        {
-            return GetDistanse(p1.X, p1.Y, p2.X, p2.Y);
         }
     }
 }

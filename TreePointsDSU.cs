@@ -29,7 +29,8 @@ namespace GraphWinForms
             Point = Point.Empty;
         }
 
-        public static List<TreePointsDSU> GetTrees(IValiableDSU dsu, Point firstPoint, int size, int interval)
+        public static List<TreePointsDSU> GetTrees(
+            IValiableDSU dsu, Point firstPoint, int size, int interval)
         {
             firstPoint.Offset(size / 2, size / 2);
             List<TreePointsDSU> trees = new List<TreePointsDSU>();
@@ -68,7 +69,8 @@ namespace GraphWinForms
             return max;
         }
 
-        private static void ListSetPoints(List<TreePointsDSU> list, Point firstPoint, int size, int interval)
+        private static void ListSetPoints(
+            List<TreePointsDSU> list, Point firstPoint, int size, int interval)
         {
             int X = firstPoint.X;
             foreach (var tree in list)
