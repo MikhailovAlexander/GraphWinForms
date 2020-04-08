@@ -82,6 +82,31 @@ namespace GraphWinForms
             lblState.Text = stateText;
         }
 
+        public void PrintDataStructuresBoruvka(AdjVertexSortedList[] lists, IValiableDSU dsu, Color[] colors, int size = 20)
+        {
+            bitmap = new Bitmap(dataStructuresArea.Width, dataStructuresArea.Height);
+            graphics = Graphics.FromImage(bitmap);
+            graphics.Clear(areaBackColor);
+            Point leftBorder = new Point(3, 3);
+            float nameSize = graphics.MeasureString("DSU", smallFont).Height;
+            graphics.DrawString("DSU", smallFont, textBrush, leftBorder);
+            leftBorder.Offset(0, (int)nameSize + 3);
+            List<TreePointsDSU> dsuTrees = TreePointsDSU.GetTrees(dsu, leftBorder, size, 3);
+            PrintDSU(dsuTrees, size, colors);
+            leftBorder.Offset(0, TreePointsDSU.GetMaxLevel(dsuTrees)*(size + 3) + 3);
+            nameSize = graphics.MeasureString("Сортированные списки смежности компонент:", smallFont).Height;
+            graphics.DrawString("Сортированные списки смежности компонент:", smallFont, textBrush, leftBorder);
+            leftBorder.Offset(0, (int)nameSize + 3);
+            for (int i = 0; i < lists.Length; i++)
+            {
+                if (lists[i] == null) break;
+                if (lists[i].IsEmpty) continue;
+                PrintASL(lists[i], i.ToString(), leftBorder, size);
+                leftBorder.Offset(0, size + 3);
+            }
+            dataStructuresArea.Image = bitmap;
+        }
+
         public void PrintDataStructuresKruskal(Edge<VisVertex>[] list, Edge<VisVertex> currentEdge, IValiableDSU dsu, Color[] colors, int size = 20)
         {
             bitmap = new Bitmap(dataStructuresArea.Width, dataStructuresArea.Height);
@@ -106,7 +131,6 @@ namespace GraphWinForms
             Point point = new Point(3, 3);
             PrintInMSTVertices(point, inMSTSize);
             point.Offset(0, inMSTSize + 3);
-            dataStructuresArea.Image = bitmap;
             PrintASL(mstList, "МОД", point, aslSize);
             point.Offset(0, aslSize + 3);
             for (int i = 0; i < lists.Length; i++)
@@ -115,6 +139,8 @@ namespace GraphWinForms
                 PrintASL(lists[i], i.ToString(), point, aslSize);
                 point.Offset(0, aslSize + 3);
             }
+            dataStructuresArea.Image = bitmap;
+
             int GetMaxLenght()
             {
                 int max = 0;
@@ -122,7 +148,6 @@ namespace GraphWinForms
                     if (row.Length> max) max = row.Length;
                 return max;
             }
-
             int Max(int a, int b)
             {
                 if (a > b) return a;

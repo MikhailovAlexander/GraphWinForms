@@ -60,6 +60,14 @@ namespace GraphWinForms
             }
         }
 
+        public static int GetMaxLevel(List<TreePointsDSU> list)
+        {
+            int max = 0;
+            foreach (var tree in list)
+                if (tree.Levels > max) max = tree.Levels;
+            return max;
+        }
+
         private static void ListSetPoints(List<TreePointsDSU> list, Point firstPoint, int size, int interval)
         {
             int X = firstPoint.X;
@@ -67,7 +75,7 @@ namespace GraphWinForms
                 X = tree.SetPoints(X, firstPoint.Y, size, interval);
         }
 
-        public int SetPoints(int X, int Y, int size, int interval)
+        private int SetPoints(int X, int Y, int size, int interval)
         {
             int leftBound = X;
             if (this.IsLeaf)
@@ -85,7 +93,7 @@ namespace GraphWinForms
 
         private int LevelCounter(int level)
         {
-            if (this.IsLeaf) return level++;
+            if (this.IsLeaf) return ++level;
             int levelCnt = level + 1;
             foreach (var tree in this.branches)
                 levelCnt = Max(levelCnt, tree.LevelCounter(level + 1));

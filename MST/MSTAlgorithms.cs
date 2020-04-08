@@ -151,6 +151,7 @@ namespace GraphWinForms
             visualisator.ApEndLog(
                  "МОД сотоит из отдельных вершин - компонент связности, маркированных различными цветами" +
                  "\nДля каждой компоненты найдем наименьшее по весу ребро, соединяющее ее с другой компонентой.");
+            visualisator.PrintDataStructuresBoruvka(asl, dsu, colors);
             await Task.Delay(SleepInterval);
 
             while (mst.EdgesCount < order - 1 && HasEdge2Add)
@@ -188,6 +189,7 @@ namespace GraphWinForms
                 componentCounter = currentIndex + 1;
                 RefreshColors(dsu, mst);
                 visualisator.Print($"Объединение компонент связности. Всего ребер {mst.EdgesCount}. Общий вес {mst.TotalWeight}.");
+                visualisator.PrintDataStructuresBoruvka(asl, dsu, colors);
                 await Task.Delay(SleepInterval);
             }
             if (mst.EdgesCount < order - 1) throw new Exception("Ошибка МОД не найдено");
@@ -195,6 +197,7 @@ namespace GraphWinForms
             {
                 visualisator.Print($"Минимальное остовное дерево построено. Общий вес {mst.TotalWeight}.");
                 visualisator.ApEndLog($"Минимальное остовное дерево построено. Общий вес {mst.TotalWeight}.");
+                visualisator.PrintDataStructuresBoruvka(asl, dsu, colors);
             }
             form.UnBlockTabControl();
         }
