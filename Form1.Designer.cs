@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GraphArea = new System.Windows.Forms.PictureBox();
             this.btnGenerateGraph = new System.Windows.Forms.Button();
             this.tBarProbability = new System.Windows.Forms.TrackBar();
@@ -110,6 +113,7 @@
             // 
             // GraphArea
             // 
+            this.GraphArea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(239)))), ((int)(((byte)(170)))));
             this.GraphArea.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GraphArea.Location = new System.Drawing.Point(0, 0);
             this.GraphArea.Name = "GraphArea";
@@ -123,12 +127,14 @@
             // btnGenerateGraph
             // 
             this.btnGenerateGraph.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnGenerateGraph.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(187)))), ((int)(((byte)(93)))));
+            this.btnGenerateGraph.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
             this.btnGenerateGraph.Location = new System.Drawing.Point(417, 47);
             this.btnGenerateGraph.Name = "btnGenerateGraph";
             this.btnGenerateGraph.Size = new System.Drawing.Size(142, 50);
             this.btnGenerateGraph.TabIndex = 1;
             this.btnGenerateGraph.Text = "Сгенерировать граф";
-            this.btnGenerateGraph.UseVisualStyleBackColor = true;
+            this.btnGenerateGraph.UseVisualStyleBackColor = false;
             this.btnGenerateGraph.Click += new System.EventHandler(this.btnGenerateGraph_Click);
             // 
             // tBarProbability
@@ -199,6 +205,7 @@
             // 
             // pnlGraphState
             // 
+            this.pnlGraphState.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(187)))), ((int)(((byte)(93)))));
             this.pnlGraphState.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlGraphState.Controls.Add(this.lblGraphState);
             this.pnlGraphState.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -210,6 +217,7 @@
             // lblGraphState
             // 
             this.lblGraphState.AutoSize = true;
+            this.lblGraphState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
             this.lblGraphState.Location = new System.Drawing.Point(3, 6);
             this.lblGraphState.Name = "lblGraphState";
             this.lblGraphState.Size = new System.Drawing.Size(43, 17);
@@ -241,6 +249,7 @@
             // 
             // tabPageEditor
             // 
+            this.tabPageEditor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
             this.tabPageEditor.Controls.Add(this.pnlGraphEditor);
             this.tabPageEditor.Location = new System.Drawing.Point(4, 25);
             this.tabPageEditor.Name = "tabPageEditor";
@@ -255,6 +264,7 @@
             // 
             this.pnlGraphEditor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.pnlGraphEditor.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pnlGraphEditor.Controls.Add(this.gbGraphGen);
             this.pnlGraphEditor.Controls.Add(this.btnShowMST);
             this.pnlGraphEditor.Controls.Add(this.gbEditMode);
@@ -279,6 +289,7 @@
             this.gbGraphGen.Controls.Add(this.tBarMaxWeight);
             this.gbGraphGen.Controls.Add(this.lblOrder);
             this.gbGraphGen.Controls.Add(this.btnGenerateGraph);
+            this.gbGraphGen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
             this.gbGraphGen.Location = new System.Drawing.Point(3, 3);
             this.gbGraphGen.Name = "gbGraphGen";
             this.gbGraphGen.Size = new System.Drawing.Size(565, 277);
@@ -288,22 +299,26 @@
             // 
             // btnForward
             // 
+            this.btnForward.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(187)))), ((int)(((byte)(93)))));
+            this.btnForward.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
             this.btnForward.Location = new System.Drawing.Point(503, 10);
             this.btnForward.Name = "btnForward";
             this.btnForward.Size = new System.Drawing.Size(56, 31);
             this.btnForward.TabIndex = 12;
             this.btnForward.Text = "=>";
-            this.btnForward.UseVisualStyleBackColor = true;
+            this.btnForward.UseVisualStyleBackColor = false;
             this.btnForward.Click += new System.EventHandler(this.btnForward_Click);
             // 
             // btnBack
             // 
+            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(187)))), ((int)(((byte)(93)))));
+            this.btnBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
             this.btnBack.Location = new System.Drawing.Point(417, 10);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(58, 31);
             this.btnBack.TabIndex = 11;
             this.btnBack.Text = " <=";
-            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // chBoxWithoutLoop
@@ -348,12 +363,14 @@
             // 
             // btnShowMST
             // 
+            this.btnShowMST.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(187)))), ((int)(((byte)(93)))));
+            this.btnShowMST.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
             this.btnShowMST.Location = new System.Drawing.Point(378, 345);
             this.btnShowMST.Name = "btnShowMST";
             this.btnShowMST.Size = new System.Drawing.Size(184, 46);
             this.btnShowMST.TabIndex = 5;
             this.btnShowMST.Text = "Найти минимальное остовное дерево";
-            this.btnShowMST.UseVisualStyleBackColor = true;
+            this.btnShowMST.UseVisualStyleBackColor = false;
             this.btnShowMST.Click += new System.EventHandler(this.btnShowMST_Click);
             // 
             // gbEditMode
@@ -364,6 +381,7 @@
             this.gbEditMode.Controls.Add(this.rbEdgeAdd);
             this.gbEditMode.Controls.Add(this.rbVertexRemove);
             this.gbEditMode.Controls.Add(this.rbVertexMove);
+            this.gbEditMode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
             this.gbEditMode.Location = new System.Drawing.Point(3, 286);
             this.gbEditMode.Name = "gbEditMode";
             this.gbEditMode.Size = new System.Drawing.Size(369, 102);
@@ -440,31 +458,57 @@
             // 
             // btnSetWeigthAsDiastance
             // 
+            this.btnSetWeigthAsDiastance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(187)))), ((int)(((byte)(93)))));
+            this.btnSetWeigthAsDiastance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
             this.btnSetWeigthAsDiastance.Location = new System.Drawing.Point(378, 293);
             this.btnSetWeigthAsDiastance.Name = "btnSetWeigthAsDiastance";
             this.btnSetWeigthAsDiastance.Size = new System.Drawing.Size(184, 46);
             this.btnSetWeigthAsDiastance.TabIndex = 4;
             this.btnSetWeigthAsDiastance.Text = "Установить вес ребер, как расстояние";
-            this.btnSetWeigthAsDiastance.UseVisualStyleBackColor = true;
+            this.btnSetWeigthAsDiastance.UseVisualStyleBackColor = false;
             this.btnSetWeigthAsDiastance.Click += new System.EventHandler(this.btnSetWeigthAsDiastance_Click);
             // 
             // dgvAdjMatrix
             // 
             this.dgvAdjMatrix.AllowUserToAddRows = false;
             this.dgvAdjMatrix.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
+            this.dgvAdjMatrix.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle25;
             this.dgvAdjMatrix.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.dgvAdjMatrix.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvAdjMatrix.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvAdjMatrix.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(187)))), ((int)(((byte)(93)))));
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAdjMatrix.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle26;
             this.dgvAdjMatrix.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAdjMatrix.DefaultCellStyle = dataGridViewCellStyle27;
             this.dgvAdjMatrix.Location = new System.Drawing.Point(0, 445);
             this.dgvAdjMatrix.Name = "dgvAdjMatrix";
             this.dgvAdjMatrix.ReadOnly = true;
             this.dgvAdjMatrix.RowHeadersVisible = false;
             this.dgvAdjMatrix.RowHeadersWidth = 20;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dgvAdjMatrix.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
+            this.dgvAdjMatrix.RowsDefaultCellStyle = dataGridViewCellStyle28;
             this.dgvAdjMatrix.RowTemplate.Height = 24;
             this.dgvAdjMatrix.Size = new System.Drawing.Size(562, 371);
             this.dgvAdjMatrix.TabIndex = 2;
@@ -473,6 +517,7 @@
             // 
             this.gbMatrix.Controls.Add(this.rbAdjLists);
             this.gbMatrix.Controls.Add(this.rbAdjMatrix);
+            this.gbMatrix.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
             this.gbMatrix.Location = new System.Drawing.Point(1, 394);
             this.gbMatrix.Name = "gbMatrix";
             this.gbMatrix.Size = new System.Drawing.Size(561, 45);
@@ -506,16 +551,17 @@
             // 
             // tabPageAlgVis
             // 
+            this.tabPageAlgVis.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tabPageAlgVis.Controls.Add(this.gbDescrSwitch);
             this.tabPageAlgVis.Controls.Add(this.pnlAlgorithmsControls);
             this.tabPageAlgVis.Controls.Add(this.pnlLog);
+            this.tabPageAlgVis.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(75)))), ((int)(((byte)(0)))));
             this.tabPageAlgVis.Location = new System.Drawing.Point(4, 25);
             this.tabPageAlgVis.Name = "tabPageAlgVis";
             this.tabPageAlgVis.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageAlgVis.Size = new System.Drawing.Size(647, 825);
             this.tabPageAlgVis.TabIndex = 1;
             this.tabPageAlgVis.Text = "Визуализация алгоритмов";
-            this.tabPageAlgVis.UseVisualStyleBackColor = true;
             this.tabPageAlgVis.SizeChanged += new System.EventHandler(this.tabPageAlgVis_SizeChanged);
             // 
             // gbDescrSwitch
@@ -555,6 +601,7 @@
             // 
             // pnlAlgorithmsControls
             // 
+            this.pnlAlgorithmsControls.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pnlAlgorithmsControls.Controls.Add(this.gbSpeedVis);
             this.pnlAlgorithmsControls.Controls.Add(this.gbAlgSet);
             this.pnlAlgorithmsControls.Controls.Add(this.gbDescription);
@@ -655,6 +702,7 @@
             // 
             // gbDescription
             // 
+            this.gbDescription.BackColor = System.Drawing.Color.WhiteSmoke;
             this.gbDescription.Controls.Add(this.lblDescription);
             this.gbDescription.Location = new System.Drawing.Point(103, 68);
             this.gbDescription.Name = "gbDescription";
@@ -675,12 +723,15 @@
             // 
             // btnStartAlgorithm
             // 
+            this.btnStartAlgorithm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(187)))), ((int)(((byte)(93)))));
+            this.btnStartAlgorithm.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStartAlgorithm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
             this.btnStartAlgorithm.Location = new System.Drawing.Point(456, 10);
             this.btnStartAlgorithm.Name = "btnStartAlgorithm";
             this.btnStartAlgorithm.Size = new System.Drawing.Size(105, 52);
             this.btnStartAlgorithm.TabIndex = 9;
             this.btnStartAlgorithm.Text = "Запустить алгоритм";
-            this.btnStartAlgorithm.UseVisualStyleBackColor = true;
+            this.btnStartAlgorithm.UseVisualStyleBackColor = false;
             this.btnStartAlgorithm.Click += new System.EventHandler(this.btnStartAlgorithm_Click);
             // 
             // pnlLog
@@ -688,6 +739,7 @@
             this.pnlLog.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.pnlLog.AutoScroll = true;
+            this.pnlLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(224)))), ((int)(((byte)(149)))));
             this.pnlLog.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlLog.Controls.Add(this.lblLog);
             this.pnlLog.Controls.Add(this.pbDataStructures);
@@ -699,6 +751,8 @@
             // lblLog
             // 
             this.lblLog.AutoSize = true;
+            this.lblLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(224)))), ((int)(((byte)(149)))));
+            this.lblLog.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
             this.lblLog.Location = new System.Drawing.Point(3, 3);
             this.lblLog.MaximumSize = new System.Drawing.Size(520, 0);
             this.lblLog.Name = "lblLog";
@@ -711,6 +765,7 @@
             // 
             this.pbDataStructures.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.pbDataStructures.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(224)))), ((int)(((byte)(149)))));
             this.pbDataStructures.Location = new System.Drawing.Point(3, 3);
             this.pbDataStructures.Name = "pbDataStructures";
             this.pbDataStructures.Size = new System.Drawing.Size(559, 488);
@@ -723,10 +778,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
             this.ClientSize = new System.Drawing.Size(1382, 863);
             this.Controls.Add(this.splitContainer1);
             this.MinimumSize = new System.Drawing.Size(1400, 910);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Поиск минимального остова взвешенного неориентированного графа";
             ((System.ComponentModel.ISupportInitialize)(this.GraphArea)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBarProbability)).EndInit();

@@ -33,7 +33,7 @@ namespace GraphWinForms
             edgePen = new Pen(Color.Black,2);
             mainFont = new Font("Times New Roman", 12, FontStyle.Bold, GraphicsUnit.Pixel);
             smallFont = new Font("Times New Roman", 10, FontStyle.Bold, GraphicsUnit.Pixel);
-            areaBackColor = Color.Yellow;
+            areaBackColor = Color.FromArgb(0xBF, 0xEF, 0xAA);
             vertexBrush = new SolidBrush(Color.Green);
             weightBrush = new SolidBrush(Color.White);
             textBrush = new SolidBrush(Color.Black);
