@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GraphWinForms
 {
-    public class VerticesSetList<T>
+    public class VerticesSetList<T> where T : ICloneable
     {
         private VerticeNode<T> head;
         public bool IsEmpty => head == null;

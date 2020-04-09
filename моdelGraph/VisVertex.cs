@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GraphWinForms
 {
-    public class VisVertex
+    public class VisVertex:ICloneable
     {
         public string Name { get; set; }
         public int PositionX { get; set; }
@@ -39,6 +39,11 @@ namespace GraphWinForms
         {
             PositionX = point.X;
             PositionY = point.Y;
+        }
+
+        public object Clone()
+        {
+            return new VisVertex((string)Name.Clone(), PositionX, PositionY);
         }
     }
 }

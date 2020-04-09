@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace GraphWinForms
 {
-    public class Vertex<T>:ICloneable
+    public class Vertex<T>:ICloneable where T : ICloneable
     {
         public int Id { get; set; }
         public T Data { get; set; }
@@ -48,7 +48,7 @@ namespace GraphWinForms
 
         public object Clone()
         {
-            return new Vertex<T>(Id = this.Id, Data = this.Data);
+            return new Vertex<T>(Id = this.Id, Data = (T)this.Data.Clone());
         }
     }
 }

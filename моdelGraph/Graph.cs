@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GraphWinForms
 {
-    public class Graph<T> : ICloneable
+    public class Graph<T> : ICloneable where T : ICloneable
     {
         private VerticesSetList<T> vertices;
         private List<Edge<T>> edges;
@@ -142,7 +142,6 @@ namespace GraphWinForms
             foreach (var edge in edges)
                 clone.AddEdge(edge.V1Id, edge.V2Id, edge.Weight);
             return clone;
-
         }
 
         private string EdgesToString()

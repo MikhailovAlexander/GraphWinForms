@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GraphArea = new System.Windows.Forms.PictureBox();
             this.btnGenerateGraph = new System.Windows.Forms.Button();
             this.tBarProbability = new System.Windows.Forms.TrackBar();
@@ -41,12 +41,15 @@
             this.mtbChangeWeight = new System.Windows.Forms.MaskedTextBox();
             this.tcPages = new System.Windows.Forms.TabControl();
             this.tabPageEditor = new System.Windows.Forms.TabPage();
+            this.pnlGraphEditor = new System.Windows.Forms.Panel();
+            this.gbGraphGen = new System.Windows.Forms.GroupBox();
+            this.btnForward = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.chBoxWithoutLoop = new System.Windows.Forms.CheckBox();
+            this.chBoxDiffWheight = new System.Windows.Forms.CheckBox();
+            this.lblMaxWeight = new System.Windows.Forms.Label();
+            this.tBarMaxWeight = new System.Windows.Forms.TrackBar();
             this.btnShowMST = new System.Windows.Forms.Button();
-            this.btnSetWeigthAsDiastance = new System.Windows.Forms.Button();
-            this.gbMatrix = new System.Windows.Forms.GroupBox();
-            this.rbAdjLists = new System.Windows.Forms.RadioButton();
-            this.rbAdjMatrix = new System.Windows.Forms.RadioButton();
-            this.dgvAdjMatrix = new System.Windows.Forms.DataGridView();
             this.gbEditMode = new System.Windows.Forms.GroupBox();
             this.rbChangeWeight = new System.Windows.Forms.RadioButton();
             this.rbEdgeRemove = new System.Windows.Forms.RadioButton();
@@ -54,31 +57,30 @@
             this.rbEdgeAdd = new System.Windows.Forms.RadioButton();
             this.rbVertexRemove = new System.Windows.Forms.RadioButton();
             this.rbVertexMove = new System.Windows.Forms.RadioButton();
-            this.gbGraphGen = new System.Windows.Forms.GroupBox();
-            this.chBoxWithoutLoop = new System.Windows.Forms.CheckBox();
-            this.chBoxDiffWheight = new System.Windows.Forms.CheckBox();
-            this.lblMaxWeight = new System.Windows.Forms.Label();
-            this.tBarMaxWeight = new System.Windows.Forms.TrackBar();
+            this.btnSetWeigthAsDiastance = new System.Windows.Forms.Button();
+            this.dgvAdjMatrix = new System.Windows.Forms.DataGridView();
+            this.gbMatrix = new System.Windows.Forms.GroupBox();
+            this.rbAdjLists = new System.Windows.Forms.RadioButton();
+            this.rbAdjMatrix = new System.Windows.Forms.RadioButton();
             this.tabPageAlgVis = new System.Windows.Forms.TabPage();
-            this.pnlLog = new System.Windows.Forms.Panel();
-            this.lblLog = new System.Windows.Forms.Label();
-            this.gbDescription = new System.Windows.Forms.GroupBox();
-            this.lblDescription = new System.Windows.Forms.Label();
-            this.btnStartAlgorithm = new System.Windows.Forms.Button();
-            this.gbAlgSet = new System.Windows.Forms.GroupBox();
-            this.rbBoruvka = new System.Windows.Forms.RadioButton();
-            this.rbKruskal = new System.Windows.Forms.RadioButton();
-            this.rbPrim = new System.Windows.Forms.RadioButton();
+            this.gbDescrSwitch = new System.Windows.Forms.GroupBox();
+            this.rbDataStructures = new System.Windows.Forms.RadioButton();
+            this.rbLog = new System.Windows.Forms.RadioButton();
+            this.pnlAlgorithmsControls = new System.Windows.Forms.Panel();
             this.gbSpeedVis = new System.Windows.Forms.GroupBox();
             this.tbSpeedVis = new System.Windows.Forms.TrackBar();
             this.lblSpeedBotom = new System.Windows.Forms.Label();
             this.lblSpeedTop = new System.Windows.Forms.Label();
-            this.pnlGraphEditor = new System.Windows.Forms.Panel();
-            this.pnlAlgorithmsControls = new System.Windows.Forms.Panel();
+            this.gbAlgSet = new System.Windows.Forms.GroupBox();
+            this.rbBoruvka = new System.Windows.Forms.RadioButton();
+            this.rbKruskal = new System.Windows.Forms.RadioButton();
+            this.rbPrim = new System.Windows.Forms.RadioButton();
+            this.gbDescription = new System.Windows.Forms.GroupBox();
+            this.lblDescription = new System.Windows.Forms.Label();
+            this.btnStartAlgorithm = new System.Windows.Forms.Button();
+            this.pnlLog = new System.Windows.Forms.Panel();
+            this.lblLog = new System.Windows.Forms.Label();
             this.pbDataStructures = new System.Windows.Forms.PictureBox();
-            this.gbDescrSwitch = new System.Windows.Forms.GroupBox();
-            this.rbLog = new System.Windows.Forms.RadioButton();
-            this.rbDataStructures = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.GraphArea)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBarProbability)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBarOrder)).BeginInit();
@@ -89,21 +91,21 @@
             this.pnlGraphState.SuspendLayout();
             this.tcPages.SuspendLayout();
             this.tabPageEditor.SuspendLayout();
-            this.gbMatrix.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAdjMatrix)).BeginInit();
-            this.gbEditMode.SuspendLayout();
+            this.pnlGraphEditor.SuspendLayout();
             this.gbGraphGen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tBarMaxWeight)).BeginInit();
+            this.gbEditMode.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAdjMatrix)).BeginInit();
+            this.gbMatrix.SuspendLayout();
             this.tabPageAlgVis.SuspendLayout();
-            this.pnlLog.SuspendLayout();
-            this.gbDescription.SuspendLayout();
-            this.gbAlgSet.SuspendLayout();
+            this.gbDescrSwitch.SuspendLayout();
+            this.pnlAlgorithmsControls.SuspendLayout();
             this.gbSpeedVis.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbSpeedVis)).BeginInit();
-            this.pnlGraphEditor.SuspendLayout();
-            this.pnlAlgorithmsControls.SuspendLayout();
+            this.gbAlgSet.SuspendLayout();
+            this.gbDescription.SuspendLayout();
+            this.pnlLog.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbDataStructures)).BeginInit();
-            this.gbDescrSwitch.SuspendLayout();
             this.SuspendLayout();
             // 
             // GraphArea
@@ -121,7 +123,7 @@
             // btnGenerateGraph
             // 
             this.btnGenerateGraph.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGenerateGraph.Location = new System.Drawing.Point(417, 15);
+            this.btnGenerateGraph.Location = new System.Drawing.Point(417, 47);
             this.btnGenerateGraph.Name = "btnGenerateGraph";
             this.btnGenerateGraph.Size = new System.Drawing.Size(142, 50);
             this.btnGenerateGraph.TabIndex = 1;
@@ -248,6 +250,99 @@
             this.tabPageEditor.Text = "Редактор графа";
             this.tabPageEditor.UseVisualStyleBackColor = true;
             // 
+            // pnlGraphEditor
+            // 
+            this.pnlGraphEditor.Controls.Add(this.gbGraphGen);
+            this.pnlGraphEditor.Controls.Add(this.btnShowMST);
+            this.pnlGraphEditor.Controls.Add(this.gbEditMode);
+            this.pnlGraphEditor.Controls.Add(this.btnSetWeigthAsDiastance);
+            this.pnlGraphEditor.Controls.Add(this.dgvAdjMatrix);
+            this.pnlGraphEditor.Controls.Add(this.gbMatrix);
+            this.pnlGraphEditor.Location = new System.Drawing.Point(6, 3);
+            this.pnlGraphEditor.Name = "pnlGraphEditor";
+            this.pnlGraphEditor.Size = new System.Drawing.Size(570, 821);
+            this.pnlGraphEditor.TabIndex = 6;
+            // 
+            // gbGraphGen
+            // 
+            this.gbGraphGen.Controls.Add(this.btnForward);
+            this.gbGraphGen.Controls.Add(this.btnBack);
+            this.gbGraphGen.Controls.Add(this.chBoxWithoutLoop);
+            this.gbGraphGen.Controls.Add(this.tBarProbability);
+            this.gbGraphGen.Controls.Add(this.chBoxDiffWheight);
+            this.gbGraphGen.Controls.Add(this.lblProbability);
+            this.gbGraphGen.Controls.Add(this.lblMaxWeight);
+            this.gbGraphGen.Controls.Add(this.tBarOrder);
+            this.gbGraphGen.Controls.Add(this.tBarMaxWeight);
+            this.gbGraphGen.Controls.Add(this.lblOrder);
+            this.gbGraphGen.Controls.Add(this.btnGenerateGraph);
+            this.gbGraphGen.Location = new System.Drawing.Point(3, 3);
+            this.gbGraphGen.Name = "gbGraphGen";
+            this.gbGraphGen.Size = new System.Drawing.Size(565, 277);
+            this.gbGraphGen.TabIndex = 1;
+            this.gbGraphGen.TabStop = false;
+            this.gbGraphGen.Text = "Генератор графов";
+            // 
+            // btnForward
+            // 
+            this.btnForward.Location = new System.Drawing.Point(503, 10);
+            this.btnForward.Name = "btnForward";
+            this.btnForward.Size = new System.Drawing.Size(56, 31);
+            this.btnForward.TabIndex = 12;
+            this.btnForward.Text = "=>";
+            this.btnForward.UseVisualStyleBackColor = true;
+            this.btnForward.Click += new System.EventHandler(this.btnForward_Click);
+            // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(417, 10);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(58, 31);
+            this.btnBack.TabIndex = 11;
+            this.btnBack.Text = " <=";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // chBoxWithoutLoop
+            // 
+            this.chBoxWithoutLoop.AutoSize = true;
+            this.chBoxWithoutLoop.Location = new System.Drawing.Point(417, 114);
+            this.chBoxWithoutLoop.Name = "chBoxWithoutLoop";
+            this.chBoxWithoutLoop.Size = new System.Drawing.Size(104, 21);
+            this.chBoxWithoutLoop.TabIndex = 10;
+            this.chBoxWithoutLoop.Text = "Без петель";
+            this.chBoxWithoutLoop.UseVisualStyleBackColor = true;
+            // 
+            // chBoxDiffWheight
+            // 
+            this.chBoxDiffWheight.AutoSize = true;
+            this.chBoxDiffWheight.Location = new System.Drawing.Point(417, 138);
+            this.chBoxDiffWheight.Name = "chBoxDiffWheight";
+            this.chBoxDiffWheight.Size = new System.Drawing.Size(130, 38);
+            this.chBoxDiffWheight.TabIndex = 9;
+            this.chBoxDiffWheight.Text = "Различный вес\nвсех ребер";
+            this.chBoxDiffWheight.UseVisualStyleBackColor = true;
+            // 
+            // lblMaxWeight
+            // 
+            this.lblMaxWeight.AutoSize = true;
+            this.lblMaxWeight.Location = new System.Drawing.Point(14, 188);
+            this.lblMaxWeight.Name = "lblMaxWeight";
+            this.lblMaxWeight.Size = new System.Drawing.Size(177, 17);
+            this.lblMaxWeight.TabIndex = 8;
+            this.lblMaxWeight.Text = "Максимальный вес ребра";
+            // 
+            // tBarMaxWeight
+            // 
+            this.tBarMaxWeight.Location = new System.Drawing.Point(6, 211);
+            this.tBarMaxWeight.Maximum = 50;
+            this.tBarMaxWeight.Name = "tBarMaxWeight";
+            this.tBarMaxWeight.Size = new System.Drawing.Size(395, 56);
+            this.tBarMaxWeight.TabIndex = 7;
+            this.tBarMaxWeight.TickFrequency = 5;
+            this.tBarMaxWeight.Value = 1;
+            this.tBarMaxWeight.Scroll += new System.EventHandler(this.tBarMaxWeight_Scroll);
+            // 
             // btnShowMST
             // 
             this.btnShowMST.Location = new System.Drawing.Point(378, 345);
@@ -257,70 +352,6 @@
             this.btnShowMST.Text = "Найти минимальное остовное дерево";
             this.btnShowMST.UseVisualStyleBackColor = true;
             this.btnShowMST.Click += new System.EventHandler(this.btnShowMST_Click);
-            // 
-            // btnSetWeigthAsDiastance
-            // 
-            this.btnSetWeigthAsDiastance.Location = new System.Drawing.Point(378, 293);
-            this.btnSetWeigthAsDiastance.Name = "btnSetWeigthAsDiastance";
-            this.btnSetWeigthAsDiastance.Size = new System.Drawing.Size(184, 46);
-            this.btnSetWeigthAsDiastance.TabIndex = 4;
-            this.btnSetWeigthAsDiastance.Text = "Установить вес ребер, как расстояние";
-            this.btnSetWeigthAsDiastance.UseVisualStyleBackColor = true;
-            this.btnSetWeigthAsDiastance.Click += new System.EventHandler(this.btnSetWeigthAsDiastance_Click);
-            // 
-            // gbMatrix
-            // 
-            this.gbMatrix.Controls.Add(this.rbAdjLists);
-            this.gbMatrix.Controls.Add(this.rbAdjMatrix);
-            this.gbMatrix.Location = new System.Drawing.Point(1, 394);
-            this.gbMatrix.Name = "gbMatrix";
-            this.gbMatrix.Size = new System.Drawing.Size(561, 45);
-            this.gbMatrix.TabIndex = 3;
-            this.gbMatrix.TabStop = false;
-            this.gbMatrix.Text = "Представление графа";
-            // 
-            // rbAdjLists
-            // 
-            this.rbAdjLists.AutoSize = true;
-            this.rbAdjLists.Location = new System.Drawing.Point(193, 19);
-            this.rbAdjLists.Name = "rbAdjLists";
-            this.rbAdjLists.Size = new System.Drawing.Size(312, 21);
-            this.rbAdjLists.TabIndex = 1;
-            this.rbAdjLists.Text = "Сортированные списки смежности вершин";
-            this.rbAdjLists.UseVisualStyleBackColor = true;
-            this.rbAdjLists.CheckedChanged += new System.EventHandler(this.rbAdjLists_CheckedChanged);
-            // 
-            // rbAdjMatrix
-            // 
-            this.rbAdjMatrix.AutoSize = true;
-            this.rbAdjMatrix.Checked = true;
-            this.rbAdjMatrix.Location = new System.Drawing.Point(7, 18);
-            this.rbAdjMatrix.Name = "rbAdjMatrix";
-            this.rbAdjMatrix.Size = new System.Drawing.Size(162, 21);
-            this.rbAdjMatrix.TabIndex = 0;
-            this.rbAdjMatrix.TabStop = true;
-            this.rbAdjMatrix.Text = "Матрица смежности";
-            this.rbAdjMatrix.UseVisualStyleBackColor = true;
-            this.rbAdjMatrix.CheckedChanged += new System.EventHandler(this.rbAdjMatrix_CheckedChanged);
-            // 
-            // dgvAdjMatrix
-            // 
-            this.dgvAdjMatrix.AllowUserToAddRows = false;
-            this.dgvAdjMatrix.AllowUserToDeleteRows = false;
-            this.dgvAdjMatrix.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvAdjMatrix.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvAdjMatrix.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAdjMatrix.Location = new System.Drawing.Point(0, 445);
-            this.dgvAdjMatrix.Name = "dgvAdjMatrix";
-            this.dgvAdjMatrix.ReadOnly = true;
-            this.dgvAdjMatrix.RowHeadersVisible = false;
-            this.dgvAdjMatrix.RowHeadersWidth = 20;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dgvAdjMatrix.RowsDefaultCellStyle = dataGridViewCellStyle10;
-            this.dgvAdjMatrix.RowTemplate.Height = 24;
-            this.dgvAdjMatrix.Size = new System.Drawing.Size(562, 364);
-            this.dgvAdjMatrix.TabIndex = 2;
             // 
             // gbEditMode
             // 
@@ -404,63 +435,69 @@
             this.rbVertexMove.Text = "Перемещение вершин";
             this.rbVertexMove.UseVisualStyleBackColor = true;
             // 
-            // gbGraphGen
+            // btnSetWeigthAsDiastance
             // 
-            this.gbGraphGen.Controls.Add(this.chBoxWithoutLoop);
-            this.gbGraphGen.Controls.Add(this.tBarProbability);
-            this.gbGraphGen.Controls.Add(this.chBoxDiffWheight);
-            this.gbGraphGen.Controls.Add(this.lblProbability);
-            this.gbGraphGen.Controls.Add(this.lblMaxWeight);
-            this.gbGraphGen.Controls.Add(this.tBarOrder);
-            this.gbGraphGen.Controls.Add(this.tBarMaxWeight);
-            this.gbGraphGen.Controls.Add(this.lblOrder);
-            this.gbGraphGen.Controls.Add(this.btnGenerateGraph);
-            this.gbGraphGen.Location = new System.Drawing.Point(3, 3);
-            this.gbGraphGen.Name = "gbGraphGen";
-            this.gbGraphGen.Size = new System.Drawing.Size(565, 277);
-            this.gbGraphGen.TabIndex = 1;
-            this.gbGraphGen.TabStop = false;
-            this.gbGraphGen.Text = "Генератор графов";
+            this.btnSetWeigthAsDiastance.Location = new System.Drawing.Point(378, 293);
+            this.btnSetWeigthAsDiastance.Name = "btnSetWeigthAsDiastance";
+            this.btnSetWeigthAsDiastance.Size = new System.Drawing.Size(184, 46);
+            this.btnSetWeigthAsDiastance.TabIndex = 4;
+            this.btnSetWeigthAsDiastance.Text = "Установить вес ребер, как расстояние";
+            this.btnSetWeigthAsDiastance.UseVisualStyleBackColor = true;
+            this.btnSetWeigthAsDiastance.Click += new System.EventHandler(this.btnSetWeigthAsDiastance_Click);
             // 
-            // chBoxWithoutLoop
+            // dgvAdjMatrix
             // 
-            this.chBoxWithoutLoop.AutoSize = true;
-            this.chBoxWithoutLoop.Location = new System.Drawing.Point(417, 82);
-            this.chBoxWithoutLoop.Name = "chBoxWithoutLoop";
-            this.chBoxWithoutLoop.Size = new System.Drawing.Size(104, 21);
-            this.chBoxWithoutLoop.TabIndex = 10;
-            this.chBoxWithoutLoop.Text = "Без петель";
-            this.chBoxWithoutLoop.UseVisualStyleBackColor = true;
+            this.dgvAdjMatrix.AllowUserToAddRows = false;
+            this.dgvAdjMatrix.AllowUserToDeleteRows = false;
+            this.dgvAdjMatrix.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvAdjMatrix.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvAdjMatrix.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAdjMatrix.Location = new System.Drawing.Point(0, 445);
+            this.dgvAdjMatrix.Name = "dgvAdjMatrix";
+            this.dgvAdjMatrix.ReadOnly = true;
+            this.dgvAdjMatrix.RowHeadersVisible = false;
+            this.dgvAdjMatrix.RowHeadersWidth = 20;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dgvAdjMatrix.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvAdjMatrix.RowTemplate.Height = 24;
+            this.dgvAdjMatrix.Size = new System.Drawing.Size(562, 364);
+            this.dgvAdjMatrix.TabIndex = 2;
             // 
-            // chBoxDiffWheight
+            // gbMatrix
             // 
-            this.chBoxDiffWheight.AutoSize = true;
-            this.chBoxDiffWheight.Location = new System.Drawing.Point(417, 106);
-            this.chBoxDiffWheight.Name = "chBoxDiffWheight";
-            this.chBoxDiffWheight.Size = new System.Drawing.Size(130, 38);
-            this.chBoxDiffWheight.TabIndex = 9;
-            this.chBoxDiffWheight.Text = "Различный вес\nвсех ребер";
-            this.chBoxDiffWheight.UseVisualStyleBackColor = true;
+            this.gbMatrix.Controls.Add(this.rbAdjLists);
+            this.gbMatrix.Controls.Add(this.rbAdjMatrix);
+            this.gbMatrix.Location = new System.Drawing.Point(1, 394);
+            this.gbMatrix.Name = "gbMatrix";
+            this.gbMatrix.Size = new System.Drawing.Size(561, 45);
+            this.gbMatrix.TabIndex = 3;
+            this.gbMatrix.TabStop = false;
+            this.gbMatrix.Text = "Представление графа";
             // 
-            // lblMaxWeight
+            // rbAdjLists
             // 
-            this.lblMaxWeight.AutoSize = true;
-            this.lblMaxWeight.Location = new System.Drawing.Point(14, 188);
-            this.lblMaxWeight.Name = "lblMaxWeight";
-            this.lblMaxWeight.Size = new System.Drawing.Size(177, 17);
-            this.lblMaxWeight.TabIndex = 8;
-            this.lblMaxWeight.Text = "Максимальный вес ребра";
+            this.rbAdjLists.AutoSize = true;
+            this.rbAdjLists.Location = new System.Drawing.Point(193, 19);
+            this.rbAdjLists.Name = "rbAdjLists";
+            this.rbAdjLists.Size = new System.Drawing.Size(312, 21);
+            this.rbAdjLists.TabIndex = 1;
+            this.rbAdjLists.Text = "Сортированные списки смежности вершин";
+            this.rbAdjLists.UseVisualStyleBackColor = true;
+            this.rbAdjLists.CheckedChanged += new System.EventHandler(this.rbAdjLists_CheckedChanged);
             // 
-            // tBarMaxWeight
+            // rbAdjMatrix
             // 
-            this.tBarMaxWeight.Location = new System.Drawing.Point(6, 211);
-            this.tBarMaxWeight.Maximum = 50;
-            this.tBarMaxWeight.Name = "tBarMaxWeight";
-            this.tBarMaxWeight.Size = new System.Drawing.Size(395, 56);
-            this.tBarMaxWeight.TabIndex = 7;
-            this.tBarMaxWeight.TickFrequency = 5;
-            this.tBarMaxWeight.Value = 1;
-            this.tBarMaxWeight.Scroll += new System.EventHandler(this.tBarMaxWeight_Scroll);
+            this.rbAdjMatrix.AutoSize = true;
+            this.rbAdjMatrix.Checked = true;
+            this.rbAdjMatrix.Location = new System.Drawing.Point(7, 18);
+            this.rbAdjMatrix.Name = "rbAdjMatrix";
+            this.rbAdjMatrix.Size = new System.Drawing.Size(162, 21);
+            this.rbAdjMatrix.TabIndex = 0;
+            this.rbAdjMatrix.TabStop = true;
+            this.rbAdjMatrix.Text = "Матрица смежности";
+            this.rbAdjMatrix.UseVisualStyleBackColor = true;
+            this.rbAdjMatrix.CheckedChanged += new System.EventHandler(this.rbAdjMatrix_CheckedChanged);
             // 
             // tabPageAlgVis
             // 
@@ -475,59 +512,93 @@
             this.tabPageAlgVis.Text = "Визуализация алгоритмов";
             this.tabPageAlgVis.UseVisualStyleBackColor = true;
             // 
-            // pnlLog
+            // gbDescrSwitch
             // 
-            this.pnlLog.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.pnlLog.AutoScroll = true;
-            this.pnlLog.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlLog.Controls.Add(this.lblLog);
-            this.pnlLog.Controls.Add(this.pbDataStructures);
-            this.pnlLog.Location = new System.Drawing.Point(6, 327);
-            this.pnlLog.Name = "pnlLog";
-            this.pnlLog.Size = new System.Drawing.Size(567, 496);
-            this.pnlLog.TabIndex = 12;
+            this.gbDescrSwitch.Controls.Add(this.rbDataStructures);
+            this.gbDescrSwitch.Controls.Add(this.rbLog);
+            this.gbDescrSwitch.Location = new System.Drawing.Point(8, 277);
+            this.gbDescrSwitch.Name = "gbDescrSwitch";
+            this.gbDescrSwitch.Size = new System.Drawing.Size(304, 44);
+            this.gbDescrSwitch.TabIndex = 14;
+            this.gbDescrSwitch.TabStop = false;
+            this.gbDescrSwitch.Text = "Подробности";
             // 
-            // lblLog
+            // rbDataStructures
             // 
-            this.lblLog.AutoSize = true;
-            this.lblLog.Location = new System.Drawing.Point(3, 3);
-            this.lblLog.MaximumSize = new System.Drawing.Size(520, 0);
-            this.lblLog.Name = "lblLog";
-            this.lblLog.Size = new System.Drawing.Size(191, 17);
-            this.lblLog.TabIndex = 0;
-            this.lblLog.Text = "Ход выполнения алгоритма";
-            this.lblLog.SizeChanged += new System.EventHandler(this.lblLog_SizeChanged);
+            this.rbDataStructures.AutoSize = true;
+            this.rbDataStructures.Location = new System.Drawing.Point(150, 17);
+            this.rbDataStructures.Name = "rbDataStructures";
+            this.rbDataStructures.Size = new System.Drawing.Size(151, 21);
+            this.rbDataStructures.TabIndex = 1;
+            this.rbDataStructures.Text = "Структуры данных";
+            this.rbDataStructures.UseVisualStyleBackColor = true;
+            this.rbDataStructures.CheckedChanged += new System.EventHandler(this.rbDataStructures_CheckedChanged);
             // 
-            // gbDescription
+            // rbLog
             // 
-            this.gbDescription.Controls.Add(this.lblDescription);
-            this.gbDescription.Location = new System.Drawing.Point(103, 68);
-            this.gbDescription.Name = "gbDescription";
-            this.gbDescription.Size = new System.Drawing.Size(458, 200);
-            this.gbDescription.TabIndex = 10;
-            this.gbDescription.TabStop = false;
-            this.gbDescription.Text = "Краткое описание алгоритма";
+            this.rbLog.AutoSize = true;
+            this.rbLog.Checked = true;
+            this.rbLog.Location = new System.Drawing.Point(5, 17);
+            this.rbLog.Name = "rbLog";
+            this.rbLog.Size = new System.Drawing.Size(139, 21);
+            this.rbLog.TabIndex = 0;
+            this.rbLog.TabStop = true;
+            this.rbLog.Text = "Ход выполнения";
+            this.rbLog.UseVisualStyleBackColor = true;
+            this.rbLog.CheckedChanged += new System.EventHandler(this.rbLog_CheckedChanged);
             // 
-            // lblDescription
+            // pnlAlgorithmsControls
             // 
-            this.lblDescription.AutoSize = true;
-            this.lblDescription.Location = new System.Drawing.Point(6, 18);
-            this.lblDescription.MaximumSize = new System.Drawing.Size(400, 0);
-            this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(74, 17);
-            this.lblDescription.TabIndex = 11;
-            this.lblDescription.Text = "Описание";
+            this.pnlAlgorithmsControls.Controls.Add(this.gbSpeedVis);
+            this.pnlAlgorithmsControls.Controls.Add(this.gbAlgSet);
+            this.pnlAlgorithmsControls.Controls.Add(this.gbDescription);
+            this.pnlAlgorithmsControls.Controls.Add(this.btnStartAlgorithm);
+            this.pnlAlgorithmsControls.Location = new System.Drawing.Point(3, 3);
+            this.pnlAlgorithmsControls.Name = "pnlAlgorithmsControls";
+            this.pnlAlgorithmsControls.Size = new System.Drawing.Size(570, 273);
+            this.pnlAlgorithmsControls.TabIndex = 13;
             // 
-            // btnStartAlgorithm
+            // gbSpeedVis
             // 
-            this.btnStartAlgorithm.Location = new System.Drawing.Point(456, 10);
-            this.btnStartAlgorithm.Name = "btnStartAlgorithm";
-            this.btnStartAlgorithm.Size = new System.Drawing.Size(105, 52);
-            this.btnStartAlgorithm.TabIndex = 9;
-            this.btnStartAlgorithm.Text = "Запустить алгоритм";
-            this.btnStartAlgorithm.UseVisualStyleBackColor = true;
-            this.btnStartAlgorithm.Click += new System.EventHandler(this.btnStartAlgorithm_Click);
+            this.gbSpeedVis.Controls.Add(this.tbSpeedVis);
+            this.gbSpeedVis.Controls.Add(this.lblSpeedBotom);
+            this.gbSpeedVis.Controls.Add(this.lblSpeedTop);
+            this.gbSpeedVis.Location = new System.Drawing.Point(3, 3);
+            this.gbSpeedVis.Name = "gbSpeedVis";
+            this.gbSpeedVis.Size = new System.Drawing.Size(93, 265);
+            this.gbSpeedVis.TabIndex = 4;
+            this.gbSpeedVis.TabStop = false;
+            this.gbSpeedVis.Text = "Скорость";
+            // 
+            // tbSpeedVis
+            // 
+            this.tbSpeedVis.LargeChange = 2;
+            this.tbSpeedVis.Location = new System.Drawing.Point(18, 46);
+            this.tbSpeedVis.Minimum = 1;
+            this.tbSpeedVis.Name = "tbSpeedVis";
+            this.tbSpeedVis.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.tbSpeedVis.Size = new System.Drawing.Size(56, 188);
+            this.tbSpeedVis.TabIndex = 1;
+            this.tbSpeedVis.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.tbSpeedVis.Value = 1;
+            // 
+            // lblSpeedBotom
+            // 
+            this.lblSpeedBotom.AutoSize = true;
+            this.lblSpeedBotom.Location = new System.Drawing.Point(11, 236);
+            this.lblSpeedBotom.Name = "lblSpeedBotom";
+            this.lblSpeedBotom.Size = new System.Drawing.Size(65, 17);
+            this.lblSpeedBotom.TabIndex = 3;
+            this.lblSpeedBotom.Text = "Быстрее";
+            // 
+            // lblSpeedTop
+            // 
+            this.lblSpeedTop.AutoSize = true;
+            this.lblSpeedTop.Location = new System.Drawing.Point(11, 24);
+            this.lblSpeedTop.Name = "lblSpeedTop";
+            this.lblSpeedTop.Size = new System.Drawing.Size(75, 17);
+            this.lblSpeedTop.TabIndex = 2;
+            this.lblSpeedTop.Text = "Медленее";
             // 
             // gbAlgSet
             // 
@@ -576,71 +647,59 @@
             this.rbPrim.UseVisualStyleBackColor = true;
             this.rbPrim.CheckedChanged += new System.EventHandler(this.rbPrim_CheckedChanged);
             // 
-            // gbSpeedVis
+            // gbDescription
             // 
-            this.gbSpeedVis.Controls.Add(this.tbSpeedVis);
-            this.gbSpeedVis.Controls.Add(this.lblSpeedBotom);
-            this.gbSpeedVis.Controls.Add(this.lblSpeedTop);
-            this.gbSpeedVis.Location = new System.Drawing.Point(3, 3);
-            this.gbSpeedVis.Name = "gbSpeedVis";
-            this.gbSpeedVis.Size = new System.Drawing.Size(93, 265);
-            this.gbSpeedVis.TabIndex = 4;
-            this.gbSpeedVis.TabStop = false;
-            this.gbSpeedVis.Text = "Скорость";
+            this.gbDescription.Controls.Add(this.lblDescription);
+            this.gbDescription.Location = new System.Drawing.Point(103, 68);
+            this.gbDescription.Name = "gbDescription";
+            this.gbDescription.Size = new System.Drawing.Size(458, 200);
+            this.gbDescription.TabIndex = 10;
+            this.gbDescription.TabStop = false;
+            this.gbDescription.Text = "Краткое описание алгоритма";
             // 
-            // tbSpeedVis
+            // lblDescription
             // 
-            this.tbSpeedVis.LargeChange = 2;
-            this.tbSpeedVis.Location = new System.Drawing.Point(18, 46);
-            this.tbSpeedVis.Minimum = 1;
-            this.tbSpeedVis.Name = "tbSpeedVis";
-            this.tbSpeedVis.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.tbSpeedVis.Size = new System.Drawing.Size(56, 188);
-            this.tbSpeedVis.TabIndex = 1;
-            this.tbSpeedVis.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.tbSpeedVis.Value = 1;
+            this.lblDescription.AutoSize = true;
+            this.lblDescription.Location = new System.Drawing.Point(6, 18);
+            this.lblDescription.MaximumSize = new System.Drawing.Size(400, 0);
+            this.lblDescription.Name = "lblDescription";
+            this.lblDescription.Size = new System.Drawing.Size(74, 17);
+            this.lblDescription.TabIndex = 11;
+            this.lblDescription.Text = "Описание";
             // 
-            // lblSpeedBotom
+            // btnStartAlgorithm
             // 
-            this.lblSpeedBotom.AutoSize = true;
-            this.lblSpeedBotom.Location = new System.Drawing.Point(11, 236);
-            this.lblSpeedBotom.Name = "lblSpeedBotom";
-            this.lblSpeedBotom.Size = new System.Drawing.Size(65, 17);
-            this.lblSpeedBotom.TabIndex = 3;
-            this.lblSpeedBotom.Text = "Быстрее";
+            this.btnStartAlgorithm.Location = new System.Drawing.Point(456, 10);
+            this.btnStartAlgorithm.Name = "btnStartAlgorithm";
+            this.btnStartAlgorithm.Size = new System.Drawing.Size(105, 52);
+            this.btnStartAlgorithm.TabIndex = 9;
+            this.btnStartAlgorithm.Text = "Запустить алгоритм";
+            this.btnStartAlgorithm.UseVisualStyleBackColor = true;
+            this.btnStartAlgorithm.Click += new System.EventHandler(this.btnStartAlgorithm_Click);
             // 
-            // lblSpeedTop
+            // pnlLog
             // 
-            this.lblSpeedTop.AutoSize = true;
-            this.lblSpeedTop.Location = new System.Drawing.Point(11, 24);
-            this.lblSpeedTop.Name = "lblSpeedTop";
-            this.lblSpeedTop.Size = new System.Drawing.Size(75, 17);
-            this.lblSpeedTop.TabIndex = 2;
-            this.lblSpeedTop.Text = "Медленее";
+            this.pnlLog.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.pnlLog.AutoScroll = true;
+            this.pnlLog.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlLog.Controls.Add(this.lblLog);
+            this.pnlLog.Controls.Add(this.pbDataStructures);
+            this.pnlLog.Location = new System.Drawing.Point(6, 327);
+            this.pnlLog.Name = "pnlLog";
+            this.pnlLog.Size = new System.Drawing.Size(567, 496);
+            this.pnlLog.TabIndex = 12;
             // 
-            // pnlGraphEditor
+            // lblLog
             // 
-            this.pnlGraphEditor.Controls.Add(this.gbGraphGen);
-            this.pnlGraphEditor.Controls.Add(this.btnShowMST);
-            this.pnlGraphEditor.Controls.Add(this.gbEditMode);
-            this.pnlGraphEditor.Controls.Add(this.btnSetWeigthAsDiastance);
-            this.pnlGraphEditor.Controls.Add(this.dgvAdjMatrix);
-            this.pnlGraphEditor.Controls.Add(this.gbMatrix);
-            this.pnlGraphEditor.Location = new System.Drawing.Point(6, 3);
-            this.pnlGraphEditor.Name = "pnlGraphEditor";
-            this.pnlGraphEditor.Size = new System.Drawing.Size(570, 821);
-            this.pnlGraphEditor.TabIndex = 6;
-            // 
-            // pnlAlgorithmsControls
-            // 
-            this.pnlAlgorithmsControls.Controls.Add(this.gbSpeedVis);
-            this.pnlAlgorithmsControls.Controls.Add(this.gbAlgSet);
-            this.pnlAlgorithmsControls.Controls.Add(this.gbDescription);
-            this.pnlAlgorithmsControls.Controls.Add(this.btnStartAlgorithm);
-            this.pnlAlgorithmsControls.Location = new System.Drawing.Point(3, 3);
-            this.pnlAlgorithmsControls.Name = "pnlAlgorithmsControls";
-            this.pnlAlgorithmsControls.Size = new System.Drawing.Size(570, 273);
-            this.pnlAlgorithmsControls.TabIndex = 13;
+            this.lblLog.AutoSize = true;
+            this.lblLog.Location = new System.Drawing.Point(3, 3);
+            this.lblLog.MaximumSize = new System.Drawing.Size(520, 0);
+            this.lblLog.Name = "lblLog";
+            this.lblLog.Size = new System.Drawing.Size(191, 17);
+            this.lblLog.TabIndex = 0;
+            this.lblLog.Text = "Ход выполнения алгоритма";
+            this.lblLog.SizeChanged += new System.EventHandler(this.lblLog_SizeChanged);
             // 
             // pbDataStructures
             // 
@@ -651,41 +710,6 @@
             this.pbDataStructures.TabIndex = 1;
             this.pbDataStructures.TabStop = false;
             this.pbDataStructures.Visible = false;
-            // 
-            // gbDescrSwitch
-            // 
-            this.gbDescrSwitch.Controls.Add(this.rbDataStructures);
-            this.gbDescrSwitch.Controls.Add(this.rbLog);
-            this.gbDescrSwitch.Location = new System.Drawing.Point(8, 277);
-            this.gbDescrSwitch.Name = "gbDescrSwitch";
-            this.gbDescrSwitch.Size = new System.Drawing.Size(304, 44);
-            this.gbDescrSwitch.TabIndex = 14;
-            this.gbDescrSwitch.TabStop = false;
-            this.gbDescrSwitch.Text = "Подробности";
-            // 
-            // rbLog
-            // 
-            this.rbLog.AutoSize = true;
-            this.rbLog.Checked = true;
-            this.rbLog.Location = new System.Drawing.Point(5, 17);
-            this.rbLog.Name = "rbLog";
-            this.rbLog.Size = new System.Drawing.Size(139, 21);
-            this.rbLog.TabIndex = 0;
-            this.rbLog.TabStop = true;
-            this.rbLog.Text = "Ход выполнения";
-            this.rbLog.UseVisualStyleBackColor = true;
-            this.rbLog.CheckedChanged += new System.EventHandler(this.rbLog_CheckedChanged);
-            // 
-            // rbDataStructures
-            // 
-            this.rbDataStructures.AutoSize = true;
-            this.rbDataStructures.Location = new System.Drawing.Point(150, 17);
-            this.rbDataStructures.Name = "rbDataStructures";
-            this.rbDataStructures.Size = new System.Drawing.Size(151, 21);
-            this.rbDataStructures.TabIndex = 1;
-            this.rbDataStructures.Text = "Структуры данных";
-            this.rbDataStructures.UseVisualStyleBackColor = true;
-            this.rbDataStructures.CheckedChanged += new System.EventHandler(this.rbDataStructures_CheckedChanged);
             // 
             // Form1
             // 
@@ -708,29 +732,29 @@
             this.pnlGraphState.PerformLayout();
             this.tcPages.ResumeLayout(false);
             this.tabPageEditor.ResumeLayout(false);
-            this.gbMatrix.ResumeLayout(false);
-            this.gbMatrix.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAdjMatrix)).EndInit();
-            this.gbEditMode.ResumeLayout(false);
-            this.gbEditMode.PerformLayout();
+            this.pnlGraphEditor.ResumeLayout(false);
             this.gbGraphGen.ResumeLayout(false);
             this.gbGraphGen.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tBarMaxWeight)).EndInit();
+            this.gbEditMode.ResumeLayout(false);
+            this.gbEditMode.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAdjMatrix)).EndInit();
+            this.gbMatrix.ResumeLayout(false);
+            this.gbMatrix.PerformLayout();
             this.tabPageAlgVis.ResumeLayout(false);
-            this.pnlLog.ResumeLayout(false);
-            this.pnlLog.PerformLayout();
-            this.gbDescription.ResumeLayout(false);
-            this.gbDescription.PerformLayout();
-            this.gbAlgSet.ResumeLayout(false);
-            this.gbAlgSet.PerformLayout();
+            this.gbDescrSwitch.ResumeLayout(false);
+            this.gbDescrSwitch.PerformLayout();
+            this.pnlAlgorithmsControls.ResumeLayout(false);
             this.gbSpeedVis.ResumeLayout(false);
             this.gbSpeedVis.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbSpeedVis)).EndInit();
-            this.pnlGraphEditor.ResumeLayout(false);
-            this.pnlAlgorithmsControls.ResumeLayout(false);
+            this.gbAlgSet.ResumeLayout(false);
+            this.gbAlgSet.PerformLayout();
+            this.gbDescription.ResumeLayout(false);
+            this.gbDescription.PerformLayout();
+            this.pnlLog.ResumeLayout(false);
+            this.pnlLog.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbDataStructures)).EndInit();
-            this.gbDescrSwitch.ResumeLayout(false);
-            this.gbDescrSwitch.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -786,6 +810,8 @@
         private System.Windows.Forms.GroupBox gbDescrSwitch;
         private System.Windows.Forms.RadioButton rbDataStructures;
         private System.Windows.Forms.RadioButton rbLog;
+        private System.Windows.Forms.Button btnForward;
+        private System.Windows.Forms.Button btnBack;
     }
 }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GraphWinForms
 {
-    public class Edge<T>:IComparable, ICloneable
+    public class Edge<T>:IComparable, ICloneable where T : ICloneable
     {
         private readonly Vertex<T> vertex1;
         private readonly Vertex<T> vertex2;
