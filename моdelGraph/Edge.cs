@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GraphWinForms
 {
@@ -49,7 +45,8 @@ namespace GraphWinForms
 
         public int CompareTo(object obj)
         {
-            if (!(obj is Edge<T> edge2Compare)) throw new Exception("Сравнение возможно только с экземплром Edge");
+            if (!(obj is Edge<T> edge2Compare))
+                throw new Exception("Сравнение возможно только с экземплром Edge");
             return Weight.CompareTo(edge2Compare.Weight);
         }
 

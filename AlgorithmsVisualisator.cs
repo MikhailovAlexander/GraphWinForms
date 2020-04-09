@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GraphWinForms
@@ -16,7 +12,8 @@ namespace GraphWinForms
         private Label lblLog;
         private PictureBox dataStructuresArea;
 
-        public AlgorithmsVisualisator(GraphPrinter printer, Graph<VisVertex> graph, Label lblLog, PictureBox dataStructuresArea) : base(printer.graphArea, printer.lblState)
+        public AlgorithmsVisualisator(GraphPrinter printer, Graph<VisVertex> graph, Label lblLog, 
+            PictureBox dataStructuresArea) : base(printer.graphArea, printer.lblState)
         {
             this.graph = graph;
             this.lblLog = lblLog;
@@ -25,7 +22,8 @@ namespace GraphWinForms
             this.dataStructuresArea = dataStructuresArea;
             foreach (var edge in graph.Edges) edgesHighlight.Add(edge, printer.EdgeColor);
             verticiesHighlight = new Dictionary<Vertex<VisVertex>, Color>();
-            foreach (var vertex in graph.Vertices) verticiesHighlight.Add(vertex, printer.VertexColor);
+            foreach (var vertex in graph.Vertices)
+                verticiesHighlight.Add(vertex, printer.VertexColor);
         }
         #region Init
         public void SetEdgeColor(Edge<VisVertex> edge, Color color)
@@ -127,8 +125,8 @@ namespace GraphWinForms
             dataStructuresArea.Image = bitmap;
         }
 
-        public void PrintDataStructuresPrim(AdjVertexSortedList[] lists, AdjVertexSortedList mstList, 
-            int inMSTSize = 12, int aslSize = 20)
+        public void PrintDataStructuresPrim(AdjVertexSortedList[] lists, 
+            AdjVertexSortedList mstList, int inMSTSize = 12, int aslSize = 20)
         {
             int width = Max(GetMaxLenght() * aslSize + 200, dataStructuresArea.Width);
             int height = Max(lists.Length * aslSize + 100, dataStructuresArea.Height);
@@ -199,7 +197,10 @@ namespace GraphWinForms
             graphics.FillRectangle(vertexBrush, rect);
             vertexBrush.Color = verticiesHighlight[graph.Vertices[edge.V1Id]];
             Point[] triangle = new Point[] 
-            { point, new Point(point.X, point.Y + size), new Point(point.X + size, point.Y + size) };
+            {
+                point,
+                new Point(point.X, point.Y + size),
+                new Point(point.X + size, point.Y + size) };
             graphics.FillPolygon(vertexBrush, triangle);
             graphics.DrawString(edge.Weight.ToString(), smallFont, textBrush, point);
         }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace GraphWinForms
 {
@@ -105,7 +104,8 @@ namespace GraphWinForms
 
         public void RemoveVertex(Vertex<T> vertex)
         {
-            for (int i = EdgesCount - 1; i >= 0; i--)//Обход с конца, чтобы удаление элемента не меняло индекс еще не просмотренных 
+            //Обход с конца, чтобы удаление элемента не меняло индекс еще не просмотренных 
+            for (int i = EdgesCount - 1; i >= 0; i--)
                 if (edges[i].IsIncident(vertex)) edges.RemoveAt(i);
             vertices.Remove(vertex);
         }
@@ -154,7 +154,8 @@ namespace GraphWinForms
         private string VerticesToString()
         {
             StringBuilder builder = new StringBuilder("Список вершин:\n");
-            foreach (Vertex<T> vertex in Vertices) builder.AppendFormat("{0}, ", vertex.ToString());
+            foreach (Vertex<T> vertex in Vertices)
+                builder.AppendFormat("{0}, ", vertex.ToString());
             return builder.ToString();
         }
 

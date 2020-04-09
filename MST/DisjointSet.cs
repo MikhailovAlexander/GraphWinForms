@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GraphWinForms
 {
@@ -32,7 +28,8 @@ namespace GraphWinForms
         public int GetValue(int index)
         {
             if (index < 0 || index >= Count)
-                throw new ArgumentOutOfRangeException("Заправшиваемый идекс вне диапазона множества");
+                throw new ArgumentOutOfRangeException(
+                    "Запрашиваемый индекс вне диапазона множества");
             return parent[index];
         }
 
@@ -54,8 +51,10 @@ namespace GraphWinForms
             if (parent[elementNumber] == elementNumber) return elementNumber;
             else
             {
-                int root = FindRoot(parent[elementNumber]);//Если элемент не корневой, продолжаем рекурсивный поиск корня
-                parent[elementNumber] = root;//на обратном ходу рекурсии обновляем информацию о предке - PathCompression
+                int root = FindRoot(parent[elementNumber]);
+                //Если элемент не корневой, продолжаем рекурсивный поиск корня
+                parent[elementNumber] = root;
+                //на обратном ходу рекурсии обновляем информацию о предке - PathCompression
                 return root;
             }
             

@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GraphWinForms
 {
@@ -55,7 +52,8 @@ namespace GraphWinForms
             {
                 while (currentNode.Next != null && !currentNode.Next.Contains(vertex2Remove))
                     currentNode = currentNode.Next;
-                if (currentNode.Next == null) throw new Exception("Вершина не содержится в списке");
+                if (currentNode.Next == null)
+                    throw new Exception("Вершина не содержится в списке");
                 currentNode.Next = currentNode.Next.Next;
             }
             while (currentNode.Next != null)

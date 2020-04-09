@@ -1,12 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static GraphWinForms.Geometry;
 
@@ -109,7 +103,8 @@ namespace GraphWinForms
 
         private void GraphArea_MouseMove(object sender, MouseEventArgs e)
         {
-            if (currentVertex == null || e.Button != MouseButtons.Left || !tcPages.Enabled) return;
+            if (currentVertex == null || e.Button != MouseButtons.Left || !tcPages.Enabled)
+                return;
             if (rbVertexMove.Checked)
             {
                 if (!GraphArea.ClientRectangle.Contains(e.Location)

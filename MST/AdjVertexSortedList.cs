@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GraphWinForms
 {
@@ -31,15 +27,21 @@ namespace GraphWinForms
             }
             if(edge <= head)
             {
-                head = new AdjacencyVertexNode(edge, head.Previous, head);//При добавлении элемента в начало, сохраняем в начале указаьельна конец
-                head.Next.Previous = head;//Обновляем информацию о предшественнике у сдвинутого элемента
+                head = new AdjacencyVertexNode(edge, head.Previous, head);
+                //При добавлении элемента в начало, сохраняем в начале указатель на конец
+                head.Next.Previous = head;
+                //Обновляем информацию о предшественнике у сдвинутого элемента
                 return;
             }
             var currentNode = head;
-            while (currentNode.Next != null && edge > currentNode.Next) currentNode = currentNode.Next;
+            while (currentNode.Next != null && edge > currentNode.Next)
+                currentNode = currentNode.Next;
             currentNode.Next = new AdjacencyVertexNode(edge, currentNode, currentNode.Next);
-            if (currentNode.Next.Next == null) head.Previous = currentNode.Next;//Если добавили в конец, обновляем информацию о конце в Head
-            else currentNode.Next.Next.Previous = currentNode.Next;//Если добавили не в конец, обновляем информацию о предшественнике в элементе перед которым вставили
+            if (currentNode.Next.Next == null) head.Previous = currentNode.Next;
+            //Если добавили в конец, обновляем информацию о конце в Head
+            else currentNode.Next.Next.Previous = currentNode.Next;
+            //Если добавили не в конец, 
+            //обновляем информацию о предшественнике в элементе перед которым вставили
         }
 
         public Edge<VisVertex> ExtractMinWeightEdge()
@@ -92,8 +94,13 @@ namespace GraphWinForms
             var unionList = new AdjVertexSortedList();
             while (!this.IsEmpty && !list2Union.IsEmpty)
             {
-                if (isIncluded[this.MaxWeightNode.AdjVertexID]) this.ExtractMaxWeightEdge();//Удаляем из текущего списка ребра, у которых обе вершины входят в текущую компоненту связности
-                else if  (isIncluded[list2Union.MaxWeightNode.AdjVertexID]) list2Union.ExtractMaxWeightEdge();//Удаляем из списка для объединения ребра, у которых обе вершины входят в текущую компоненту связности
+                if (isIncluded[this.MaxWeightNode.AdjVertexID]) this.ExtractMaxWeightEdge();
+                //Удаляем из текущего списка ребра, 
+                //у которых обе вершины входят в текущую компоненту связности
+                else if  (isIncluded[list2Union.MaxWeightNode.AdjVertexID])
+                    list2Union.ExtractMaxWeightEdge();
+                //Удаляем из списка для объединения ребра, 
+                //у которых обе вершины входят в текущую компоненту связности
                 else if (this.MaxWeightNode > list2Union.MaxWeightNode)
                     unionList.Add(this.ExtractMaxWeightEdge());
                 else unionList.Add(list2Union.ExtractMaxWeightEdge());
@@ -105,7 +112,8 @@ namespace GraphWinForms
             }
             while (!list2Union.IsEmpty)
             {
-                if (isIncluded[list2Union.MaxWeightNode.AdjVertexID]) list2Union.ExtractMaxWeightEdge();
+                if (isIncluded[list2Union.MaxWeightNode.AdjVertexID])
+                    list2Union.ExtractMaxWeightEdge();
                 else unionList.Add(list2Union.ExtractMaxWeightEdge());
             }
             return unionList;
@@ -117,9 +125,16 @@ namespace GraphWinForms
             while (!this.IsEmpty && !list2Union.IsEmpty)
             {
                 if (dsu.InTheSameSet(this.MaxWeightEdge.V1Id, this.MaxWeightEdge.V2Id))
-                    this.ExtractMaxWeightEdge();//Удаляем из текущего списка ребра, у которых обе вершины входят в одну компоненту связности
-                else if (dsu.InTheSameSet(list2Union.MaxWeightEdge.V1Id, list2Union.MaxWeightEdge.V2Id))
-                    list2Union.ExtractMaxWeightEdge();//Удаляем из списка для объединения ребра, у которых обе вершины входят в одну компоненту связности
+                    this.ExtractMaxWeightEdge();
+                //Удаляем из текущего списка ребра, 
+                //у которых обе вершины входят в одну компоненту связности
+                else if (dsu.InTheSameSet(
+                    list2Union.MaxWeightEdge.V1Id, list2Union.MaxWeightEdge.V2Id))
+                {
+                    list2Union.ExtractMaxWeightEdge();
+                    //Удаляем из списка для объединения ребра, 
+                    //у которых обе вершины входят в одну компоненту связности
+                }
                 else if (this.MaxWeightNode > list2Union.MaxWeightNode)
                     unionList.Add(this.ExtractMaxWeightEdge());
                 else unionList.Add(list2Union.ExtractMaxWeightEdge());
@@ -142,13 +157,15 @@ namespace GraphWinForms
         public static AdjVertexSortedList[] GetAdjLists(Graph<VisVertex> graph)
         {
             var lists = new AdjVertexSortedList[graph.Order];//Создаем массив списков смежности 
-            for (int i = 0; i < graph.Order; i++)//Создаем списки смежности для каждой вершины графа
+            for (int i = 0; i < graph.Order; i++)//Создаем сп.смеж-и для каждой вершины графа
                 lists[i] = new AdjVertexSortedList();
             foreach (Edge<VisVertex> edge in graph.Edges)//Распределяем ребра по спискам
             {
                 if (edge.V1Id == edge.V2Id) continue;//Пропускаем петли
                 lists[edge.V1Id].Add(edge);//Добавляем ребро в список первой вершины
-                lists[edge.V2Id].Add(edge.Reverse());//Добавляем ребро в список второй вершины (переворачиваем ребро, т.к. для второй вешины смежняая будет первая)
+                lists[edge.V2Id].Add(edge.Reverse());
+                //Добавляем ребро в список второй вершины 
+                //(переворачиваем ребро, т.к. для второй вешины смежняая будет первая)
             }
             return lists;
         }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GraphWinForms
+﻿namespace GraphWinForms
 {
     public class AdjacencyVertexNode
     {
@@ -27,7 +21,8 @@ namespace GraphWinForms
             Previous = null;
             Next = next;
         }
-        public AdjacencyVertexNode(Edge<VisVertex> edge, AdjacencyVertexNode previous, AdjacencyVertexNode next)
+        public AdjacencyVertexNode(
+            Edge<VisVertex> edge, AdjacencyVertexNode previous, AdjacencyVertexNode next)
         {
             this.Edge = edge;
             Previous = previous;
