@@ -415,17 +415,17 @@ namespace GraphWinForms
 
         private void tabPageEditor_SizeChanged(object sender, EventArgs e)
         {
-            int newSize = tabPageEditor.Width - 170;
-            pnlGraphEditor.Width = newSize;
-            dgvAdjMatrix.Width = newSize;
+            //int newSize = tabPageEditor.Width - 170;
+            //pnlGraphEditor.Width = newSize;
+            //dgvAdjMatrix.Width = newSize;
         }
 
         private void tabPageAlgVis_SizeChanged(object sender, EventArgs e)
         {
-            int newSize = tabPageAlgVis.Width - 170;
-            pnlLog.Width = newSize;
-            pbDataStructures.Width = newSize;
-            lblLog.MaximumSize = new Size(newSize - 10,0);
+            //int newSize = tabPageAlgVis.Width - 170;
+            //pnlLog.Width = newSize;
+            //pbDataStructures.Width = newSize;
+            lblLog.MaximumSize = new Size(tabPageAlgVis.Width - 10,0);
         }
     }
 }
