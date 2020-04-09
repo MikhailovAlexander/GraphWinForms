@@ -25,6 +25,7 @@ namespace GraphWinForms
         private Edge<VisVertex> currentEdge;
         private Stack<Graph<VisVertex>> back;
         private Stack<Graph<VisVertex>> forward;
+        private bool vertexMove;
 
         public Form1()
         {
@@ -41,6 +42,7 @@ namespace GraphWinForms
             back = new Stack<Graph<VisVertex>>(100);
             back.Push((Graph<VisVertex>)graph.Clone());
             forward = new Stack<Graph<VisVertex>>(100);
+            vertexMove = false;
         }
 
         public void BlockTabControl()
@@ -85,7 +87,7 @@ namespace GraphWinForms
         #region GraphEditor
         private void btnSetWeigthAsDiastance_Click(object sender, EventArgs e)
         {
-            back.Push((Graph<VisVertex>)graph.Clone());
+            SaveGraph();
             for (int i = 0; i < graph.EdgesCount; i++)
                 graph.Edges[i].Weight = (int)Geometry.GetDistanse(
                     graph.Edges[i].Data1.GetPoint, graph.Edges[i].Data2.GetPoint) / 10;
@@ -97,7 +99,7 @@ namespace GraphWinForms
         {
             try
             {
-                back.Push((Graph<VisVertex>)graph.Clone());
+                SaveGraph();
                 graph = MSTAlgorithms.GetMST_KrusculDSU(graph);
                 printer.Print(graph);
                 ShowMatrixOrLists();
@@ -114,9 +116,12 @@ namespace GraphWinForms
                     || e.Y >= GraphArea.Height - pnlGraphState.Height)
                 {
                     currentVertex = null;
+                    vertexMove = false;
                     return;
                 }
-                back.Push((Graph<VisVertex>)graph.Clone());
+                SaveGraph();
+                if (vertexMove) back.Pop();
+                vertexMove = true;
                 currentVertex.Data.SetPoint(e.Location);
                 printer.Print(graph);
             }
@@ -125,17 +130,18 @@ namespace GraphWinForms
 
         private void GraphArea_MouseUp(object sender, MouseEventArgs e)
         {
-            if (!tcPages.Enabled) return;
+            if (!pnlGraphEditor.Enabled) return;
             if (rbVertexMove.Checked)
             {
                 currentVertex = null;
+                vertexMove = false;
             }
             else if (rbEdgeAdd.Checked && currentVertex != null)
             {
                 int index = GetIndexVertex(e.Location);
                 if (index != -1 && !graph.IsConnectedVertices(index, currentVertex.Id))
                 {
-                    back.Push((Graph<VisVertex>)graph.Clone());
+                    SaveGraph();
                     graph.AddEdge(currentVertex.Id, index, rnd.Next(1, tBarMaxWeight.Value));
                     ShowMatrixOrLists();
                 }
@@ -145,7 +151,7 @@ namespace GraphWinForms
 
         private void GraphArea_MouseDown(object sender, MouseEventArgs e)
         {
-            if (!tcPages.Enabled) return;
+            if (!pnlGraphEditor.Enabled) return;
             int index = GetIndexVertex(e.Location);
             if (rbVertexMove.Checked||rbEdgeAdd.Checked)
             {
@@ -155,7 +161,7 @@ namespace GraphWinForms
             else if(rbVertexAdd.Checked)
             {
 
-                back.Push((Graph<VisVertex>)graph.Clone());
+                SaveGraph();
                 index = graph.Order;
                 graph.AddVertex(
                     new Vertex<VisVertex>(index,new VisVertex(index.ToString(), e.Location)));
@@ -167,7 +173,7 @@ namespace GraphWinForms
                 if (graph.Order == 1) return;
                 if (index != -1 && e.Button == MouseButtons.Left)
                 {
-                    back.Push((Graph<VisVertex>)graph.Clone());
+                    SaveGraph();
                     graph.RemoveVertex(graph.Vertices[index]);
                 }
                 printer.Print(graph);
@@ -178,7 +184,7 @@ namespace GraphWinForms
                 var edge2Remove = GetEdge(e.Location);
                 if (edge2Remove != null)
                 {
-                    back.Push((Graph<VisVertex>)graph.Clone());
+                    SaveGraph();
                     graph.RemoveEdge(edge2Remove);
                     printer.Print(graph);
                     ShowMatrixOrLists();
@@ -217,7 +223,7 @@ namespace GraphWinForms
             {
                 try
                 {
-                    back.Push((Graph<VisVertex>)graph.Clone());
+                    SaveGraph();
                     currentEdge.Weight = int.Parse(mtbChangeWeight.Text);
                 }
                 catch (Exception ex) { MessageBox.Show(ex.Message); }
@@ -227,6 +233,11 @@ namespace GraphWinForms
                 printer.Print(graph);
                 ShowMatrixOrLists();
             }
+        }
+
+        private void SaveGraph()
+        {
+            back.Push((Graph<VisVertex>)graph.Clone());
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -259,7 +270,7 @@ namespace GraphWinForms
             int index = GetIndexVertex(point2Check);
             foreach (var edge in graph.Edges)
                 if (index != -1 && edge.IsIncident(index) && edge.IsLoop)
-                    return edge;//Если попави в вершину -ищем петлю
+                    return edge;//Если попали в вершину -ищем петлю
                 else if (index == -1 && GetDistanseToLine(
                     edge.Data1.GetPoint, edge.Data2.GetPoint, point2Check) < 3)
                     return edge;

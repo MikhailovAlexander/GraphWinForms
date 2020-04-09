@@ -34,5 +34,11 @@ namespace GraphWinForms
         {
             Vertex.Id = id;
         }
+
+        public override string ToString()
+        {
+            if (Next == null) return Vertex.ToString() + "=>x";
+            return Vertex.ToString() + "=>" + Next.Vertex.ToString();
+        }
     }
 }

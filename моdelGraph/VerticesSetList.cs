@@ -49,6 +49,7 @@ namespace GraphWinForms
             {
                 head = head.Next;
                 head.SetVertexID(0);
+                currentNode = head;
             }
             else
             {

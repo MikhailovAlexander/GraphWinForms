@@ -105,7 +105,7 @@ namespace GraphWinForms
 
         public void RemoveVertex(Vertex<T> vertex)
         {
-            for (int i = EdgesCount - 1; i >= 0; i--)//Обход с конца, чтобы удаление элемента не меняло индекс еще не просмотренных вершин
+            for (int i = EdgesCount - 1; i >= 0; i--)//Обход с конца, чтобы удаление элемента не меняло индекс еще не просмотренных 
                 if (edges[i].IsIncident(vertex)) edges.RemoveAt(i);
             vertices.Remove(vertex);
         }
