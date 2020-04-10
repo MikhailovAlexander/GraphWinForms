@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GraphArea = new System.Windows.Forms.PictureBox();
             this.btnGenerateGraph = new System.Windows.Forms.Button();
             this.tBarProbability = new System.Windows.Forms.TrackBar();
@@ -46,11 +46,11 @@
             this.tabPageEditor = new System.Windows.Forms.TabPage();
             this.pnlGraphEditor = new System.Windows.Forms.Panel();
             this.gbGraphGen = new System.Windows.Forms.GroupBox();
+            this.lblMaxWeight = new System.Windows.Forms.Label();
             this.btnForward = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.chBoxWithoutLoop = new System.Windows.Forms.CheckBox();
             this.chBoxDiffWheight = new System.Windows.Forms.CheckBox();
-            this.lblMaxWeight = new System.Windows.Forms.Label();
             this.tBarMaxWeight = new System.Windows.Forms.TrackBar();
             this.btnShowMST = new System.Windows.Forms.Button();
             this.gbEditMode = new System.Windows.Forms.GroupBox();
@@ -117,7 +117,7 @@
             this.GraphArea.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GraphArea.Location = new System.Drawing.Point(0, 0);
             this.GraphArea.Name = "GraphArea";
-            this.GraphArea.Size = new System.Drawing.Size(717, 961);
+            this.GraphArea.Size = new System.Drawing.Size(717, 743);
             this.GraphArea.TabIndex = 0;
             this.GraphArea.TabStop = false;
             this.GraphArea.MouseDown += new System.Windows.Forms.MouseEventHandler(this.GraphArea_MouseDown);
@@ -129,7 +129,7 @@
             this.btnGenerateGraph.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGenerateGraph.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(187)))), ((int)(((byte)(93)))));
             this.btnGenerateGraph.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
-            this.btnGenerateGraph.Location = new System.Drawing.Point(417, 53);
+            this.btnGenerateGraph.Location = new System.Drawing.Point(433, 53);
             this.btnGenerateGraph.Name = "btnGenerateGraph";
             this.btnGenerateGraph.Size = new System.Drawing.Size(142, 56);
             this.btnGenerateGraph.TabIndex = 1;
@@ -160,7 +160,7 @@
             // lblOrder
             // 
             this.lblOrder.AutoSize = true;
-            this.lblOrder.Location = new System.Drawing.Point(14, 119);
+            this.lblOrder.Location = new System.Drawing.Point(14, 99);
             this.lblOrder.Name = "lblOrder";
             this.lblOrder.Size = new System.Drawing.Size(112, 18);
             this.lblOrder.TabIndex = 6;
@@ -168,7 +168,7 @@
             // 
             // tBarOrder
             // 
-            this.tBarOrder.Location = new System.Drawing.Point(6, 145);
+            this.tBarOrder.Location = new System.Drawing.Point(6, 124);
             this.tBarOrder.Maximum = 50;
             this.tBarOrder.Name = "tBarOrder";
             this.tBarOrder.Size = new System.Drawing.Size(395, 56);
@@ -199,7 +199,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tcPages);
             this.splitContainer1.Panel2MinSize = 600;
-            this.splitContainer1.Size = new System.Drawing.Size(1380, 963);
+            this.splitContainer1.Size = new System.Drawing.Size(1326, 745);
             this.splitContainer1.SplitterDistance = 719;
             this.splitContainer1.TabIndex = 7;
             // 
@@ -209,7 +209,7 @@
             this.pnlGraphState.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlGraphState.Controls.Add(this.lblGraphState);
             this.pnlGraphState.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlGraphState.Location = new System.Drawing.Point(0, 931);
+            this.pnlGraphState.Location = new System.Drawing.Point(0, 713);
             this.pnlGraphState.Name = "pnlGraphState";
             this.pnlGraphState.Size = new System.Drawing.Size(717, 30);
             this.pnlGraphState.TabIndex = 4;
@@ -223,6 +223,7 @@
             this.lblGraphState.Size = new System.Drawing.Size(40, 18);
             this.lblGraphState.TabIndex = 3;
             this.lblGraphState.Text = "Граф";
+            this.lblGraphState.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // mtbChangeWeight
             // 
@@ -241,10 +242,10 @@
             this.tcPages.Controls.Add(this.tabPageAlgVis);
             this.tcPages.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcPages.Location = new System.Drawing.Point(0, 0);
-            this.tcPages.MinimumSize = new System.Drawing.Size(600, 0);
+            this.tcPages.MinimumSize = new System.Drawing.Size(520, 0);
             this.tcPages.Name = "tcPages";
             this.tcPages.SelectedIndex = 0;
-            this.tcPages.Size = new System.Drawing.Size(655, 961);
+            this.tcPages.Size = new System.Drawing.Size(601, 743);
             this.tcPages.TabIndex = 7;
             // 
             // tabPageEditor
@@ -254,7 +255,7 @@
             this.tabPageEditor.Location = new System.Drawing.Point(4, 27);
             this.tabPageEditor.Name = "tabPageEditor";
             this.tabPageEditor.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageEditor.Size = new System.Drawing.Size(647, 930);
+            this.tabPageEditor.Size = new System.Drawing.Size(593, 712);
             this.tabPageEditor.TabIndex = 0;
             this.tabPageEditor.Text = "Редактор графа";
             this.tabPageEditor.UseVisualStyleBackColor = true;
@@ -273,35 +274,44 @@
             this.pnlGraphEditor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlGraphEditor.Location = new System.Drawing.Point(3, 3);
             this.pnlGraphEditor.Name = "pnlGraphEditor";
-            this.pnlGraphEditor.Size = new System.Drawing.Size(641, 924);
+            this.pnlGraphEditor.Size = new System.Drawing.Size(587, 706);
             this.pnlGraphEditor.TabIndex = 6;
             // 
             // gbGraphGen
             // 
+            this.gbGraphGen.Controls.Add(this.lblMaxWeight);
+            this.gbGraphGen.Controls.Add(this.lblOrder);
             this.gbGraphGen.Controls.Add(this.btnForward);
             this.gbGraphGen.Controls.Add(this.btnBack);
             this.gbGraphGen.Controls.Add(this.chBoxWithoutLoop);
             this.gbGraphGen.Controls.Add(this.tBarProbability);
             this.gbGraphGen.Controls.Add(this.chBoxDiffWheight);
             this.gbGraphGen.Controls.Add(this.lblProbability);
-            this.gbGraphGen.Controls.Add(this.lblMaxWeight);
             this.gbGraphGen.Controls.Add(this.tBarOrder);
-            this.gbGraphGen.Controls.Add(this.tBarMaxWeight);
-            this.gbGraphGen.Controls.Add(this.lblOrder);
             this.gbGraphGen.Controls.Add(this.btnGenerateGraph);
+            this.gbGraphGen.Controls.Add(this.tBarMaxWeight);
             this.gbGraphGen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
             this.gbGraphGen.Location = new System.Drawing.Point(3, 3);
             this.gbGraphGen.Name = "gbGraphGen";
-            this.gbGraphGen.Size = new System.Drawing.Size(565, 312);
+            this.gbGraphGen.Size = new System.Drawing.Size(581, 263);
             this.gbGraphGen.TabIndex = 1;
             this.gbGraphGen.TabStop = false;
             this.gbGraphGen.Text = "Генератор графов";
+            // 
+            // lblMaxWeight
+            // 
+            this.lblMaxWeight.AutoSize = true;
+            this.lblMaxWeight.Location = new System.Drawing.Point(14, 171);
+            this.lblMaxWeight.Name = "lblMaxWeight";
+            this.lblMaxWeight.Size = new System.Drawing.Size(184, 18);
+            this.lblMaxWeight.TabIndex = 8;
+            this.lblMaxWeight.Text = "Максимальный вес ребра";
             // 
             // btnForward
             // 
             this.btnForward.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(187)))), ((int)(((byte)(93)))));
             this.btnForward.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
-            this.btnForward.Location = new System.Drawing.Point(503, 11);
+            this.btnForward.Location = new System.Drawing.Point(519, 11);
             this.btnForward.Name = "btnForward";
             this.btnForward.Size = new System.Drawing.Size(56, 35);
             this.btnForward.TabIndex = 12;
@@ -313,7 +323,7 @@
             // 
             this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(187)))), ((int)(((byte)(93)))));
             this.btnBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
-            this.btnBack.Location = new System.Drawing.Point(417, 11);
+            this.btnBack.Location = new System.Drawing.Point(433, 11);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(58, 35);
             this.btnBack.TabIndex = 11;
@@ -324,7 +334,7 @@
             // chBoxWithoutLoop
             // 
             this.chBoxWithoutLoop.AutoSize = true;
-            this.chBoxWithoutLoop.Location = new System.Drawing.Point(417, 128);
+            this.chBoxWithoutLoop.Location = new System.Drawing.Point(438, 128);
             this.chBoxWithoutLoop.Name = "chBoxWithoutLoop";
             this.chBoxWithoutLoop.Size = new System.Drawing.Size(110, 22);
             this.chBoxWithoutLoop.TabIndex = 10;
@@ -334,25 +344,16 @@
             // chBoxDiffWheight
             // 
             this.chBoxDiffWheight.AutoSize = true;
-            this.chBoxDiffWheight.Location = new System.Drawing.Point(417, 155);
+            this.chBoxDiffWheight.Location = new System.Drawing.Point(438, 155);
             this.chBoxDiffWheight.Name = "chBoxDiffWheight";
             this.chBoxDiffWheight.Size = new System.Drawing.Size(134, 40);
             this.chBoxDiffWheight.TabIndex = 9;
             this.chBoxDiffWheight.Text = "Различный вес\nвсех ребер";
             this.chBoxDiffWheight.UseVisualStyleBackColor = true;
             // 
-            // lblMaxWeight
-            // 
-            this.lblMaxWeight.AutoSize = true;
-            this.lblMaxWeight.Location = new System.Drawing.Point(14, 212);
-            this.lblMaxWeight.Name = "lblMaxWeight";
-            this.lblMaxWeight.Size = new System.Drawing.Size(184, 18);
-            this.lblMaxWeight.TabIndex = 8;
-            this.lblMaxWeight.Text = "Максимальный вес ребра";
-            // 
             // tBarMaxWeight
             // 
-            this.tBarMaxWeight.Location = new System.Drawing.Point(6, 237);
+            this.tBarMaxWeight.Location = new System.Drawing.Point(6, 196);
             this.tBarMaxWeight.Maximum = 50;
             this.tBarMaxWeight.Name = "tBarMaxWeight";
             this.tBarMaxWeight.Size = new System.Drawing.Size(395, 56);
@@ -365,9 +366,9 @@
             // 
             this.btnShowMST.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(187)))), ((int)(((byte)(93)))));
             this.btnShowMST.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
-            this.btnShowMST.Location = new System.Drawing.Point(378, 388);
+            this.btnShowMST.Location = new System.Drawing.Point(383, 331);
             this.btnShowMST.Name = "btnShowMST";
-            this.btnShowMST.Size = new System.Drawing.Size(184, 52);
+            this.btnShowMST.Size = new System.Drawing.Size(197, 52);
             this.btnShowMST.TabIndex = 5;
             this.btnShowMST.Text = "Найти минимальное остовное дерево";
             this.btnShowMST.UseVisualStyleBackColor = false;
@@ -382,7 +383,7 @@
             this.gbEditMode.Controls.Add(this.rbVertexRemove);
             this.gbEditMode.Controls.Add(this.rbVertexMove);
             this.gbEditMode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
-            this.gbEditMode.Location = new System.Drawing.Point(3, 322);
+            this.gbEditMode.Location = new System.Drawing.Point(3, 265);
             this.gbEditMode.Name = "gbEditMode";
             this.gbEditMode.Size = new System.Drawing.Size(369, 115);
             this.gbEditMode.TabIndex = 0;
@@ -392,7 +393,7 @@
             // rbChangeWeight
             // 
             this.rbChangeWeight.AutoSize = true;
-            this.rbChangeWeight.Location = new System.Drawing.Point(212, 81);
+            this.rbChangeWeight.Location = new System.Drawing.Point(206, 81);
             this.rbChangeWeight.Name = "rbChangeWeight";
             this.rbChangeWeight.Size = new System.Drawing.Size(141, 22);
             this.rbChangeWeight.TabIndex = 5;
@@ -403,7 +404,7 @@
             // rbEdgeRemove
             // 
             this.rbEdgeRemove.AutoSize = true;
-            this.rbEdgeRemove.Location = new System.Drawing.Point(212, 52);
+            this.rbEdgeRemove.Location = new System.Drawing.Point(206, 52);
             this.rbEdgeRemove.Name = "rbEdgeRemove";
             this.rbEdgeRemove.Size = new System.Drawing.Size(141, 22);
             this.rbEdgeRemove.TabIndex = 4;
@@ -425,7 +426,7 @@
             // rbEdgeAdd
             // 
             this.rbEdgeAdd.AutoSize = true;
-            this.rbEdgeAdd.Location = new System.Drawing.Point(212, 24);
+            this.rbEdgeAdd.Location = new System.Drawing.Point(206, 24);
             this.rbEdgeAdd.Name = "rbEdgeAdd";
             this.rbEdgeAdd.Size = new System.Drawing.Size(157, 22);
             this.rbEdgeAdd.TabIndex = 2;
@@ -460,9 +461,9 @@
             // 
             this.btnSetWeigthAsDiastance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(187)))), ((int)(((byte)(93)))));
             this.btnSetWeigthAsDiastance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
-            this.btnSetWeigthAsDiastance.Location = new System.Drawing.Point(378, 330);
+            this.btnSetWeigthAsDiastance.Location = new System.Drawing.Point(383, 273);
             this.btnSetWeigthAsDiastance.Name = "btnSetWeigthAsDiastance";
-            this.btnSetWeigthAsDiastance.Size = new System.Drawing.Size(184, 52);
+            this.btnSetWeigthAsDiastance.Size = new System.Drawing.Size(197, 52);
             this.btnSetWeigthAsDiastance.TabIndex = 4;
             this.btnSetWeigthAsDiastance.Text = "Установить вес ребер, как расстояние";
             this.btnSetWeigthAsDiastance.UseVisualStyleBackColor = false;
@@ -472,45 +473,45 @@
             // 
             this.dgvAdjMatrix.AllowUserToAddRows = false;
             this.dgvAdjMatrix.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
-            this.dgvAdjMatrix.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
+            this.dgvAdjMatrix.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
             this.dgvAdjMatrix.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvAdjMatrix.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvAdjMatrix.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(187)))), ((int)(((byte)(93)))));
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAdjMatrix.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAdjMatrix.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.dgvAdjMatrix.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAdjMatrix.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAdjMatrix.DefaultCellStyle = dataGridViewCellStyle19;
             this.dgvAdjMatrix.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvAdjMatrix.EnableHeadersVisualStyles = false;
-            this.dgvAdjMatrix.Location = new System.Drawing.Point(0, 507);
+            this.dgvAdjMatrix.Location = new System.Drawing.Point(0, 443);
             this.dgvAdjMatrix.Name = "dgvAdjMatrix";
             this.dgvAdjMatrix.ReadOnly = true;
             this.dgvAdjMatrix.RowHeadersVisible = false;
             this.dgvAdjMatrix.RowHeadersWidth = 20;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
-            this.dgvAdjMatrix.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
+            this.dgvAdjMatrix.RowsDefaultCellStyle = dataGridViewCellStyle20;
             this.dgvAdjMatrix.RowTemplate.Height = 24;
-            this.dgvAdjMatrix.Size = new System.Drawing.Size(641, 417);
+            this.dgvAdjMatrix.Size = new System.Drawing.Size(587, 263);
             this.dgvAdjMatrix.TabIndex = 2;
             // 
             // gbMatrix
@@ -518,9 +519,9 @@
             this.gbMatrix.Controls.Add(this.rbAdjLists);
             this.gbMatrix.Controls.Add(this.rbAdjMatrix);
             this.gbMatrix.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
-            this.gbMatrix.Location = new System.Drawing.Point(1, 443);
+            this.gbMatrix.Location = new System.Drawing.Point(1, 386);
             this.gbMatrix.Name = "gbMatrix";
-            this.gbMatrix.Size = new System.Drawing.Size(561, 51);
+            this.gbMatrix.Size = new System.Drawing.Size(583, 51);
             this.gbMatrix.TabIndex = 3;
             this.gbMatrix.TabStop = false;
             this.gbMatrix.Text = "Представление графа";
@@ -528,7 +529,7 @@
             // rbAdjLists
             // 
             this.rbAdjLists.AutoSize = true;
-            this.rbAdjLists.Location = new System.Drawing.Point(193, 21);
+            this.rbAdjLists.Location = new System.Drawing.Point(254, 21);
             this.rbAdjLists.Name = "rbAdjLists";
             this.rbAdjLists.Size = new System.Drawing.Size(325, 22);
             this.rbAdjLists.TabIndex = 1;
@@ -540,7 +541,7 @@
             // 
             this.rbAdjMatrix.AutoSize = true;
             this.rbAdjMatrix.Checked = true;
-            this.rbAdjMatrix.Location = new System.Drawing.Point(7, 20);
+            this.rbAdjMatrix.Location = new System.Drawing.Point(8, 20);
             this.rbAdjMatrix.Name = "rbAdjMatrix";
             this.rbAdjMatrix.Size = new System.Drawing.Size(165, 22);
             this.rbAdjMatrix.TabIndex = 0;
@@ -559,7 +560,7 @@
             this.tabPageAlgVis.Location = new System.Drawing.Point(4, 27);
             this.tabPageAlgVis.Name = "tabPageAlgVis";
             this.tabPageAlgVis.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageAlgVis.Size = new System.Drawing.Size(647, 930);
+            this.tabPageAlgVis.Size = new System.Drawing.Size(593, 712);
             this.tabPageAlgVis.TabIndex = 1;
             this.tabPageAlgVis.Text = "Визуализация алгоритмов";
             this.tabPageAlgVis.SizeChanged += new System.EventHandler(this.tabPageAlgVis_SizeChanged);
@@ -568,7 +569,7 @@
             // 
             this.gbDescrSwitch.Controls.Add(this.rbDataStructures);
             this.gbDescrSwitch.Controls.Add(this.rbLog);
-            this.gbDescrSwitch.Location = new System.Drawing.Point(8, 312);
+            this.gbDescrSwitch.Location = new System.Drawing.Point(3, 259);
             this.gbDescrSwitch.Name = "gbDescrSwitch";
             this.gbDescrSwitch.Size = new System.Drawing.Size(304, 50);
             this.gbDescrSwitch.TabIndex = 14;
@@ -608,7 +609,7 @@
             this.pnlAlgorithmsControls.Controls.Add(this.btnStartAlgorithm);
             this.pnlAlgorithmsControls.Location = new System.Drawing.Point(3, 3);
             this.pnlAlgorithmsControls.Name = "pnlAlgorithmsControls";
-            this.pnlAlgorithmsControls.Size = new System.Drawing.Size(570, 307);
+            this.pnlAlgorithmsControls.Size = new System.Drawing.Size(584, 250);
             this.pnlAlgorithmsControls.TabIndex = 13;
             // 
             // gbSpeedVis
@@ -618,7 +619,7 @@
             this.gbSpeedVis.Controls.Add(this.lblSpeedTop);
             this.gbSpeedVis.Location = new System.Drawing.Point(3, 3);
             this.gbSpeedVis.Name = "gbSpeedVis";
-            this.gbSpeedVis.Size = new System.Drawing.Size(93, 298);
+            this.gbSpeedVis.Size = new System.Drawing.Size(93, 242);
             this.gbSpeedVis.TabIndex = 4;
             this.gbSpeedVis.TabStop = false;
             this.gbSpeedVis.Text = "Скорость";
@@ -630,7 +631,7 @@
             this.tbSpeedVis.Minimum = 1;
             this.tbSpeedVis.Name = "tbSpeedVis";
             this.tbSpeedVis.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.tbSpeedVis.Size = new System.Drawing.Size(56, 212);
+            this.tbSpeedVis.Size = new System.Drawing.Size(56, 154);
             this.tbSpeedVis.TabIndex = 1;
             this.tbSpeedVis.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.tbSpeedVis.Value = 1;
@@ -638,7 +639,7 @@
             // lblSpeedBotom
             // 
             this.lblSpeedBotom.AutoSize = true;
-            this.lblSpeedBotom.Location = new System.Drawing.Point(11, 266);
+            this.lblSpeedBotom.Location = new System.Drawing.Point(11, 215);
             this.lblSpeedBotom.Name = "lblSpeedBotom";
             this.lblSpeedBotom.Size = new System.Drawing.Size(64, 18);
             this.lblSpeedBotom.TabIndex = 3;
@@ -660,7 +661,7 @@
             this.gbAlgSet.Controls.Add(this.rbPrim);
             this.gbAlgSet.Location = new System.Drawing.Point(103, 3);
             this.gbAlgSet.Name = "gbAlgSet";
-            this.gbAlgSet.Size = new System.Drawing.Size(326, 66);
+            this.gbAlgSet.Size = new System.Drawing.Size(364, 66);
             this.gbAlgSet.TabIndex = 8;
             this.gbAlgSet.TabStop = false;
             this.gbAlgSet.Text = "Алгоритм поиска минимального остова";
@@ -668,7 +669,7 @@
             // rbBoruvka
             // 
             this.rbBoruvka.AutoSize = true;
-            this.rbBoruvka.Location = new System.Drawing.Point(191, 27);
+            this.rbBoruvka.Location = new System.Drawing.Point(270, 27);
             this.rbBoruvka.Name = "rbBoruvka";
             this.rbBoruvka.Size = new System.Drawing.Size(85, 22);
             this.rbBoruvka.TabIndex = 11;
@@ -679,7 +680,7 @@
             // rbKruskal
             // 
             this.rbKruskal.AutoSize = true;
-            this.rbKruskal.Location = new System.Drawing.Point(86, 27);
+            this.rbKruskal.Location = new System.Drawing.Point(170, 27);
             this.rbKruskal.Name = "rbKruskal";
             this.rbKruskal.Size = new System.Drawing.Size(93, 22);
             this.rbKruskal.TabIndex = 10;
@@ -706,7 +707,7 @@
             this.gbDescription.Controls.Add(this.lblDescription);
             this.gbDescription.Location = new System.Drawing.Point(103, 76);
             this.gbDescription.Name = "gbDescription";
-            this.gbDescription.Size = new System.Drawing.Size(458, 225);
+            this.gbDescription.Size = new System.Drawing.Size(478, 169);
             this.gbDescription.TabIndex = 10;
             this.gbDescription.TabStop = false;
             this.gbDescription.Text = "Краткое описание алгоритма";
@@ -726,7 +727,7 @@
             this.btnStartAlgorithm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(187)))), ((int)(((byte)(93)))));
             this.btnStartAlgorithm.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStartAlgorithm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
-            this.btnStartAlgorithm.Location = new System.Drawing.Point(456, 11);
+            this.btnStartAlgorithm.Location = new System.Drawing.Point(473, 11);
             this.btnStartAlgorithm.Name = "btnStartAlgorithm";
             this.btnStartAlgorithm.Size = new System.Drawing.Size(105, 58);
             this.btnStartAlgorithm.TabIndex = 9;
@@ -742,9 +743,9 @@
             this.pnlLog.Controls.Add(this.lblLog);
             this.pnlLog.Controls.Add(this.pbDataStructures);
             this.pnlLog.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlLog.Location = new System.Drawing.Point(3, 371);
+            this.pnlLog.Location = new System.Drawing.Point(3, 315);
             this.pnlLog.Name = "pnlLog";
-            this.pnlLog.Size = new System.Drawing.Size(641, 556);
+            this.pnlLog.Size = new System.Drawing.Size(587, 394);
             this.pnlLog.TabIndex = 12;
             // 
             // lblLog
@@ -766,7 +767,7 @@
             this.pbDataStructures.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbDataStructures.Location = new System.Drawing.Point(0, 0);
             this.pbDataStructures.Name = "pbDataStructures";
-            this.pbDataStructures.Size = new System.Drawing.Size(639, 554);
+            this.pbDataStructures.Size = new System.Drawing.Size(585, 392);
             this.pbDataStructures.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pbDataStructures.TabIndex = 1;
             this.pbDataStructures.TabStop = false;
@@ -777,12 +778,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
-            this.ClientSize = new System.Drawing.Size(1382, 971);
+            this.ClientSize = new System.Drawing.Size(1328, 753);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.MinimumSize = new System.Drawing.Size(1400, 1018);
+            this.MinimumSize = new System.Drawing.Size(1320, 800);
             this.Name = "Form1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Поиск минимального остова взвешенного неориентированного графа";
             ((System.ComponentModel.ISupportInitialize)(this.GraphArea)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBarProbability)).EndInit();
