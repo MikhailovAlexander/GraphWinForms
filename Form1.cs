@@ -58,7 +58,7 @@ namespace GraphWinForms
             graph = randomGraph.GetGraphWeight(tBarOrder.Value, GraphArea.Width, 
                 GraphArea.Height - pnlGraphState.Height, tBarProbability.Value, tBarMaxWeight.Value,
                 chBoxWithoutLoop.Checked, chBoxDiffWheight.Checked);
-            printer.Print(graph);
+            printer.Print(graph, chBoxShowID.Checked);
             ShowMatrixOrLists();
         }
 
@@ -85,7 +85,7 @@ namespace GraphWinForms
             for (int i = 0; i < graph.EdgesCount; i++)
                 graph.Edges[i].Weight = (int)Geometry.GetDistanse(
                     graph.Edges[i].Data1.GetPoint, graph.Edges[i].Data2.GetPoint) / 10;
-            printer.Print(graph);
+            printer.Print(graph, chBoxShowID.Checked);
             ShowMatrixOrLists();
         }
 
@@ -95,7 +95,7 @@ namespace GraphWinForms
             {
                 SaveGraph();
                 graph = MSTAlgorithms.GetMST_KrusculDSU(graph);
-                printer.Print(graph);
+                printer.Print(graph, chBoxShowID.Checked);
                 ShowMatrixOrLists();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
@@ -118,9 +118,10 @@ namespace GraphWinForms
                 if (vertexMove) back.Pop();
                 vertexMove = true;
                 currentVertex.Data.SetPoint(e.Location);
-                printer.Print(graph);
+                printer.Print(graph, chBoxShowID.Checked);
             }
-            else if (rbEdgeAdd.Checked) printer.Print(graph, currentVertex, e.X, e.Y);
+            else if (rbEdgeAdd.Checked)
+                printer.Print(graph, chBoxShowID.Checked, currentVertex, e.X, e.Y);
         }
 
         private void GraphArea_MouseUp(object sender, MouseEventArgs e)
@@ -140,7 +141,7 @@ namespace GraphWinForms
                     graph.AddEdge(currentVertex.Id, index, rnd.Next(1, tBarMaxWeight.Value));
                     ShowMatrixOrLists();
                 }
-                printer.Print(graph);
+                printer.Print(graph, chBoxShowID.Checked);
             }
         }
 
@@ -160,7 +161,7 @@ namespace GraphWinForms
                 index = graph.Order;
                 graph.AddVertex(
                     new Vertex<VisVertex>(index,new VisVertex(index.ToString(), e.Location)));
-                printer.Print(graph);
+                printer.Print(graph, chBoxShowID.Checked);
                 ShowMatrixOrLists();
             }
             else if(rbVertexRemove.Checked)
@@ -171,7 +172,7 @@ namespace GraphWinForms
                     SaveGraph();
                     graph.RemoveVertex(graph.Vertices[index]);
                 }
-                printer.Print(graph);
+                printer.Print(graph, chBoxShowID.Checked);
                 ShowMatrixOrLists();
             }
             else if(rbEdgeRemove.Checked)
@@ -181,7 +182,7 @@ namespace GraphWinForms
                 {
                     SaveGraph();
                     graph.RemoveEdge(edge2Remove);
-                    printer.Print(graph);
+                    printer.Print(graph, chBoxShowID.Checked);
                     ShowMatrixOrLists();
                 }
             }
@@ -225,7 +226,7 @@ namespace GraphWinForms
                 mtbChangeWeight.Clear();
                 mtbChangeWeight.Visible = false;
                 currentEdge = null;
-                printer.Print(graph);
+                printer.Print(graph, chBoxShowID.Checked);
                 ShowMatrixOrLists();
             }
         }
@@ -240,7 +241,7 @@ namespace GraphWinForms
             if (back.Count == 0) return;
             forward.Push((Graph<VisVertex>)graph.Clone());
             graph = back.Pop();
-            printer.Print(graph);
+            printer.Print(graph, chBoxShowID.Checked);
             ShowMatrixOrLists();
         }
 
@@ -249,7 +250,7 @@ namespace GraphWinForms
             if (forward.Count == 0) return;
             back.Push((Graph<VisVertex>)graph.Clone());
             graph = forward.Pop();
-            printer.Print(graph);
+            printer.Print(graph, chBoxShowID.Checked);
             ShowMatrixOrLists();
         }
 
@@ -358,11 +359,13 @@ namespace GraphWinForms
         #region Visualisator
         private void btnStartAlgorithm_Click(object sender, EventArgs e)
         {
-            var algVis = new MSTAlgorithms(printer, graph, lblLog, pbDataStructures, this);
+            var algVis = new MSTAlgorithms(
+                printer, graph, lblLog, pbDataStructures, this, chBoxShowID.Checked);
             algVis.SleepInterval = tbSpeedVis.Value * 500;
             try
             {
-                if(rbPrim.Checked) algVis.PrimsAlgorithmVisAsync(Color.Red);
+                if(rbPrim.Checked)
+                    algVis.PrimsAlgorithmVisAsync(Color.Red, chBoxPrimStartFrom0.Checked);
                 else if(rbKruskal.Checked) algVis.KrusculAlgorithmVisAsync();
                 else if(rbBoruvka.Checked) algVis.BoruvkaAlgorithmVisAsync();
             }
@@ -411,21 +414,11 @@ namespace GraphWinForms
             if (a < b) return a;
             return b;
         }
-        #endregion  Visualisator
-
-        private void tabPageEditor_SizeChanged(object sender, EventArgs e)
-        {
-            int newSize = tabPageEditor.Width - 170;
-            pnlGraphEditor.Width = newSize;
-            dgvAdjMatrix.Width = newSize;
-        }
 
         private void tabPageAlgVis_SizeChanged(object sender, EventArgs e)
         {
-            int newSize = tabPageAlgVis.Width - 170;
-            pnlLog.Width = newSize;
-            pbDataStructures.Width = newSize;
-            lblLog.MaximumSize = new Size(newSize - 10,0);
+            lblLog.MaximumSize = new Size(tabPageAlgVis.Width - 10,0);
         }
+        #endregion  Visualisator
     }
 }

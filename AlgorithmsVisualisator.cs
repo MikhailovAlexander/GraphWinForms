@@ -11,15 +11,17 @@ namespace GraphWinForms
         private Dictionary<Vertex<VisVertex>, Color> verticiesHighlight;
         private Label lblLog;
         private PictureBox dataStructuresArea;
+        private bool printId;
 
         public AlgorithmsVisualisator(GraphPrinter printer, Graph<VisVertex> graph, Label lblLog, 
-            PictureBox dataStructuresArea) : base(printer.graphArea, printer.lblState)
+            PictureBox dataStructuresArea, bool printId) : base(printer.graphArea, printer.lblState)
         {
             this.graph = graph;
             this.lblLog = lblLog;
             lblLog.Text = "Старт алгоритма.";
             edgesHighlight = new Dictionary<Edge<VisVertex>, Color>();
             this.dataStructuresArea = dataStructuresArea;
+            this.printId = printId;
             foreach (var edge in graph.Edges) edgesHighlight.Add(edge, printer.EdgeColor);
             verticiesHighlight = new Dictionary<Vertex<VisVertex>, Color>();
             foreach (var vertex in graph.Vertices)
@@ -76,7 +78,7 @@ namespace GraphWinForms
             foreach (KeyValuePair<Vertex<VisVertex>, Color> record in verticiesHighlight)
             {
                 vertexBrush.Color = record.Value;
-                PrintVertex(record.Key);
+                PrintVertex(record.Key, printId);
             }
             graphArea.Image = bitmap;
             lblState.Text = stateText;

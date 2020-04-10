@@ -33,14 +33,14 @@ namespace GraphWinForms
             edgePen = new Pen(Color.Black,2);
             mainFont = new Font("Times New Roman", 12, FontStyle.Bold, GraphicsUnit.Pixel);
             smallFont = new Font("Times New Roman", 10, FontStyle.Bold, GraphicsUnit.Pixel);
-            areaBackColor = Color.Yellow;
+            areaBackColor = Color.FromArgb(0xBF, 0xEF, 0xAA);
             vertexBrush = new SolidBrush(Color.Green);
             weightBrush = new SolidBrush(Color.White);
             textBrush = new SolidBrush(Color.Black);
         }
 
         public void Print(
-            Graph<VisVertex> graph, Vertex<VisVertex> currentVertex = null, int x = 0, int y = 0)
+            Graph<VisVertex> graph, bool printId, Vertex<VisVertex> currentVertex = null, int x = 0, int y = 0)
         {
             bitmap = new Bitmap(graphArea.Width, graphArea.Height);
             graphics = Graphics.FromImage(bitmap);
@@ -59,7 +59,7 @@ namespace GraphWinForms
                 }
             }
             foreach (var vertex in graph.Vertices)
-                PrintVertex(vertex);
+                PrintVertex(vertex, printId);
             if(currentVertex != null)//режим добавления нового ребра
             {
                 graphics.DrawLine(edgePen, currentVertex.Data.GetPoint, new Point(x,y));
@@ -68,13 +68,14 @@ namespace GraphWinForms
             PrintGraphState(graph);
         }
 
-        protected void PrintVertex(Vertex<VisVertex> vertex)
+        protected void PrintVertex(Vertex<VisVertex> vertex, bool printId)
         {
             int x = vertex.Data.PositionX - 10;
             int y = vertex.Data.PositionY - 10;
+            string vertexName = printId? vertex.Id.ToString(): vertex.Data.Name;
             graphics.DrawEllipse(borderPen, new Rectangle(x, y, 20, 20));
             graphics.FillEllipse(vertexBrush, new Rectangle(x, y, 20, 20));
-            graphics.DrawString(vertex.Data.Name, mainFont, textBrush, x + 5, y + 2);
+            graphics.DrawString(vertexName, mainFont, textBrush, x + 5, y + 2);
         }
 
         protected void PrintEdge(Edge<VisVertex> edge)
