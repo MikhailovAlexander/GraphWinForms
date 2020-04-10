@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GraphArea = new System.Windows.Forms.PictureBox();
             this.btnGenerateGraph = new System.Windows.Forms.Button();
             this.tBarProbability = new System.Windows.Forms.TrackBar();
@@ -84,6 +84,8 @@
             this.pnlLog = new System.Windows.Forms.Panel();
             this.lblLog = new System.Windows.Forms.Label();
             this.pbDataStructures = new System.Windows.Forms.PictureBox();
+            this.chBoxShowID = new System.Windows.Forms.CheckBox();
+            this.chBoxPrimStartFrom0 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.GraphArea)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBarProbability)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBarOrder)).BeginInit();
@@ -259,7 +261,6 @@
             this.tabPageEditor.TabIndex = 0;
             this.tabPageEditor.Text = "Редактор графа";
             this.tabPageEditor.UseVisualStyleBackColor = true;
-            this.tabPageEditor.SizeChanged += new System.EventHandler(this.tabPageEditor_SizeChanged);
             // 
             // pnlGraphEditor
             // 
@@ -279,6 +280,7 @@
             // 
             // gbGraphGen
             // 
+            this.gbGraphGen.Controls.Add(this.chBoxShowID);
             this.gbGraphGen.Controls.Add(this.lblMaxWeight);
             this.gbGraphGen.Controls.Add(this.lblOrder);
             this.gbGraphGen.Controls.Add(this.btnForward);
@@ -473,31 +475,31 @@
             // 
             this.dgvAdjMatrix.AllowUserToAddRows = false;
             this.dgvAdjMatrix.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
-            this.dgvAdjMatrix.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
+            this.dgvAdjMatrix.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvAdjMatrix.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvAdjMatrix.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvAdjMatrix.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(187)))), ((int)(((byte)(93)))));
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAdjMatrix.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAdjMatrix.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvAdjMatrix.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAdjMatrix.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAdjMatrix.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvAdjMatrix.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvAdjMatrix.EnableHeadersVisualStyles = false;
             this.dgvAdjMatrix.Location = new System.Drawing.Point(0, 443);
@@ -505,11 +507,11 @@
             this.dgvAdjMatrix.ReadOnly = true;
             this.dgvAdjMatrix.RowHeadersVisible = false;
             this.dgvAdjMatrix.RowHeadersWidth = 20;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
-            this.dgvAdjMatrix.RowsDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(250)))), ((int)(((byte)(217)))));
+            this.dgvAdjMatrix.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvAdjMatrix.RowTemplate.Height = 24;
             this.dgvAdjMatrix.Size = new System.Drawing.Size(587, 263);
             this.dgvAdjMatrix.TabIndex = 2;
@@ -656,12 +658,13 @@
             // 
             // gbAlgSet
             // 
+            this.gbAlgSet.Controls.Add(this.chBoxPrimStartFrom0);
             this.gbAlgSet.Controls.Add(this.rbBoruvka);
-            this.gbAlgSet.Controls.Add(this.rbKruskal);
             this.gbAlgSet.Controls.Add(this.rbPrim);
+            this.gbAlgSet.Controls.Add(this.rbKruskal);
             this.gbAlgSet.Location = new System.Drawing.Point(103, 3);
             this.gbAlgSet.Name = "gbAlgSet";
-            this.gbAlgSet.Size = new System.Drawing.Size(364, 66);
+            this.gbAlgSet.Size = new System.Drawing.Size(371, 66);
             this.gbAlgSet.TabIndex = 8;
             this.gbAlgSet.TabStop = false;
             this.gbAlgSet.Text = "Алгоритм поиска минимального остова";
@@ -669,7 +672,7 @@
             // rbBoruvka
             // 
             this.rbBoruvka.AutoSize = true;
-            this.rbBoruvka.Location = new System.Drawing.Point(270, 27);
+            this.rbBoruvka.Location = new System.Drawing.Point(98, 27);
             this.rbBoruvka.Name = "rbBoruvka";
             this.rbBoruvka.Size = new System.Drawing.Size(85, 22);
             this.rbBoruvka.TabIndex = 11;
@@ -680,7 +683,7 @@
             // rbKruskal
             // 
             this.rbKruskal.AutoSize = true;
-            this.rbKruskal.Location = new System.Drawing.Point(170, 27);
+            this.rbKruskal.Location = new System.Drawing.Point(6, 27);
             this.rbKruskal.Name = "rbKruskal";
             this.rbKruskal.Size = new System.Drawing.Size(93, 22);
             this.rbKruskal.TabIndex = 10;
@@ -692,7 +695,7 @@
             // 
             this.rbPrim.AutoSize = true;
             this.rbPrim.Checked = true;
-            this.rbPrim.Location = new System.Drawing.Point(6, 27);
+            this.rbPrim.Location = new System.Drawing.Point(187, 27);
             this.rbPrim.Name = "rbPrim";
             this.rbPrim.Size = new System.Drawing.Size(69, 22);
             this.rbPrim.TabIndex = 9;
@@ -727,7 +730,7 @@
             this.btnStartAlgorithm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(187)))), ((int)(((byte)(93)))));
             this.btnStartAlgorithm.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStartAlgorithm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(46)))), ((int)(((byte)(0)))));
-            this.btnStartAlgorithm.Location = new System.Drawing.Point(473, 11);
+            this.btnStartAlgorithm.Location = new System.Drawing.Point(475, 11);
             this.btnStartAlgorithm.Name = "btnStartAlgorithm";
             this.btnStartAlgorithm.Size = new System.Drawing.Size(105, 58);
             this.btnStartAlgorithm.TabIndex = 9;
@@ -772,6 +775,29 @@
             this.pbDataStructures.TabIndex = 1;
             this.pbDataStructures.TabStop = false;
             this.pbDataStructures.Visible = false;
+            // 
+            // chBoxShowID
+            // 
+            this.chBoxShowID.AutoSize = true;
+            this.chBoxShowID.Checked = true;
+            this.chBoxShowID.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chBoxShowID.Location = new System.Drawing.Point(438, 196);
+            this.chBoxShowID.Name = "chBoxShowID";
+            this.chBoxShowID.Size = new System.Drawing.Size(134, 40);
+            this.chBoxShowID.TabIndex = 13;
+            this.chBoxShowID.Text = "Показывать  №\nвершин";
+            this.chBoxShowID.UseVisualStyleBackColor = true;
+            // 
+            // chBoxPrimStartFrom0
+            // 
+            this.chBoxPrimStartFrom0.AutoSize = true;
+            this.chBoxPrimStartFrom0.Font = new System.Drawing.Font("Consolas", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.chBoxPrimStartFrom0.Location = new System.Drawing.Point(255, 29);
+            this.chBoxPrimStartFrom0.Name = "chBoxPrimStartFrom0";
+            this.chBoxPrimStartFrom0.Size = new System.Drawing.Size(110, 21);
+            this.chBoxPrimStartFrom0.TabIndex = 12;
+            this.chBoxPrimStartFrom0.Text = "начать с 0";
+            this.chBoxPrimStartFrom0.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -877,6 +903,8 @@
         private System.Windows.Forms.RadioButton rbLog;
         private System.Windows.Forms.Button btnForward;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.CheckBox chBoxShowID;
+        private System.Windows.Forms.CheckBox chBoxPrimStartFrom0;
     }
 }
 

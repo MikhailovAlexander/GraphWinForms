@@ -18,17 +18,18 @@ namespace GraphWinForms
         public int SleepInterval {get;set;}
 
         public MSTAlgorithms(GraphPrinter printer, Graph<VisVertex> graph, Label lblLog, 
-            PictureBox dataStructuresArea, Form1 form)
+            PictureBox dataStructuresArea, Form1 form, bool printId)
         {
             this.graph = graph;
-            visualisator = new AlgorithmsVisualisator(printer, graph, lblLog, dataStructuresArea);
+            visualisator = new AlgorithmsVisualisator(
+                printer, graph, lblLog, dataStructuresArea, printId);
             SleepInterval = 1000;
             rnd = new Random();
             colors = GetColorsArray(graph.Order);
             this.form = form;
         }
 
-        public async void PrimsAlgorithmVisAsync(Color mstColor)
+        public async void PrimsAlgorithmVisAsync(Color mstColor, bool startFrom0)
         {
             if (!graph.IsConnected)
             {
@@ -46,14 +47,16 @@ namespace GraphWinForms
             //Создаем сортированные списки смежности для вершин графа
             var adjVertexSortListMST = new AdjVertexSortedList();
             //Создаем пустой сортированный список смежности для всего МОД
-            int firsrVertex = rnd.Next(0, graph.Order);
+            int firsrVertex = startFrom0? 0 : rnd.Next(0, graph.Order);
             //Выбираем случайную вершину для начала построения МОД
             inMST[firsrVertex] = true;
             //Отмечаем произвольную вершину, как включенную в МОД
 
             visualisator.SetVertexColor(firsrVertex, mstColor);
-            visualisator.Print("Начальная вершина выбрана произвольно");
-            visualisator.ApEndLog("Произвольный выбор начальной вершины МОД.");
+            visualisator.Print(startFrom0 ? 
+                "Начиная с нулевой вершины" : "Начальная вершина выбрана произвольно");
+            visualisator.ApEndLog(startFrom0 ?
+                "Начиная с нулевой вершины" : "Произвольный выбор начальной вершины МОД.");
             await Task.Delay(SleepInterval);
 
             adjVertexSortListMST = adjVertexSortListMST.Union(
