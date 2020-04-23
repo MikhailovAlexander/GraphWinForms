@@ -46,6 +46,7 @@
             this.tabPageEditor = new System.Windows.Forms.TabPage();
             this.pnlGraphEditor = new System.Windows.Forms.Panel();
             this.gbGraphGen = new System.Windows.Forms.GroupBox();
+            this.chBoxShowID = new System.Windows.Forms.CheckBox();
             this.lblMaxWeight = new System.Windows.Forms.Label();
             this.btnForward = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
@@ -75,17 +76,16 @@
             this.lblSpeedBotom = new System.Windows.Forms.Label();
             this.lblSpeedTop = new System.Windows.Forms.Label();
             this.gbAlgSet = new System.Windows.Forms.GroupBox();
+            this.chBoxPrimStartFrom0 = new System.Windows.Forms.CheckBox();
             this.rbBoruvka = new System.Windows.Forms.RadioButton();
-            this.rbKruskal = new System.Windows.Forms.RadioButton();
             this.rbPrim = new System.Windows.Forms.RadioButton();
+            this.rbKruskal = new System.Windows.Forms.RadioButton();
             this.gbDescription = new System.Windows.Forms.GroupBox();
             this.lblDescription = new System.Windows.Forms.Label();
             this.btnStartAlgorithm = new System.Windows.Forms.Button();
             this.pnlLog = new System.Windows.Forms.Panel();
             this.lblLog = new System.Windows.Forms.Label();
             this.pbDataStructures = new System.Windows.Forms.PictureBox();
-            this.chBoxShowID = new System.Windows.Forms.CheckBox();
-            this.chBoxPrimStartFrom0 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.GraphArea)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBarProbability)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBarOrder)).BeginInit();
@@ -299,6 +299,18 @@
             this.gbGraphGen.TabIndex = 1;
             this.gbGraphGen.TabStop = false;
             this.gbGraphGen.Text = "Генератор графов";
+            // 
+            // chBoxShowID
+            // 
+            this.chBoxShowID.AutoSize = true;
+            this.chBoxShowID.Checked = true;
+            this.chBoxShowID.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chBoxShowID.Location = new System.Drawing.Point(438, 196);
+            this.chBoxShowID.Name = "chBoxShowID";
+            this.chBoxShowID.Size = new System.Drawing.Size(134, 40);
+            this.chBoxShowID.TabIndex = 13;
+            this.chBoxShowID.Text = "Показывать  №\nвершин";
+            this.chBoxShowID.UseVisualStyleBackColor = true;
             // 
             // lblMaxWeight
             // 
@@ -669,6 +681,17 @@
             this.gbAlgSet.TabStop = false;
             this.gbAlgSet.Text = "Алгоритм поиска минимального остова";
             // 
+            // chBoxPrimStartFrom0
+            // 
+            this.chBoxPrimStartFrom0.AutoSize = true;
+            this.chBoxPrimStartFrom0.Font = new System.Drawing.Font("Consolas", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.chBoxPrimStartFrom0.Location = new System.Drawing.Point(255, 29);
+            this.chBoxPrimStartFrom0.Name = "chBoxPrimStartFrom0";
+            this.chBoxPrimStartFrom0.Size = new System.Drawing.Size(110, 21);
+            this.chBoxPrimStartFrom0.TabIndex = 12;
+            this.chBoxPrimStartFrom0.Text = "начать с 0";
+            this.chBoxPrimStartFrom0.UseVisualStyleBackColor = true;
+            // 
             // rbBoruvka
             // 
             this.rbBoruvka.AutoSize = true;
@@ -679,17 +702,6 @@
             this.rbBoruvka.Text = "Борувки";
             this.rbBoruvka.UseVisualStyleBackColor = true;
             this.rbBoruvka.CheckedChanged += new System.EventHandler(this.rbBoruvka_CheckedChanged);
-            // 
-            // rbKruskal
-            // 
-            this.rbKruskal.AutoSize = true;
-            this.rbKruskal.Location = new System.Drawing.Point(6, 27);
-            this.rbKruskal.Name = "rbKruskal";
-            this.rbKruskal.Size = new System.Drawing.Size(93, 22);
-            this.rbKruskal.TabIndex = 10;
-            this.rbKruskal.Text = "Краскала";
-            this.rbKruskal.UseVisualStyleBackColor = true;
-            this.rbKruskal.CheckedChanged += new System.EventHandler(this.rbKruskal_CheckedChanged);
             // 
             // rbPrim
             // 
@@ -703,6 +715,17 @@
             this.rbPrim.Text = "Прима";
             this.rbPrim.UseVisualStyleBackColor = true;
             this.rbPrim.CheckedChanged += new System.EventHandler(this.rbPrim_CheckedChanged);
+            // 
+            // rbKruskal
+            // 
+            this.rbKruskal.AutoSize = true;
+            this.rbKruskal.Location = new System.Drawing.Point(6, 27);
+            this.rbKruskal.Name = "rbKruskal";
+            this.rbKruskal.Size = new System.Drawing.Size(93, 22);
+            this.rbKruskal.TabIndex = 10;
+            this.rbKruskal.Text = "Краскала";
+            this.rbKruskal.UseVisualStyleBackColor = true;
+            this.rbKruskal.CheckedChanged += new System.EventHandler(this.rbKruskal_CheckedChanged);
             // 
             // gbDescription
             // 
@@ -740,12 +763,13 @@
             // 
             // pnlLog
             // 
+            this.pnlLog.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.pnlLog.AutoScroll = true;
             this.pnlLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(224)))), ((int)(((byte)(149)))));
             this.pnlLog.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlLog.Controls.Add(this.lblLog);
             this.pnlLog.Controls.Add(this.pbDataStructures);
-            this.pnlLog.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlLog.Location = new System.Drawing.Point(3, 315);
             this.pnlLog.Name = "pnlLog";
             this.pnlLog.Size = new System.Drawing.Size(587, 394);
@@ -766,8 +790,9 @@
             // 
             // pbDataStructures
             // 
+            this.pbDataStructures.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.pbDataStructures.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(224)))), ((int)(((byte)(149)))));
-            this.pbDataStructures.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbDataStructures.Location = new System.Drawing.Point(0, 0);
             this.pbDataStructures.Name = "pbDataStructures";
             this.pbDataStructures.Size = new System.Drawing.Size(585, 392);
@@ -775,29 +800,6 @@
             this.pbDataStructures.TabIndex = 1;
             this.pbDataStructures.TabStop = false;
             this.pbDataStructures.Visible = false;
-            // 
-            // chBoxShowID
-            // 
-            this.chBoxShowID.AutoSize = true;
-            this.chBoxShowID.Checked = true;
-            this.chBoxShowID.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chBoxShowID.Location = new System.Drawing.Point(438, 196);
-            this.chBoxShowID.Name = "chBoxShowID";
-            this.chBoxShowID.Size = new System.Drawing.Size(134, 40);
-            this.chBoxShowID.TabIndex = 13;
-            this.chBoxShowID.Text = "Показывать  №\nвершин";
-            this.chBoxShowID.UseVisualStyleBackColor = true;
-            // 
-            // chBoxPrimStartFrom0
-            // 
-            this.chBoxPrimStartFrom0.AutoSize = true;
-            this.chBoxPrimStartFrom0.Font = new System.Drawing.Font("Consolas", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.chBoxPrimStartFrom0.Location = new System.Drawing.Point(255, 29);
-            this.chBoxPrimStartFrom0.Name = "chBoxPrimStartFrom0";
-            this.chBoxPrimStartFrom0.Size = new System.Drawing.Size(110, 21);
-            this.chBoxPrimStartFrom0.TabIndex = 12;
-            this.chBoxPrimStartFrom0.Text = "начать с 0";
-            this.chBoxPrimStartFrom0.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
