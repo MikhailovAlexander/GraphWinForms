@@ -63,6 +63,7 @@
     <Compile Include="MST\DisjointSetB.cs" />
     <Compile Include="MST\DisjointSetDataStructure.cs" />
     <Compile Include="MST\MSTAlgorithms.cs" />
+    <Compile Include="MST\MSTAlgorithmsVis.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TreePointsDSU.cs" />
@@ -86,6 +87,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

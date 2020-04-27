@@ -359,7 +359,7 @@ namespace GraphWinForms
         #region Visualisator
         private void btnStartAlgorithm_Click(object sender, EventArgs e)
         {
-            var algVis = new MSTAlgorithms(
+            var algVis = new MSTAlgorithmsVis(
                 printer, graph, lblLog, pbDataStructures, this, chBoxShowID.Checked);
             algVis.SleepInterval = tbSpeedVis.Value * 500;
             try
