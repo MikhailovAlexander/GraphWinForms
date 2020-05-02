@@ -50,18 +50,19 @@ namespace GraphWinForms
             //Выбираем случайную вершину для начала построения МОД
             inMST[firsrVertex] = true;
             //Отмечаем произвольную вершину, как включенную в МОД
+            adjVertexSortListMST = adjVertexSortListMST.Union(
+                adjVertexSortLists[firsrVertex], inMST);
+            //Объединяем список смежности МОД и список смежности выбраной вершины 
+            //(при объединении сортировка поддерживается)
 
             visualisator.SetVertexColor(firsrVertex, mstColor);
             visualisator.Print(startFrom0 ?
                 "Начиная с нулевой вершины" : "Начальная вершина выбрана произвольно");
             visualisator.ApEndLog(startFrom0 ?
                 "Начиная с нулевой вершины" : "Произвольный выбор начальной вершины МОД.");
+            visualisator.PrintDataStructuresPrim(adjVertexSortLists, adjVertexSortListMST);
             await Task.Delay(SleepInterval);
 
-            adjVertexSortListMST = adjVertexSortListMST.Union(
-                adjVertexSortLists[firsrVertex], inMST);
-            //Объединяем список смежности МОД и список смежности выбраной вершины 
-            //(при объединении сортировка поддерживается)
             for (int i = 0; i < graph.Order - 1; i++)
             //Цикл для построения МОД, шагов по количеству вершин - 1
             {
@@ -116,8 +117,9 @@ namespace GraphWinForms
             visualisator.Print("Маркировка вершин");
             visualisator.ApEndLog("МОД сотоит из отдельных вершин - компонент связности, " +
                 "маркированных различными цветами" +
-                "\nПоследовательно простомтрим ребра, отсортированные по неубыванию веса.");
-            visualisator.PrintDataStructuresKruskal(sortedEdges, sortedEdges[0], dsu, colors);
+                "\nПоследовательно простмотрим ребра, отсортированные по не убыванию веса.");
+            if(sortedEdges.Length != 0)
+                visualisator.PrintDataStructuresKruskal(sortedEdges, sortedEdges[0], dsu, colors);
             await Task.Delay(SleepInterval);
 
             foreach (Edge<VisVertex> edge in sortedEdges)

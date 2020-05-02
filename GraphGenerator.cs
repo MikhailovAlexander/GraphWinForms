@@ -61,10 +61,10 @@ namespace GraphWinForms
             if (percentProbability > 100)
                 throw new Exception("Процент вероятности не может быть больше 100");
             for (int i = 0; i < graph.Order; i++)
-                for (int j = 0; j < graph.Order; j++)
+                for (int j = 0 + i; j < graph.Order; j++)
                 {
                     if (i == j && withoutLoops) continue;
-                    if (rnd.Next(percentProbability - 100, percentProbability) > 0)
+                    if (rnd.Next(percentProbability - 100, percentProbability) >= 0)
                         graph.AddEdge(graph.Vertices[i], graph.Vertices[j]);
                 }
         }
@@ -78,10 +78,10 @@ namespace GraphWinForms
                 throw new Exception("Процент вероятности не может быть больше 100");
             int uniqueWeight = 1;
             for (int i = 0; i < graph.Order; i++)
-                for (int j = 0; j < graph.Order; j++)
+                for (int j = 0 + i; j < graph.Order; j++)
                 {
                     if (i == j && withoutLoops) continue;
-                    if (rnd.Next(percentProbability - 100, percentProbability) > 0)
+                    if (rnd.Next(percentProbability - 100, percentProbability) >= 0)
                     {
                         int weight = rnd.Next(1, maxWeight);
                         if (diffWeight) weight = uniqueWeight++;
